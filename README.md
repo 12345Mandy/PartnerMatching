@@ -86,6 +86,8 @@ Requirements:
   * Explanation: In many cases, including CS labs, you want to generate many pairings based off of responses to the survey with no repeat in partners.
   * Challenges: Avoiding repeats while still making optimal pairings.
 
+**HTA Approval (dpark20):** Idea approved - focus on partner matching algorithm and add complexity there
+
 
 ### Idea 2: Online educational tool
 
@@ -108,6 +110,8 @@ Requirements:
 * Outputs websites, videos, articles, related to topic to user in a UI
   * Explanation: the resources given to the user should be easily accessible and the user should be able to select which resources they would like to use
   * Challenge: presenting the results in an intuitive format and doing so while accommodating different types of outputs
+
+**HTA Approval (dpark20):** Idea approved but I would be wary of trying to find resources. It might be more challenging than you think depending on what scope you're working at.
 
 
 ### Idea 3: Recipe Recommendation
@@ -132,6 +136,7 @@ Requirements:
   * Explanation: Allows for users to easily find foods they may have enjoyed. Can help reduce the need to input ingredients again.
   * Challenges: How long should we save the recipes? Create an interface to allow for recipes to be seen, removed, edited, etc.
 
+**HTA Approval (dpark20):** Idea approved
 
 **Mentor TA:** _Put your mentor TA's name and email here once you're assigned one!_
 
