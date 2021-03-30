@@ -1,7 +1,6 @@
 package edu.brown.cs.student.main.stable_roommates;
 
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 
 /**
@@ -67,25 +66,33 @@ public class Person implements Comparable<Person> {
     this.preferences = preferences;
   }
 
-  public void propose(Person toPropose) {
+  public boolean propose(Person toPropose) {
     Person currentProposer = toPropose.getPersonWhoProposed();
 
     // if the person to propose to did not have anyone else propose to them yet
-    // or if this person is higher ranked on their list
-    if (currentProposer == null
-        || toPropose.getPreferences().indexOf(this)
+    if (currentProposer == null) {
+      toPropose.setPersonWhoProposed(this);
+      return true;
+    }
+
+    // if this person is higher ranked on their list
+    if (toPropose.getPreferences().indexOf(this)
         < toPropose.getPreferences().indexOf(currentProposer)) {
 
       toPropose.setPersonWhoProposed(this);
       toPropose.reject(currentProposer);
-    } else {
-      toPropose.reject(this);
+      return true;
     }
+
+    toPropose.reject(this);
+    return false;
 
   }
 
   public void reject(Person toReject) {
     this.preferences.remove(toReject);
+    toReject.getPreferences().remove(this);
+
     toReject.setPersonWhoProposed(null);
   }
 

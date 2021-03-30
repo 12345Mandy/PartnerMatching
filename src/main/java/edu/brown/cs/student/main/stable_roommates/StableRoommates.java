@@ -35,9 +35,9 @@ public class StableRoommates {
    * @return - true if a stable match was found, false otherwise
    */
   public boolean generatePairs() {
-    if (!stablize()) {
-      return false;
-    }
+//    if (!stablize()) {
+//      return false;
+//    }
 
     while (true) {
       List<PeoplePair> currRotation = findRotation();
@@ -122,12 +122,17 @@ public class StableRoommates {
       PeoplePair prevPair = rotation.get(i - 1);
 
       Person currY = pair.getSecondPerson();
-
-      Person prevX = pair.getFirstPerson();
+      Person prevX = prevPair.getFirstPerson();
 
       List<Person> yPrefs = currY.getPreferences();
-      currY.setPreferences(yPrefs.subList(0, yPrefs.indexOf(prevX)));
-      prevX.getPreferences().remove(currY);
+
+      // every person that is less preferable to x from y's perspective
+      List<Person> successorsOfPrevX = yPrefs.subList(yPrefs.indexOf(prevX) + 1, yPrefs.size());
+
+      for (Person successor: successorsOfPrevX) {
+        currY.getPreferences().remove(successor);
+        successor.getPreferences().remove(currY);
+      }
     }
   }
 
