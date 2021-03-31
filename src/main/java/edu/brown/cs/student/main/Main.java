@@ -67,12 +67,12 @@ public final class Main {
     Person five = new Person(5, "5");
     Person six = new Person(6, "6");
 
-    List<Person> onePref = new ArrayList<>(Arrays.asList(four, two, six));
+    List<Person> onePref = new ArrayList<>(Arrays.asList(three, four, two, six, five));
     List<Person> twoPref = new ArrayList<>(Arrays.asList(six, five, four, one, three));
-    List<Person> threePref = new ArrayList<>(Arrays.asList(two, four, five));
+    List<Person> threePref = new ArrayList<>(Arrays.asList(two, four, five, one, six));
     List<Person> fourPref = new ArrayList<>(Arrays.asList(five, two, three, six, one));
-    List<Person> fivePref = new ArrayList<>(Arrays.asList(three, two, four));
-    List<Person> sixPref = new ArrayList<>(Arrays.asList(one, four, two));
+    List<Person> fivePref = new ArrayList<>(Arrays.asList(three, one, two, four, six));
+    List<Person> sixPref = new ArrayList<>(Arrays.asList(five, one, three, four, two));
 
     one.setPreferences(onePref);
     two.setPreferences(twoPref);
@@ -90,7 +90,9 @@ public final class Main {
     prefs.put(six, sixPref);
 
     StableRoommates sr = new StableRoommates(prefs);
-    sr.generatePairs();
+    Map<Person, Person> pairings = sr.getPairs();
+
+    System.out.println(pairings);
 
   }
 

@@ -1,14 +1,10 @@
 package edu.brown.cs.student.main.stable_roommates;
 
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
-import java.util.Queue;
 import java.util.Set;
 
 /**
@@ -21,10 +17,27 @@ public class StableRoommates {
    * <p>
    * The value should refer to the same list in memory as the key's preferences list.
    */
-  private final LinkedHashMap<Person, List<Person>> personToPreferences;
+  private final Map<Person, List<Person>> personToPreferences;
 
-  public StableRoommates(LinkedHashMap<Person, List<Person>> personToPreferences) {
+  public StableRoommates(Map<Person, List<Person>> personToPreferences) {
     this.personToPreferences = personToPreferences;
+  }
+
+  /**
+   *
+   * @return - a mapping from person to person that represents pairs
+   */
+  public Map<Person, Person> getPairs() {
+    if (!generatePairs()) {
+      return new HashMap<>();
+    }
+
+    Map<Person, Person> toReturn = new HashMap<>();
+    for (Person currPerson : personToPreferences.keySet()) {
+      toReturn.put(currPerson, personToPreferences.get(currPerson).get(0));
+    }
+
+    return toReturn;
   }
 
   /**
@@ -34,10 +47,10 @@ public class StableRoommates {
    *
    * @return - true if a stable match was found, false otherwise
    */
-  public boolean generatePairs() {
-//    if (!stablize()) {
-//      return false;
-//    }
+  private boolean generatePairs() {
+    if (!stablize()) {
+      return false;
+    }
 
     while (true) {
       List<PeoplePair> currRotation = findRotation();
@@ -96,8 +109,39 @@ public class StableRoommates {
   }
 
   private boolean stablize() {
-    // TODO: implement stablization of map
-    return false;
+    for (Person currPerson : personToPreferences.keySet()) {
+      Person rejected = currPerson.propose(currPerson.getPreferences().get(0));
+      while (rejected != null) {
+        rejected = rejected.propose(rejected.getPreferences().get(0));
+      }
+    }
+
+    if (!checkIfStableMatchingIsPossible()) {
+      return false;
+    }
+
+    for (Person q : personToPreferences.keySet()) {
+      Person p = q.getPersonWhoProposed();
+      List<Person> qPref = q.getPreferences();
+
+      List<Person> peopleAfterP = qPref.subList(qPref.indexOf(p) + 1, qPref.size());
+      for (Person afters : peopleAfterP) {
+        qPref.remove(afters);
+        afters.getPreferences().remove(q);
+      }
+    }
+
+    return true;
+  }
+
+  private boolean checkIfStableMatchingIsPossible() {
+    for (Person currPerson : personToPreferences.keySet()) {
+      if (currPerson.getPersonWhoProposed() == null) {
+        return false;
+      }
+    }
+
+    return true;
   }
 
   /**
@@ -129,7 +173,7 @@ public class StableRoommates {
       // every person that is less preferable to x from y's perspective
       List<Person> successorsOfPrevX = yPrefs.subList(yPrefs.indexOf(prevX) + 1, yPrefs.size());
 
-      for (Person successor: successorsOfPrevX) {
+      for (Person successor : successorsOfPrevX) {
         currY.getPreferences().remove(successor);
         successor.getPreferences().remove(currY);
       }

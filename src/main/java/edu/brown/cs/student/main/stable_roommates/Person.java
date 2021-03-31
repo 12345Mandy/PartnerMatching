@@ -66,13 +66,13 @@ public class Person implements Comparable<Person> {
     this.preferences = preferences;
   }
 
-  public boolean propose(Person toPropose) {
+  public Person propose(Person toPropose) {
     Person currentProposer = toPropose.getPersonWhoProposed();
 
     // if the person to propose to did not have anyone else propose to them yet
-    if (currentProposer == null) {
+    if (currentProposer == null || !toPropose.getPreferences().contains(currentProposer)) {
       toPropose.setPersonWhoProposed(this);
-      return true;
+      return null;
     }
 
     // if this person is higher ranked on their list
@@ -81,19 +81,16 @@ public class Person implements Comparable<Person> {
 
       toPropose.setPersonWhoProposed(this);
       toPropose.reject(currentProposer);
-      return true;
+      return currentProposer;
     }
 
     toPropose.reject(this);
-    return false;
-
+    return this;
   }
 
   public void reject(Person toReject) {
     this.preferences.remove(toReject);
     toReject.getPreferences().remove(this);
-
-    toReject.setPersonWhoProposed(null);
   }
 
   @Override
