@@ -1,3 +1,4 @@
+
 package edu.brown.cs.student.main;
 
 import java.io.File;
@@ -59,40 +60,6 @@ public final class Main {
     if (options.has("gui")) {
       runSparkServer((int) options.valueOf("port"));
     }
-
-    Person one = new Person(1, "1");
-    Person two = new Person(2, "2");
-    Person three = new Person(3, "3");
-    Person four = new Person(4, "4");
-    Person five = new Person(5, "5");
-    Person six = new Person(6, "6");
-
-    List<Person> onePref = new ArrayList<>(Arrays.asList(three, four, two, six, five));
-    List<Person> twoPref = new ArrayList<>(Arrays.asList(six, five, four, one, three));
-    List<Person> threePref = new ArrayList<>(Arrays.asList(two, four, five, one, six));
-    List<Person> fourPref = new ArrayList<>(Arrays.asList(five, two, three, six, one));
-    List<Person> fivePref = new ArrayList<>(Arrays.asList(three, one, two, four, six));
-    List<Person> sixPref = new ArrayList<>(Arrays.asList(five, one, three, four, two));
-
-    one.setPreferences(onePref);
-    two.setPreferences(twoPref);
-    three.setPreferences(threePref);
-    four.setPreferences(fourPref);
-    five.setPreferences(fivePref);
-    six.setPreferences(sixPref);
-
-    LinkedHashMap<Person, List<Person>> prefs = new LinkedHashMap<>();
-    prefs.put(one, onePref);
-    prefs.put(two, twoPref);
-    prefs.put(three, threePref);
-    prefs.put(four, fourPref);
-    prefs.put(five, fivePref);
-    prefs.put(six, sixPref);
-
-    StableRoommates sr = new StableRoommates(prefs);
-    Map<Person, Person> pairings = sr.getPairs();
-
-    System.out.println(pairings);
 
   }
 

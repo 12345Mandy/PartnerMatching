@@ -48,7 +48,7 @@
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Java" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.TestStableRoommates">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="edu.brown.cs.student.main.Main" />
       <module name="stars" />
@@ -62,8 +62,53 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestStableRoommates" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="stars" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestStableRoommates" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestStableRoommates.exampleOneTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="stars" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestStableRoommates" />
+      <option name="METHOD_NAME" value="exampleOneTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestStableRoommates.wikiTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="stars" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestStableRoommates" />
+      <option name="METHOD_NAME" value="wikiTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TestStableRoommates" />
+        <item itemvalue="JUnit.TestStableRoommates.exampleOneTest" />
+        <item itemvalue="JUnit.TestStableRoommates.wikiTest" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -77,7 +122,7 @@
       <option name="presentableId" value="Default" />
       <updated>1617065189125</updated>
       <workItem from="1617065191042" duration="10217000" />
-      <workItem from="1617138303399" duration="7585000" />
+      <workItem from="1617138303399" duration="23308000" />
     </task>
     <servers />
   </component>
@@ -88,13 +133,27 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/edu/brown/cs/student/main/Main.java</url>
-          <line>94</line>
-          <option name="timeStamp" value="20" />
+          <url>file://$PROJECT_DIR$/src/test/java/TestStableRoommates.java</url>
+          <line>187</line>
+          <option name="timeStamp" value="37" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
+      <configuration name="JUnit">
+        <watch expression="((HashMap)pairings).entrySet().toArray()[3]" custom="java.util.HashMap" />
+        <watch expression="((HashMap)pairings).entrySet().toArray()[2]" custom="java.util.HashMap" />
+        <watch expression="((HashMap)pairings).entrySet().toArray()[0]" custom="java.util.HashMap" />
+        <watch expression="((LinkedHashMap)personToPreferences).entrySet().toArray()[6]" custom="java.util.LinkedHashMap" />
+        <watch expression="((java.util.ArrayList)((LinkedHashMap.Entry)((LinkedHashMap)personToPreferences).entrySet().toArray()[9]).getValue()).get(1)" custom="java.util.LinkedHashMap.Entry,java.util.LinkedHashMap,java.util.ArrayList" />
+        <watch expression="personToPreferences" language="JAVA" />
+        <watch expression="pair" />
+        <watch expression="this" />
+        <watch expression="this" language="JAVA" />
+        <watch expression="((LinkedHashMap)personToPreferences).entrySet().toArray()[7]" custom="java.util.LinkedHashMap" />
+        <watch expression="((LinkedHashMap)personToPreferences).entrySet().toArray()[7]" language="JAVA" custom="java.util.LinkedHashMap" />
+        <watch expression="currRotation.get(0)" />
+      </configuration>
       <configuration name="Application">
         <watch expression="currY" />
         <watch expression="((HashMap)pairings).entrySet().toArray()[1]" custom="java.util.HashMap" />

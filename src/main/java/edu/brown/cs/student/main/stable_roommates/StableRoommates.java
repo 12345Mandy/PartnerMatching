@@ -1,5 +1,6 @@
 package edu.brown.cs.student.main.stable_roommates;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -24,17 +25,25 @@ public class StableRoommates {
   }
 
   /**
-   *
    * @return - a mapping from person to person that represents pairs
    */
   public Map<Person, Person> getPairs() {
-    if (!generatePairs()) {
-      return new HashMap<>();
+    if (generatePairs()) {
+      Map<Person, Person> toReturn = new HashMap<>();
+      for (Person currPerson : personToPreferences.keySet()) {
+        toReturn.put(currPerson, personToPreferences.get(currPerson).get(0));
+      }
+
+      return toReturn;
     }
 
     Map<Person, Person> toReturn = new HashMap<>();
     for (Person currPerson : personToPreferences.keySet()) {
-      toReturn.put(currPerson, personToPreferences.get(currPerson).get(0));
+      if (personToPreferences.get(currPerson).isEmpty()) {
+        toReturn.put(currPerson, null);
+      } else {
+        toReturn.put(currPerson, personToPreferences.get(currPerson).get(0));
+      }
     }
 
     return toReturn;
@@ -56,12 +65,12 @@ public class StableRoommates {
       List<PeoplePair> currRotation = findRotation();
       removeRotation(currRotation);
 
-      for (Person currPerson : personToPreferences.keySet()) {
-        // no stable matching exists
-        if (personToPreferences.get(currPerson).isEmpty()) {
-          return false;
-        }
-      }
+//      for (Person currPerson : personToPreferences.keySet()) {
+//        // no stable matching exists
+//        if (personToPreferences.get(currPerson).isEmpty()) {
+//          return false;
+//        }
+//      }
 
       if (foundStableMatching(personToPreferences)) {
         return true;
@@ -88,30 +97,45 @@ public class StableRoommates {
     foundPeople.add(currP);
 
     LinkedList<PeoplePair> pairsToReturn = new LinkedList<>();
+    Person initialP = currP;
+    PeoplePair repeated;
+
     while (true) {
       Person currQ = personToPreferences.get(currP).get(1);
       currP = personToPreferences.get(currQ).get(currQ.getPreferences().size() - 1);
 
-      pairsToReturn.addLast(new PeoplePair(currP, currQ));
+      PeoplePair currPair = new PeoplePair(currP, currQ);
+      pairsToReturn.addLast(currPair);
 
       if (foundPeople.contains(currP)) {
+        repeated = currPair;
         break;
       }
 
       foundPeople.add(currP);
     }
 
-    // removes pairing that was first seen and adds it to front of list
-    PeoplePair p = pairsToReturn.removeLast();
-    pairsToReturn.addFirst(p);
+    if (repeated.getFirstPerson().equals(initialP)) {
+      // removes pairing that was first seen and adds it to front of list
+      PeoplePair p = pairsToReturn.removeLast();
+      pairsToReturn.addFirst(p);
 
-    return pairsToReturn;
+      return pairsToReturn;
+    } else {
+      int indexOfRepeated = pairsToReturn.indexOf(repeated);
+      return pairsToReturn.subList(indexOfRepeated, pairsToReturn.size() - 1);
+    }
+
+
   }
 
   private boolean stablize() {
     for (Person currPerson : personToPreferences.keySet()) {
       Person rejected = currPerson.propose(currPerson.getPreferences().get(0));
       while (rejected != null) {
+        if (rejected.getPreferences().isEmpty()) {
+          return false;
+        }
         rejected = rejected.propose(rejected.getPreferences().get(0));
       }
     }
@@ -124,7 +148,8 @@ public class StableRoommates {
       Person p = q.getPersonWhoProposed();
       List<Person> qPref = q.getPreferences();
 
-      List<Person> peopleAfterP = qPref.subList(qPref.indexOf(p) + 1, qPref.size());
+      List<Person> peopleAfterP =
+          new ArrayList<>(qPref.subList(qPref.indexOf(p) + 1, qPref.size()));
       for (Person afters : peopleAfterP) {
         qPref.remove(afters);
         afters.getPreferences().remove(q);
@@ -148,9 +173,10 @@ public class StableRoommates {
    * @param rotation - the rotation to remove from the map
    */
   private void removeRotation(List<PeoplePair> rotation) {
-    for (int i = 0; i < rotation.size() - 1; i++) {
-      PeoplePair pair = rotation.get(i);
-      PeoplePair nextPair = rotation.get(i + 1);
+    int k = rotation.size();
+    for (int i = 0; i < k; i++) {
+      PeoplePair pair = rotation.get(i % k);
+      PeoplePair nextPair = rotation.get((i + 1) % k);
 
       Person currY = pair.getSecondPerson();
       Person currX = pair.getFirstPerson();
@@ -161,9 +187,9 @@ public class StableRoommates {
       currX.propose(nextY);
     }
 
-    for (int i = 1; i < rotation.size(); i++) {
-      PeoplePair pair = rotation.get(i);
-      PeoplePair prevPair = rotation.get(i - 1);
+    for (int i = 0; i < k; i++) {
+      PeoplePair pair = rotation.get(i % k);
+      PeoplePair prevPair = rotation.get(Math.floorMod((i - 1), k));
 
       Person currY = pair.getSecondPerson();
       Person prevX = prevPair.getFirstPerson();
@@ -171,11 +197,12 @@ public class StableRoommates {
       List<Person> yPrefs = currY.getPreferences();
 
       // every person that is less preferable to x from y's perspective
-      List<Person> successorsOfPrevX = yPrefs.subList(yPrefs.indexOf(prevX) + 1, yPrefs.size());
+      List<Person> successorsOfPrevX =
+          new LinkedList<>(yPrefs.subList(yPrefs.indexOf(prevX) + 1, yPrefs.size()));
 
       for (Person successor : successorsOfPrevX) {
-        currY.getPreferences().remove(successor);
-        successor.getPreferences().remove(currY);
+        currY.reject(successor);
+        successor.reject(currY);
       }
     }
   }
