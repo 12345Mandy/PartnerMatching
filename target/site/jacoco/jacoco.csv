@@ -2,6 +2,6 @@ GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_
 stars,edu.brown.cs.student.main,Main,98,0,2,0,27,0,6,0,5,0
 stars,edu.brown.cs.student.main,Main.FrontHandler,10,0,0,0,2,0,1,0,1,0
 stars,edu.brown.cs.student.main,Main.ExceptionPrinter,26,0,0,0,8,0,1,0,1,0
-stars,edu.brown.cs.student.main.stable_roommates,StableRoommates,10,463,6,46,2,100,6,29,0,9
-stars,edu.brown.cs.student.main.stable_roommates,PeoplePair,18,40,3,5,3,11,4,5,1,4
-stars,edu.brown.cs.student.main.stable_roommates,Person,31,104,2,10,10,30,7,13,5,9
+stars,edu.brown.cs.student.main.stable_roommates,StableRoommates,18,542,11,61,4,116,11,35,0,10
+stars,edu.brown.cs.student.main.stable_roommates,PeoplePair,24,40,3,5,4,11,5,5,2,4
+stars,edu.brown.cs.student.main.stable_roommates,Person,34,107,2,12,11,29,8,14,6,9

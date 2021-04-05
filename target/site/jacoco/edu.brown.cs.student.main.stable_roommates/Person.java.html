@@ -80,7 +80,7 @@ public class Person implements Comparable&lt;Person&gt; {
 <span class="fc bfc" id="L80" title="All 2 branches covered.">        &lt; toPropose.getPreferences().indexOf(currentProposer)) {</span>
 
 <span class="fc" id="L82">      toPropose.setPersonWhoProposed(this);</span>
-<span class="fc" id="L83">      toPropose.reject(currentProposer);</span>
+
 <span class="fc" id="L84">      return currentProposer;</span>
     }
 
@@ -110,12 +110,17 @@ public class Person implements Comparable&lt;Person&gt; {
 
 <span class="fc" id="L111">    Person other = (Person) obj;</span>
 
-<span class="pc bpc" id="L113" title="1 of 2 branches missed.">    return this.id == other.id;</span>
+<span class="pc bpc" id="L113" title="1 of 4 branches missed.">    return this.id == other.id &amp;&amp; this.name.equals(other.name);</span>
   }
 
   @Override
   public int compareTo(Person other) {
 <span class="nc" id="L118">    return Double.compare(other.getRanking(), this.ranking);</span>
+  }
+
+  @Override
+  public String toString() {
+<span class="nc" id="L123">    return this.name;</span>
   }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

@@ -28,6 +28,7 @@ public class StableRoommates {
    * @return - a mapping from person to person that represents pairs
    */
   public Map<Person, Person> getPairs() {
+    assert isValidInput();
     if (generatePairs()) {
       Map<Person, Person> toReturn = new HashMap<>();
       for (Person currPerson : personToPreferences.keySet()) {
@@ -61,18 +62,23 @@ public class StableRoommates {
       return false;
     }
 
+    if (foundStableMatching()) {
+      return true;
+    }
+
     while (true) {
       List<PeoplePair> currRotation = findRotation();
       removeRotation(currRotation);
 
-//      for (Person currPerson : personToPreferences.keySet()) {
-//        // no stable matching exists
-//        if (personToPreferences.get(currPerson).isEmpty()) {
-//          return false;
-//        }
-//      }
 
-      if (foundStableMatching(personToPreferences)) {
+      for (Person currPerson : personToPreferences.keySet()) {
+        // no stable matching exists
+        if (personToPreferences.get(currPerson).isEmpty()) {
+          return false;
+        }
+      }
+
+      if (foundStableMatching()) {
         return true;
       }
     }
@@ -123,7 +129,8 @@ public class StableRoommates {
       return pairsToReturn;
     } else {
       int indexOfRepeated = pairsToReturn.indexOf(repeated);
-      return pairsToReturn.subList(indexOfRepeated, pairsToReturn.size() - 1);
+      List<PeoplePair> toReturn = pairsToReturn.subList(indexOfRepeated, pairsToReturn.size() - 1);
+      return toReturn;
     }
 
 
@@ -150,9 +157,8 @@ public class StableRoommates {
 
       List<Person> peopleAfterP =
           new ArrayList<>(qPref.subList(qPref.indexOf(p) + 1, qPref.size()));
-      for (Person afters : peopleAfterP) {
-        qPref.remove(afters);
-        afters.getPreferences().remove(q);
+      for (Person after : peopleAfterP) {
+        q.reject(after);
       }
     }
 
@@ -202,19 +208,40 @@ public class StableRoommates {
 
       for (Person successor : successorsOfPrevX) {
         currY.reject(successor);
-        successor.reject(currY);
       }
     }
   }
 
   /**
-   * @param preferences - the map of preferences
    * @return - true if each person has one other person in the map
    */
-  private boolean foundStableMatching(Map<Person, List<Person>> preferences) {
-    for (Person currPerson : preferences.keySet()) {
-      if (preferences.get(currPerson).size() != 1) {
+  private boolean foundStableMatching() {
+    for (Person currPerson : this.personToPreferences.keySet()) {
+      if (this.personToPreferences.get(currPerson).size() != 1) {
         return false;
+      }
+    }
+
+    return true;
+  }
+
+  private boolean isValidInput() {
+    int numPeople = this.personToPreferences.size();
+    for (Person currPerson : this.personToPreferences.keySet()) {
+      // each person should have everybody else ranked
+      if (currPerson.getPreferences().size() != numPeople - 1) {
+        return false;
+      }
+
+      Set<Person> peopleInPrefList = new HashSet<>();
+      // each person should only be in the preferences list once and a person shouldn't ranked
+      // themselves
+      for (Person pref : currPerson.getPreferences()) {
+        if (peopleInPrefList.contains(pref) || pref.equals(currPerson)) {
+          return false;
+        }
+
+        peopleInPrefList.add(pref);
       }
     }
 

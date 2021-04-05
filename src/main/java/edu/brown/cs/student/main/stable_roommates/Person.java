@@ -80,7 +80,7 @@ public class Person implements Comparable<Person> {
         < toPropose.getPreferences().indexOf(currentProposer)) {
 
       toPropose.setPersonWhoProposed(this);
-      toPropose.reject(currentProposer);
+
       return currentProposer;
     }
 
@@ -110,11 +110,16 @@ public class Person implements Comparable<Person> {
 
     Person other = (Person) obj;
 
-    return this.id == other.id;
+    return this.id == other.id && this.name.equals(other.name);
   }
 
   @Override
   public int compareTo(Person other) {
     return Double.compare(other.getRanking(), this.ranking);
+  }
+
+  @Override
+  public String toString() {
+    return this.name;
   }
 }

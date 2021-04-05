@@ -39,4 +39,9 @@ public class PeoplePair {
     return this.firstPerson.equals(other.getFirstPerson())
         && this.secondPerson.equals(other.getSecondPerson());
   }
+
+  @Override
+  public String toString() {
+    return "(" + this.firstPerson + ", " + this.secondPerson + ")";
+  }
 }

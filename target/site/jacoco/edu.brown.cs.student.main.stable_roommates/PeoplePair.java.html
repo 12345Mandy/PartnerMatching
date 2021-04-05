@@ -39,5 +39,10 @@ public class PeoplePair {
 <span class="fc bfc" id="L39" title="All 2 branches covered.">    return this.firstPerson.equals(other.getFirstPerson())</span>
 <span class="pc bpc" id="L40" title="1 of 2 branches missed.">        &amp;&amp; this.secondPerson.equals(other.getSecondPerson());</span>
   }
+
+  @Override
+  public String toString() {
+<span class="nc" id="L45">    return &quot;(&quot; + this.firstPerson + &quot;, &quot; + this.secondPerson + &quot;)&quot;;</span>
+  }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

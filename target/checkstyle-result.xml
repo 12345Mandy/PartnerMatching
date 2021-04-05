@@ -7,7 +7,6 @@
 <error line="18" column="3" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
 </file>
 <file name="/Users/pedromonteiroborges/Desktop/CS32/Projects/term-project-awhite35-mcamach6-mhe26-pmontei1/src/main/java/edu/brown/cs/student/main/stable_roommates/StableRoommates.java">
-<error line="1" severity="error" message="File does not end with a newline." source="com.puppycrawl.tools.checkstyle.checks.NewlineAtEndOfFileCheck"/>
 <error line="23" column="3" severity="error" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
 </file>
 <file name="/Users/pedromonteiroborges/Desktop/CS32/Projects/term-project-awhite35-mcamach6-mhe26-pmontei1/src/main/java/edu/brown/cs/student/main/stable_roommates/Person.java">
