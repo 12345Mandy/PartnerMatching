@@ -23,6 +23,14 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="1" />
   </component>
@@ -133,7 +141,7 @@
       <option name="presentableId" value="Default" />
       <updated>1617065189125</updated>
       <workItem from="1617065191042" duration="10217000" />
-      <workItem from="1617138303399" duration="38695000" />
+      <workItem from="1617138303399" duration="45313000" />
     </task>
     <servers />
   </component>
@@ -159,6 +167,7 @@
         <watch expression="((LinkedHashMap)personToPreferences).entrySet().toArray()[2]" custom="java.util.LinkedHashMap" />
         <watch expression="((LinkedHashMap)personToPreferences).entrySet().toArray()[14]" custom="java.util.LinkedHashMap" />
         <watch expression="fourPref" />
+        <watch expression="((LinkedHashMap)prefs).entrySet().toArray()[14]" custom="java.util.LinkedHashMap" />
       </configuration>
       <configuration name="Application">
         <watch expression="currY" />

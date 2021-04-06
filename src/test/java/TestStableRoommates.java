@@ -1,5 +1,7 @@
+import edu.brown.cs.student.main.stable_roommates.GreedyPairs;
 import edu.brown.cs.student.main.stable_roommates.PeoplePair;
 import edu.brown.cs.student.main.stable_roommates.Person;
+import edu.brown.cs.student.main.stable_roommates.RandomPairs;
 import edu.brown.cs.student.main.stable_roommates.StableRoommates;
 import org.junit.Test;
 import org.junit.Assert;
@@ -10,6 +12,8 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 public class TestStableRoommates {
   @Test
@@ -605,7 +609,7 @@ public class TestStableRoommates {
     nineteen.setPreferences(nineteenPref);
     twenty.setPreferences(twentyPref);
 
-    Map<Person, List<Person>> prefs = new LinkedHashMap<>();
+    Map<Person, List<Person>> prefs = new HashMap<>();
     prefs.put(one, onePref);
     prefs.put(two, twoPref);
     prefs.put(three, threePref);
@@ -632,6 +636,25 @@ public class TestStableRoommates {
     StableRoommates sr = new StableRoommates(prefs);
     Map<Person, Person> pairings = sr.getPairs();
     Assert.assertFalse(isStable(pairings));
+
+    Map<Person, Person> stablePairs = prefs.entrySet()
+        .stream()
+        .filter(map -> map.getValue().size() == 1)
+        .collect(Collectors.toMap(Map.Entry::getKey, map -> map.getValue().get(0)));
+
+    Set<Person> unStablePairs = prefs.entrySet()
+        .stream()
+        .filter(map -> map.getValue().size() != 1)
+        .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue)).keySet();
+
+//    Map<Person, Person> randPairs = new RandomPairs(unStablePairs).generateRandomPairs();
+//    Assert.assertTrue(isStable(randPairs));
+//
+//    stablePairs.putAll(randPairs);
+
+    Map<Person, Person> greedyPairs = new GreedyPairs(unStablePairs).generatePairs();
+    stablePairs.putAll(greedyPairs);
+    Assert.assertTrue(isStable(stablePairs));
   }
 
   @Test
@@ -719,6 +742,10 @@ public class TestStableRoommates {
   }
 
   private boolean isStable(Map<Person, Person> map) {
+    if (map == null) {
+      return false;
+    }
+
     // if someone doesn't have a partner
     for (Person currPerson : map.keySet()) {
       if (map.get(currPerson) == null) {
@@ -726,9 +753,9 @@ public class TestStableRoommates {
       }
     }
 
-    // someone's partner's partner should be themselves
+    // someone's partner's partner should be themselves and their partner should not be themselves
     for (Person currPerson : map.keySet()) {
-      if (!map.get(map.get(currPerson)).equals(currPerson)) {
+      if (!map.get(map.get(currPerson)).equals(currPerson) || map.get(currPerson).equals(currPerson)) {
         return false;
       }
     }
