@@ -11,22 +11,16 @@ import java.util.Set;
 /**
  * This class implements the stable roommates algorithm.
  */
-public class StableRoommates {
-  /**
-   * This maps a person to a set of their preferences, sorted from highest preference to
-   * lowest preference.
-   * <p>
-   * The value should refer to the same list in memory as the key's preferences list.
-   */
-  private final Map<Person, List<Person>> personToPreferences;
+public class StableRoommates extends PairGenerator {
 
   public StableRoommates(Map<Person, List<Person>> personToPreferences) {
-    this.personToPreferences = personToPreferences;
+    super(personToPreferences);
   }
 
   /**
    * @return - a mapping from person to person that represents pairs
    */
+  @Override
   public Map<Person, Person> getPairs() {
     assert isValidInput();
     if (generatePairs()) {
@@ -227,6 +221,8 @@ public class StableRoommates {
 
   private boolean isValidInput() {
     int numPeople = this.personToPreferences.size();
+
+    // go through every possible person
     for (Person currPerson : this.personToPreferences.keySet()) {
       // each person should have everybody else ranked
       if (currPerson.getPreferences().size() != numPeople - 1) {

@@ -2,18 +2,20 @@ package edu.brown.cs.student.main.stable_roommates;
 
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-public class GreedyPairs {
-  private Set<Person> people;
-
-  public GreedyPairs(Set<Person> people) {
-    this.people = people;
+public class GreedyPairs extends PairGenerator {
+  public GreedyPairs(Map<Person, List<Person>> personToPreferences) {
+    super(personToPreferences);
   }
 
-  public Map<Person, Person> generatePairs() {
+  @Override
+  public Map<Person, Person> getPairs() {
     Map<Person, Person> toReturn = new HashMap<>();
+    Set<Person> people = this.personToPreferences.keySet();
+
     while (!people.isEmpty()) {
       Map<Double, PeoplePair> rankToPair = new HashMap<>();
       for (Person first : people) {

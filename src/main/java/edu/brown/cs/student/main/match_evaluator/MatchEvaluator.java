@@ -16,65 +16,15 @@ public class MatchEvaluator {
   private List<Question> questions;
   private Map<Person, List<Answer>> personToAnswers;
 
-  // ONLY FOR TESTING
-  private final int NUM_ANSWERS = 4;
-  private final int NUM_QUESTIONS = 10;
-  private final int NUM_PEOPLE = 10;
-
   // DATA IS IN FORM:
   // first element is "ID" of person, next are question answers.
   // -1,q1,q2,q3,...
   // 0 a1,a2,a3,...
   // 1 a1,a2,a3...
-  public MatchEvaluator() {
-    // RANDOMIZED MOCK DATA!
-    // SUBJECT TO CHANGE!
-    this.questions = new ArrayList<>();
-    this.personToAnswers = new HashMap<>();
+  public MatchEvaluator(List<Question> questions, Map<Person, List<Answer>> personToAnswers) {
+    this.questions = questions;
+    this.personToAnswers = personToAnswers;
 
-    // adds questions with random values
-    for (int i = 0; i < NUM_QUESTIONS; i++) {
-      // make a question with a random value
-      Question currQuestion = new Question(i, Math.floor(Math.random() * 4));
-      List<Answer> answers = new ArrayList<>();
-
-      // makes 4 answers for each question
-      for (int j = 0; j < NUM_ANSWERS; j++) {
-        Answer currAnswer = new Answer(j, currQuestion);
-        answers.add(currAnswer);
-      }
-
-      currQuestion.setAnswers(answers);
-      this.questions.add(currQuestion);
-    }
-
-    // selected a random answer for each person
-    for (int i = 0; i < NUM_PEOPLE; i++) {
-      Person currPerson = new Person(i, Integer.toString(i));
-      List<Answer> currPersonsAnswers = new ArrayList<>();
-
-      // get a random answer for each question
-      for (Question currQuestion : this.questions) {
-        int randIndex = new Random().nextInt(NUM_ANSWERS);
-        Answer randAnswer = currQuestion.getAnswers().get(randIndex);
-
-        currPersonsAnswers.add(randAnswer);
-      }
-
-
-      this.personToAnswers.put(currPerson, currPersonsAnswers);
-    }
-
-//    List<List<Double>> mockInfo = new ArrayList<>();
-//    for (double i = -1; i < 10; i++) {
-//      List<Double> mockAnswers = new ArrayList<>();
-//      mockAnswers.add(i); // this is mock id
-//      for (int mock = 1; mock < 10; mock++) {
-//        mockAnswers.add(Math.floor(Math.random() * 4));
-//      }
-//      mockInfo.add(mockAnswers);
-//    }
-//    evaluateMatches(mockInfo);
   }
 
   /**

@@ -88,7 +88,7 @@ public class TestStableRoommates {
     StableRoommates sr = new StableRoommates(prefs);
     Map<Person, Person> pairings = sr.getPairs();
 
-    Assert.assertTrue(isStable(pairings));
+    Assert.assertTrue(sr.isStable(pairings));
   }
 
   @Test
@@ -163,7 +163,7 @@ public class TestStableRoommates {
     StableRoommates sr = new StableRoommates(prefs);
     Map<Person, Person> pairings = sr.getPairs();
 
-    Assert.assertTrue(isStable(pairings));
+    Assert.assertTrue(sr.isStable(pairings));
   }
 
   @Test
@@ -209,7 +209,7 @@ public class TestStableRoommates {
     StableRoommates sr = new StableRoommates(prefs);
     Map<Person, Person> pairings = sr.getPairs();
 
-    Assert.assertTrue(isStable(pairings));
+    Assert.assertTrue(sr.isStable(pairings));
   }
 
   @Test
@@ -248,7 +248,7 @@ public class TestStableRoommates {
     Map<Person, Person> expectedPairs =
         Map.of(one, six, two, four, three, five, four, two, five, three, six, one);
     Assert.assertEquals(pairings, expectedPairs);
-    Assert.assertTrue(isStable(pairings));
+    Assert.assertTrue(sr.isStable(pairings));
   }
 
   @Test
@@ -293,7 +293,7 @@ public class TestStableRoommates {
             sam, charlie,
             peter, kelly);
     Assert.assertEquals(pairings, expectedPairs);
-    Assert.assertTrue(isStable(pairings));
+    Assert.assertTrue(sr.isStable(pairings));
   }
 
   @Test
@@ -338,7 +338,7 @@ public class TestStableRoommates {
             F, A,
             B, E);
     Assert.assertEquals(pairings, expectedPairs);
-    Assert.assertTrue(isStable(pairings));
+    Assert.assertTrue(sr.isStable(pairings));
   }
 
   @Test
@@ -405,7 +405,7 @@ public class TestStableRoommates {
         Map.of(one, seven, two, eight, three, six, four, nine, five, ten, six, three, seven, one,
             eight, two, nine, four, ten, five);
     Assert.assertEquals(pairings, expectedPairs);
-    Assert.assertTrue(isStable(pairings));
+    Assert.assertTrue(sr.isStable(pairings));
   }
 
   @Test
@@ -462,7 +462,7 @@ public class TestStableRoommates {
         Map.of(one, four, two, three, three, two, four, one, five, six, six, five, seven, eight,
             eight, seven);
     Assert.assertEquals(pairings, expectedPairs);
-    Assert.assertTrue(isStable(pairings));
+    Assert.assertTrue(sr.isStable(pairings));
   }
 
   @Test
@@ -635,26 +635,26 @@ public class TestStableRoommates {
 
     StableRoommates sr = new StableRoommates(prefs);
     Map<Person, Person> pairings = sr.getPairs();
-    Assert.assertFalse(isStable(pairings));
+    Assert.assertFalse(sr.isStable(pairings));
 
     Map<Person, Person> stablePairs = prefs.entrySet()
         .stream()
         .filter(map -> map.getValue().size() == 1)
         .collect(Collectors.toMap(Map.Entry::getKey, map -> map.getValue().get(0)));
 
-    Set<Person> unStablePairs = prefs.entrySet()
+    Map<Person, List<Person>> unStablePairs = prefs.entrySet()
         .stream()
         .filter(map -> map.getValue().size() != 1)
-        .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue)).keySet();
+        .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
 
 //    Map<Person, Person> randPairs = new RandomPairs(unStablePairs).generateRandomPairs();
-//    Assert.assertTrue(isStable(randPairs));
+//    Assert.assertTrue(sr.isStable(randPairs));
 //
 //    stablePairs.putAll(randPairs);
 
-    Map<Person, Person> greedyPairs = new GreedyPairs(unStablePairs).generatePairs();
+    Map<Person, Person> greedyPairs = new GreedyPairs(unStablePairs).getPairs();
     stablePairs.putAll(greedyPairs);
-    Assert.assertTrue(isStable(stablePairs));
+    Assert.assertTrue(sr.isStable(stablePairs));
   }
 
   @Test
@@ -682,7 +682,7 @@ public class TestStableRoommates {
 
     StableRoommates sr = new StableRoommates(prefs);
     Map<Person, Person> pairings = sr.getPairs();
-    Assert.assertFalse(isStable(pairings));
+    Assert.assertFalse(sr.isStable(pairings));
   }
 
   @Test
@@ -710,7 +710,7 @@ public class TestStableRoommates {
 
     StableRoommates sr = new StableRoommates(prefs);
     Map<Person, Person> pairings = sr.getPairs();
-    Assert.assertFalse(isStable(pairings));
+    Assert.assertFalse(sr.isStable(pairings));
   }
 
   @Test
@@ -738,28 +738,6 @@ public class TestStableRoommates {
 
     StableRoommates sr = new StableRoommates(prefs);
     Map<Person, Person> pairings = sr.getPairs();
-    Assert.assertFalse(isStable(pairings));
-  }
-
-  private boolean isStable(Map<Person, Person> map) {
-    if (map == null) {
-      return false;
-    }
-
-    // if someone doesn't have a partner
-    for (Person currPerson : map.keySet()) {
-      if (map.get(currPerson) == null) {
-        return false;
-      }
-    }
-
-    // someone's partner's partner should be themselves and their partner should not be themselves
-    for (Person currPerson : map.keySet()) {
-      if (!map.get(map.get(currPerson)).equals(currPerson) || map.get(currPerson).equals(currPerson)) {
-        return false;
-      }
-    }
-
-    return true;
+    Assert.assertFalse(sr.isStable(pairings));
   }
 }

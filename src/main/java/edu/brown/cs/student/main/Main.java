@@ -5,20 +5,15 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
-
-import edu.brown.cs.student.main.stable_roommates.Person;
-import edu.brown.cs.student.main.stable_roommates.StableRoommates;
 import joptsimple.OptionParser;
 import joptsimple.OptionSet;
+import org.json.JSONObject;
 import spark.ExceptionHandler;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
+import spark.Route;
 import spark.Spark;
 import spark.TemplateViewRoute;
 import spark.template.freemarker.FreeMarkerEngine;
@@ -86,6 +81,13 @@ public final class Main {
     // Setup Spark Routes
     Spark.get("/stars", new FrontHandler(), freeMarker);
   }
+
+//  private static class SurveyHandler implements Route {
+//    @Override
+//    public Object handle(Request request, Response response) throws Exception {
+//      JSONObject jsonObject = new JSONObject(request.body());
+//    }
+//  }
 
   /**
    * Handle requests to the front page of our Stars website.
