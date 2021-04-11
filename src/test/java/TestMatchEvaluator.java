@@ -18,12 +18,12 @@ import java.util.concurrent.ExecutionException;
 public class TestMatchEvaluator {
   @Test
   public void pbtTest() {
-    final int NUM_ITERATIONS = 20000;
+    final int NUM_ITERATIONS = 1000000;
 
-    int MAX_NUM_ANSWERS = 10;
-    int MAX_NUM_QUESTIONS = 20;
-    int MAX_NUM_PEOPLE = 100;
-    int MAX_QUESTION_VALUE = 10000;
+    int MAX_NUM_ANSWERS = 1000;
+    int MAX_NUM_QUESTIONS = 1000;
+    int MAX_NUM_PEOPLE = 500;
+    int MAX_QUESTION_VALUE = 1000;
 
 //    Set<Integer> foundAns = new HashSet<>();
 //    Set<Integer> foundQues = new HashSet<>();
@@ -32,6 +32,9 @@ public class TestMatchEvaluator {
 
     int numOfStableMatches = 0;
     for (int currIter = 0; currIter < NUM_ITERATIONS; currIter++) {
+      if (currIter % 20 == 0) {
+        System.out.println((double) currIter / NUM_ITERATIONS + " percent done.");
+      }
       // RANDOMIZED MOCK DATA!
       int NUM_ANSWERS = (int) Math.floor(Math.random() * MAX_NUM_ANSWERS) + 1;
       int NUM_QUESTIONS = (int) Math.floor(Math.random() * MAX_NUM_QUESTIONS) + 1;

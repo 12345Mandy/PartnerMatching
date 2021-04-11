@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Random;
 
 public class MatchEvaluator {
   private List<Question> questions;
@@ -28,7 +27,7 @@ public class MatchEvaluator {
   }
 
   /**
-   * Gets all the info -- answers from each user who took survey --> evaluates similarity.
+   * Gets all the info -- answers from each user who took survey -- evaluates similarity.
    * @return a hashmap mapping ids to a list of their matches sorted
    */
   public Map<Person, List<Person>> evaluateMatches() {
@@ -77,7 +76,7 @@ public class MatchEvaluator {
    *
    * @param person1      - list of answers one user had
    * @param person2      - list of answers another user had
-   * @param questionList - a list of questions; score of each question --> add to total score if answers are the same
+   * @param questionList - a list of questions; score of each question -- add to total score if answers are the same
    * @return total score
    */
   public double getScore(List<Answer> person1, List<Answer> person2, List<Question> questionList) {

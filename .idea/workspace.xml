@@ -5,17 +5,109 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9d800d39-828e-4085-984c-3b5157ca895c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/brown/cs/student/main/stable_roommates/PairGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/brown/cs/student/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/brown/cs/student/main/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/brown/cs/student/main/match_evaluator/MatchEvaluator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/brown/cs/student/main/match_evaluator/MatchEvaluator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/brown/cs/student/main/stable_roommates/GreedyPairs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/brown/cs/student/main/stable_roommates/GreedyPairs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/brown/cs/student/main/stable_roommates/RandomPairs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/brown/cs/student/main/stable_roommates/RandomPairs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/brown/cs/student/main/stable_roommates/StableRoommates.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/brown/cs/student/main/stable_roommates/StableRoommates.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/TestMatchEvaluator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestMatchEvaluator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/TestStableRoommates.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestStableRoommates.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stars.iml" beforeDir="false" afterPath="$PROJECT_DIR$/stars.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/checkstyle-cachefile" beforeDir="false" afterPath="$PROJECT_DIR$/target/checkstyle-cachefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/checkstyle-result.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/checkstyle-result.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Main$ExceptionPrinter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Main$ExceptionPrinter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Main$FrontHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Main$FrontHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/match_evaluator/MatchEvaluator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/match_evaluator/MatchEvaluator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/match_evaluator/PersonToScore.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/match_evaluator/PersonToScore.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/stable_roommates/GreedyPairs.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/stable_roommates/GreedyPairs.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/stable_roommates/PairGenerator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/stable_roommates/PairGenerator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/stable_roommates/PeoplePair.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/stable_roommates/PeoplePair.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/stable_roommates/Person.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/stable_roommates/Person.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/stable_roommates/RandomPairs.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/stable_roommates/RandomPairs.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/stable_roommates/StableRoommates.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/stable_roommates/StableRoommates.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/survey/Answer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/survey/Answer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/survey/Question.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/survey/Question.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/jacoco.exec" beforeDir="false" afterPath="$PROJECT_DIR$/target/jacoco.exec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/pmd.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/pmd.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/apidocs/allclasses-index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/apidocs/allclasses-index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/apidocs/allclasses.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/apidocs/allclasses.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/apidocs/allpackages-index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/apidocs/allpackages-index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/apidocs/constant-values.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/apidocs/constant-values.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/apidocs/deprecated-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/apidocs/deprecated-list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/apidocs/edu/brown/cs/student/main/Main.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/apidocs/edu/brown/cs/student/main/Main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/apidocs/edu/brown/cs/student/main/class-use/Main.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/apidocs/edu/brown/cs/student/main/class-use/Main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/apidocs/edu/brown/cs/student/main/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/apidocs/edu/brown/cs/student/main/package-summary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/apidocs/edu/brown/cs/student/main/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/apidocs/edu/brown/cs/student/main/package-tree.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/apidocs/edu/brown/cs/student/main/package-use.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/apidocs/edu/brown/cs/student/main/package-use.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/apidocs/edu/brown/cs/student/main/stable_roommates/PeoplePair.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/apidocs/edu/brown/cs/student/main/stable_roommates/PeoplePair.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/apidocs/edu/brown/cs/student/main/stable_roommates/Person.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/apidocs/edu/brown/cs/student/main/stable_roommates/Person.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/apidocs/edu/brown/cs/student/main/stable_roommates/StableRoommates.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/apidocs/edu/brown/cs/student/main/stable_roommates/StableRoommates.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/apidocs/edu/brown/cs/student/main/stable_roommates/class-use/PeoplePair.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/apidocs/edu/brown/cs/student/main/stable_roommates/class-use/PeoplePair.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/apidocs/edu/brown/cs/student/main/stable_roommates/class-use/Person.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/apidocs/edu/brown/cs/student/main/stable_roommates/class-use/Person.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/apidocs/edu/brown/cs/student/main/stable_roommates/class-use/StableRoommates.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/apidocs/edu/brown/cs/student/main/stable_roommates/class-use/StableRoommates.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/apidocs/edu/brown/cs/student/main/stable_roommates/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/apidocs/edu/brown/cs/student/main/stable_roommates/package-summary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/apidocs/edu/brown/cs/student/main/stable_roommates/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/apidocs/edu/brown/cs/student/main/stable_roommates/package-tree.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/apidocs/edu/brown/cs/student/main/stable_roommates/package-use.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/apidocs/edu/brown/cs/student/main/stable_roommates/package-use.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/apidocs/element-list" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/apidocs/element-list" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/apidocs/help-doc.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/apidocs/help-doc.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/apidocs/index-all.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/apidocs/index-all.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/apidocs/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/apidocs/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/apidocs/member-search-index.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/apidocs/member-search-index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/apidocs/member-search-index.zip" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/apidocs/member-search-index.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/apidocs/overview-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/apidocs/overview-summary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/apidocs/overview-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/apidocs/overview-tree.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/apidocs/package-search-index.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/apidocs/package-search-index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/apidocs/package-search-index.zip" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/apidocs/package-search-index.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/apidocs/type-search-index.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/apidocs/type-search-index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/apidocs/type-search-index.zip" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/apidocs/type-search-index.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/checkstyle.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/checkstyle.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/checkstyle.rss" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/checkstyle.rss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/dependencies.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/dependencies.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/dependency-info.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/dependency-info.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/distribution-management.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/distribution-management.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/integration.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/integration.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/issue-tracking.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/issue-tracking.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.brown.cs.student.main.stable_roommates/Person.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/edu.brown.cs.student.main.stable_roommates/Person.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.brown.cs.student.main.stable_roommates/Person.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/edu.brown.cs.student.main.stable_roommates/Person.java.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.brown.cs.student.main.stable_roommates/StableRoommates.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/edu.brown.cs.student.main.stable_roommates/StableRoommates.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.brown.cs.student.main.stable_roommates/StableRoommates.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/edu.brown.cs.student.main.stable_roommates/StableRoommates.java.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.brown.cs.student.main.stable_roommates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/edu.brown.cs.student.main.stable_roommates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.brown.cs.student.main.stable_roommates/index.source.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/edu.brown.cs.student.main.stable_roommates/index.source.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.brown.cs.student.main/Main$ExceptionPrinter.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/edu.brown.cs.student.main/Main$ExceptionPrinter.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.brown.cs.student.main/Main$FrontHandler.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/edu.brown.cs.student.main/Main$FrontHandler.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.brown.cs.student.main/Main.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/edu.brown.cs.student.main/Main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.brown.cs.student.main/Main.java.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/edu.brown.cs.student.main/Main.java.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-sessions.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/jacoco-sessions.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco.csv" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/jacoco.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/jacoco/jacoco.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/license.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/license.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/mail-lists.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/mail-lists.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/plugin-management.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/plugin-management.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/plugins.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/plugins.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/pmd.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/pmd.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/project-info.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/project-info.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/project-reports.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/project-reports.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/project-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/project-summary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/source-repository.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/source-repository.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/spotbugs.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/spotbugs.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/surefire-report.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/surefire-report.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/team-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/team-list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/xref-test/TestStableRoommates.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/xref-test/TestStableRoommates.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/xref-test/allclasses-frame.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/xref-test/allclasses-frame.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/xref-test/package-frame.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/xref-test/package-frame.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/xref-test/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/xref-test/package-summary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/xref/allclasses-frame.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/xref/allclasses-frame.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/xref/edu/brown/cs/student/main/Main.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/xref/edu/brown/cs/student/main/Main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/xref/edu/brown/cs/student/main/stable_roommates/StableRoommates.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/xref/edu/brown/cs/student/main/stable_roommates/StableRoommates.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/xref/edu/brown/cs/student/main/stable_roommates/package-frame.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/xref/edu/brown/cs/student/main/stable_roommates/package-frame.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/xref/edu/brown/cs/student/main/stable_roommates/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/xref/edu/brown/cs/student/main/stable_roommates/package-summary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/xref/overview-frame.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/xref/overview-frame.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/xref/overview-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/xref/overview-summary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/spotbugsXml.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/spotbugsXml.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-TestStableRoommates.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-TestStableRoommates.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TestStableRoommates.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TestStableRoommates.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/TestMatchEvaluator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/TestMatchEvaluator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/TestStableRoommates.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/TestStableRoommates.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,7 +241,7 @@
       <updated>1617065189125</updated>
       <workItem from="1617065191042" duration="10217000" />
       <workItem from="1617138303399" duration="49979000" />
-      <workItem from="1617719323944" duration="4608000" />
+      <workItem from="1617719323944" duration="11755000" />
     </task>
     <servers />
   </component>

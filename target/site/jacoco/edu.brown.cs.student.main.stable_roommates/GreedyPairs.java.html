@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GreedyPairs.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">stars</a> &gt; <a href="index.source.html" class="el_package">edu.brown.cs.student.main.stable_roommates</a> &gt; <span class="el_source">GreedyPairs.java</span></div><h1>GreedyPairs.java</h1><pre class="source lang-java linenums">package edu.brown.cs.student.main.stable_roommates;
+
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+public class GreedyPairs extends PairGenerator {
+  public GreedyPairs(Map&lt;Person, List&lt;Person&gt;&gt; personToPreferences) {
+<span class="fc" id="L11">    super(personToPreferences);</span>
+<span class="fc" id="L12">  }</span>
+
+  @Override
+  public Map&lt;Person, Person&gt; getPairs() {
+<span class="fc" id="L16">    Map&lt;Person, Person&gt; toReturn = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L17">    Set&lt;Person&gt; people = this.personToPreferences.keySet();</span>
+
+<span class="fc bfc" id="L19" title="All 2 branches covered.">    while (!people.isEmpty()) {</span>
+<span class="fc" id="L20">      Map&lt;Double, PeoplePair&gt; rankToPair = new HashMap&lt;&gt;();</span>
+<span class="fc bfc" id="L21" title="All 2 branches covered.">      for (Person first : people) {</span>
+<span class="fc bfc" id="L22" title="All 2 branches covered.">        for (Person second : people) {</span>
+<span class="fc bfc" id="L23" title="All 2 branches covered.">          if (first.equals(second)) {</span>
+<span class="fc" id="L24">            continue;</span>
+          }
+
+<span class="fc" id="L27">          int firstRank = second.getPreferences().indexOf(first);</span>
+<span class="fc" id="L28">          int secondRank = first.getPreferences().indexOf(second);</span>
+
+<span class="fc" id="L30">          double avgRank = (firstRank + secondRank) / 2.0;</span>
+<span class="fc" id="L31">          rankToPair.put(avgRank, new PeoplePair(first, second));</span>
+<span class="fc" id="L32">        }</span>
+<span class="fc" id="L33">      }</span>
+
+<span class="fc" id="L35">      double minRank = Collections.min(rankToPair.keySet());</span>
+<span class="fc" id="L36">      PeoplePair minPair = rankToPair.get(minRank);</span>
+
+<span class="fc" id="L38">      toReturn.put(minPair.getFirstPerson(), minPair.getSecondPerson());</span>
+<span class="fc" id="L39">      toReturn.put(minPair.getSecondPerson(), minPair.getFirstPerson());</span>
+
+<span class="fc" id="L41">      people.remove(minPair.getFirstPerson());</span>
+<span class="fc" id="L42">      people.remove(minPair.getSecondPerson());</span>
+<span class="fc" id="L43">    }</span>
+
+<span class="fc" id="L45">    return toReturn;</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
