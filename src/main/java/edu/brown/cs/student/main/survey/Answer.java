@@ -5,17 +5,16 @@ public class Answer {
   private String text;
   private boolean selected;
 
-  public Answer(int id) {
-    this.id = id;
+  public Answer(String text) {
+    this.text = text;
   }
 
   public int getId() {
     return id;
   }
 
-
   @Override
   public String toString() {
-    return "ID: " + this.id;
+    return text;
   }
 }

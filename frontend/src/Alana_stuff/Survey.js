@@ -98,8 +98,8 @@ function Survey() {
     }
 
     const generatePairs = async () => {
-        let allQuestions = await db.collection("surveys").doc(currentPoll).collection("questions").orderBy("questionnumber").get();
-        let answers = await db.collection("surveys").doc(currentPoll).collection("responses").orderBy("userID").get();
+        let allQuestions = (await db.collection("surveys").doc(currentPoll).collection("questions").orderBy("questionnumber").get()).docs.map(d => d.data());
+        let answers = (await db.collection("surveys").doc(currentPoll).collection("responses").orderBy("userID").get()).docs.map(d => d.data());
 
         // assumes that responses array has the index represent question id and value represent which answer
         // was picked
@@ -116,11 +116,12 @@ function Survey() {
         };
 
         axios.post(
-            "http://localhost:4567/matches",
+            "http://localhost:4567/match",
             toSend,
             config
         ).then(response => {
-            let resp = response.data["ways"];
+            let resp = response.data["pairs"];
+            console.log(resp);
 
         }).catch(error => {
             console.log(error);

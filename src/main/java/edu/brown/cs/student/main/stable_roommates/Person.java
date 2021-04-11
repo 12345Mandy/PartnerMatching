@@ -6,34 +6,13 @@ import java.util.Objects;
 /**
  * class to represent a person and their data.
  */
-public class Person implements Comparable<Person> {
+public class Person {
   private int id;
-  private String name;
-  private double ranking;
   private List<Person> preferences;
   private Person personWhoProposed;
 
-  /**
-   * @param id      - the person's unique id
-   * @param name    - the person's name
-   * @param ranking - the person's ranking relative to another person
-   */
-  public Person(int id, String name, double ranking) {
+  public Person(int id) {
     this.id = id;
-    this.name = name;
-    this.ranking = ranking;
-  }
-
-  public Person(int id, String name) {
-    this.id = id;
-    this.name = name;
-  }
-
-  /**
-   * @return - the person's name
-   */
-  public String getName() {
-    return name;
   }
 
   /**
@@ -43,12 +22,6 @@ public class Person implements Comparable<Person> {
     return id;
   }
 
-  /**
-   * @return - the person's ranking relative to another person
-   */
-  public double getRanking() {
-    return ranking;
-  }
 
   public Person getPersonWhoProposed() {
     return personWhoProposed;
@@ -95,7 +68,7 @@ public class Person implements Comparable<Person> {
 
   @Override
   public int hashCode() {
-    return Objects.hash(this.id, this.name);
+    return Objects.hash(this.id);
   }
 
   @Override
@@ -110,16 +83,11 @@ public class Person implements Comparable<Person> {
 
     Person other = (Person) obj;
 
-    return this.id == other.id && this.name.equals(other.name);
-  }
-
-  @Override
-  public int compareTo(Person other) {
-    return Double.compare(other.getRanking(), this.ranking);
+    return this.id == other.id;
   }
 
   @Override
   public String toString() {
-    return this.name;
+    return Integer.toString(this.id);
   }
 }

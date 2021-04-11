@@ -4,11 +4,24 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
+import com.google.common.collect.ImmutableList;
 import com.google.gson.Gson;
+import edu.brown.cs.student.main.match_evaluator.MatchEvaluator;
+import edu.brown.cs.student.main.stable_roommates.Person;
+import edu.brown.cs.student.main.stable_roommates.StableRoommates;
+import edu.brown.cs.student.main.survey.Answer;
+import edu.brown.cs.student.main.survey.Question;
 import joptsimple.OptionParser;
 import joptsimple.OptionSet;
+import org.checkerframework.checker.units.qual.A;
+import org.json.JSONArray;
 import org.json.JSONObject;
 import spark.ExceptionHandler;
 import spark.ModelAndView;
@@ -80,8 +93,25 @@ public final class Main {
 
     FreeMarkerEngine freeMarker = createEngine();
 
+    Spark.options("/*", (request, response) -> {
+      String accessControlRequestHeaders = request.headers("Access-Control-Request-Headers");
+      if (accessControlRequestHeaders != null) {
+        response.header("Access-Control-Allow-Headers", accessControlRequestHeaders);
+      }
+
+      String accessControlRequestMethod = request.headers("Access-Control-Request-Method");
+
+      if (accessControlRequestMethod != null) {
+        response.header("Access-Control-Allow-Methods", accessControlRequestMethod);
+      }
+
+      return "OK";
+    });
+
+    Spark.before((request, response) -> response.header("Access-Control-Allow-Origin", "*"));
+
     // Setup Spark Routes
-    Spark.post("/matches", new MatchesHandler());
+    Spark.post("/match", new MatchesHandler());
   }
 
   private static class MatchesHandler implements Route {
@@ -89,10 +119,68 @@ public final class Main {
     public Object handle(Request request, Response response) throws Exception {
       JSONObject jsonObject = new JSONObject(request.body());
 
-      Object questions = jsonObject.get("questions");
-      Object answers = jsonObject.get("answers");
+      JSONArray questions = jsonObject.getJSONArray("questions");
+      JSONArray answers = jsonObject.getJSONArray("answers");
 
-      return GSON.toJson(ImmutableMap.of());
+      List<Question> questionList = new ArrayList<>();
+      for (int i = 0; i < questions.length(); i++) {
+        JSONObject currQuestionData = questions.getJSONObject(i);
+
+        String questionText = currQuestionData.getString("question");
+        double value = currQuestionData.getDouble("importance");
+        JSONArray questionAnswers = currQuestionData.getJSONArray("options");
+
+        List<Answer> actualAnswers = new ArrayList<>();
+        for (int j = 0; j < questionAnswers.length(); j++) {
+          String answerText = questionAnswers.getString(j);
+
+          actualAnswers.add(new Answer(answerText));
+        }
+
+        Question currQuestion = new Question(questionText, value);
+        currQuestion.setAnswers(actualAnswers);
+
+        questionList.add(currQuestion);
+      }
+
+      Map<Person, List<Answer>> personToAnswers = new HashMap<>();
+
+      for (int i = 0; i < answers.length(); i++) {
+        JSONObject currResponse = answers.getJSONObject(i);
+        Person currPerson = new Person(currResponse.getInt("userID"));
+
+        JSONArray currPersonAnswers = currResponse.getJSONArray("responses");
+        List<Answer> listOfAnswers = new ArrayList<>();
+        for (int j = 0; j < currPersonAnswers.length(); j++) {
+          assert currPersonAnswers.length() == questionList.size();
+          Question parentQuestion = questionList.get(j);
+
+          int indexOfAnswer = currPersonAnswers.getInt(j);
+
+          Answer chosenAnswer = parentQuestion.getAnswers().get(indexOfAnswer);
+
+          listOfAnswers.add(chosenAnswer);
+        }
+
+        personToAnswers.put(currPerson, listOfAnswers);
+      }
+
+      MatchEvaluator matchEvaluator = new MatchEvaluator(questionList, personToAnswers);
+      Map<Person, List<Person>> prefs = matchEvaluator.evaluateMatches();
+
+      for (Person currPerson : prefs.keySet()) {
+        currPerson.setPreferences(prefs.get(currPerson));
+      }
+
+      StableRoommates sr = new StableRoommates(prefs);
+      Map<Person, Person> pairs = sr.getPairs();
+      Map<Integer, Integer> idPairs = pairs.entrySet()
+          .stream()
+          .collect(Collectors.toMap(map -> map.getKey().getId(), map -> map.getValue().getId()));
+
+      Map<String, Object> variables = ImmutableMap.of("pairs", idPairs);
+
+      return GSON.toJson(variables);
     }
   }
 

@@ -56,12 +56,12 @@ public class TestMatchEvaluator {
         for (int i = 0; i < NUM_QUESTIONS; i++) {
           // make a question with a random value
           Question currQuestion =
-              new Question(i, QUESTION_VALUE);
+              new Question("sample text", QUESTION_VALUE);
           List<Answer> answers = new ArrayList<>();
 
           // makes 4 answers for each question
           for (int j = 0; j < NUM_ANSWERS; j++) {
-            Answer currAnswer = new Answer(j);
+            Answer currAnswer = new Answer("sample ans");
             answers.add(currAnswer);
           }
 
@@ -71,7 +71,7 @@ public class TestMatchEvaluator {
 
         // selected a random answer for each person
         for (int i = 0; i < NUM_PEOPLE; i++) {
-          Person currPerson = new Person(i, Integer.toString(i));
+          Person currPerson = new Person(i);
           List<Answer> currPersonsAnswers = new ArrayList<>();
 
           // get a random answer for each question

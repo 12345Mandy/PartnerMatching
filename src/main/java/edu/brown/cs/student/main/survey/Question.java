@@ -4,13 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Question {
-  private int id;
   private String text;
   private List<Answer> answers;
   private double score;
 
-  public Question(int id, double score) {
-    this.id = id;
+  public Question(String text, double score) {
+    this.text = text;
     this.score = score;
   }
 
@@ -22,9 +21,6 @@ public class Question {
     this.answers = new ArrayList<>(answers); // defensive copy
   }
 
-  public int getId() {
-    return id;
-  }
 
   public double getScore() {
     return score;
@@ -32,6 +28,6 @@ public class Question {
 
   @Override
   public String toString() {
-    return "(ID: " + this.id + ", Value: " + this.score + ")";
+    return this.text;
   }
 }
