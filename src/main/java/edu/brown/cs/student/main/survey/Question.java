@@ -1,4 +1,3 @@
-
 package edu.brown.cs.student.main.survey;
 
 import java.util.ArrayList;
