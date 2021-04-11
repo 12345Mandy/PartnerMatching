@@ -30,6 +30,8 @@ public class TestMatchEvaluator {
 //    Set<Integer> foundPeop = new HashSet<>();
 //    Set<Integer> foundMaxQues = new HashSet<>();
 
+    Set<Map<Person, Person>> uniqueMatches = new HashSet<>();
+
     int numOfStableMatches = 0;
     for (int currIter = 0; currIter < NUM_ITERATIONS; currIter++) {
       if (currIter % 20 == 0) {
@@ -59,7 +61,7 @@ public class TestMatchEvaluator {
 
           // makes 4 answers for each question
           for (int j = 0; j < NUM_ANSWERS; j++) {
-            Answer currAnswer = new Answer(j, currQuestion);
+            Answer currAnswer = new Answer(j);
             answers.add(currAnswer);
           }
 
@@ -99,6 +101,7 @@ public class TestMatchEvaluator {
 //        }
 
         Assert.assertTrue(sr.isStable(pairs));
+        uniqueMatches.add(pairs);
 
 //        System.out.println(currIter);
       } catch (Exception e) {
@@ -111,6 +114,8 @@ public class TestMatchEvaluator {
         System.out.println();
       }
     }
+
+    System.out.println(uniqueMatches.size());
 
 //    System.out.println("Num unique answers is " + foundAns.size());
 //    System.out.println("Num unique questions is " + foundQues.size());

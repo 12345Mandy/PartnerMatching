@@ -1,4 +1,3 @@
-
 package edu.brown.cs.student.main;
 
 import java.io.File;
@@ -6,6 +5,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.Map;
+
+import com.google.gson.Gson;
 import joptsimple.OptionParser;
 import joptsimple.OptionSet;
 import org.json.JSONObject;
@@ -28,6 +29,7 @@ import freemarker.template.Configuration;
 public final class Main {
 
   private static final int DEFAULT_PORT = 4567;
+  private static final Gson GSON = new Gson();
 
   /**
    * The initial method called when execution begins.
@@ -79,15 +81,20 @@ public final class Main {
     FreeMarkerEngine freeMarker = createEngine();
 
     // Setup Spark Routes
-    Spark.get("/stars", new FrontHandler(), freeMarker);
+    Spark.post("/matches", new MatchesHandler());
   }
 
-//  private static class SurveyHandler implements Route {
-//    @Override
-//    public Object handle(Request request, Response response) throws Exception {
-//      JSONObject jsonObject = new JSONObject(request.body());
-//    }
-//  }
+  private static class MatchesHandler implements Route {
+    @Override
+    public Object handle(Request request, Response response) throws Exception {
+      JSONObject jsonObject = new JSONObject(request.body());
+
+      Object questions = jsonObject.get("questions");
+      Object answers = jsonObject.get("answers");
+
+      return GSON.toJson(ImmutableMap.of());
+    }
+  }
 
   /**
    * Handle requests to the front page of our Stars website.

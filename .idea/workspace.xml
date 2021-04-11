@@ -6,23 +6,95 @@
   <component name="ChangeListManager">
     <list default="true" id="942e858d-e70a-4479-b912-59cc151b8fbc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/cs32_checks.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/cs32_intellij_checks.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/run" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/brown/cs/student/main/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/spark/template/freemarker/main.ftl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/spark/template/freemarker/query.ftl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/stars.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.cache/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.cache/.eslintcache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/helper-create-class-features-plugin/node_modules/@babel/core/node_modules/.bin/json5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/helper-create-class-features-plugin/node_modules/@babel/core/node_modules/.bin/parser" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/node_modules/@babel/helper-create-class-features-plugin/node_modules/@babel/core/node_modules/.bin/semver" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/node_modules/babel-jest/node_modules/@babel/core/node_modules/.bin/json5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/node_modules/babel-jest/node_modules/@babel/core/node_modules/.bin/parser" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/node_modules/babel-jest/node_modules/@babel/core/node_modules/.bin/semver" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/node_modules/babel-preset-react-app/node_modules/@babel/core/node_modules/.bin/json5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/node_modules/babel-preset-react-app/node_modules/@babel/core/node_modules/.bin/parser" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/node_modules/babel-preset-react-app/node_modules/@babel/core/node_modules/.bin/semver" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/node_modules/babel-preset-react-app/node_modules/@babel/plugin-transform-react-jsx-development/node_modules/@babel/core/node_modules/.bin/json5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/node_modules/babel-preset-react-app/node_modules/@babel/plugin-transform-react-jsx-development/node_modules/@babel/core/node_modules/.bin/parser" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/node_modules/babel-preset-react-app/node_modules/@babel/plugin-transform-react-jsx-development/node_modules/@babel/core/node_modules/.bin/semver" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/node_modules/babel-preset-react-app/node_modules/@babel/plugin-transform-react-jsx/node_modules/@babel/core/node_modules/.bin/json5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/node_modules/babel-preset-react-app/node_modules/@babel/plugin-transform-react-jsx/node_modules/@babel/core/node_modules/.bin/parser" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/node_modules/babel-preset-react-app/node_modules/@babel/plugin-transform-react-jsx/node_modules/@babel/core/node_modules/.bin/semver" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/node_modules/babel-preset-react-app/node_modules/@babel/plugin-transform-react-pure-annotations/node_modules/@babel/core/node_modules/.bin/json5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/node_modules/babel-preset-react-app/node_modules/@babel/plugin-transform-react-pure-annotations/node_modules/@babel/core/node_modules/.bin/parser" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/node_modules/babel-preset-react-app/node_modules/@babel/plugin-transform-react-pure-annotations/node_modules/@babel/core/node_modules/.bin/semver" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/node_modules/babel-preset-react-app/node_modules/@babel/plugin-transform-runtime/node_modules/.bin/semver" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/node_modules/babel-preset-react-app/node_modules/@babel/preset-env/node_modules/@babel/plugin-proposal-class-properties/node_modules/@babel/core/node_modules/.bin/json5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/node_modules/babel-preset-react-app/node_modules/@babel/preset-env/node_modules/@babel/plugin-proposal-class-properties/node_modules/@babel/core/node_modules/.bin/parser" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/node_modules/babel-preset-react-app/node_modules/@babel/preset-env/node_modules/@babel/plugin-proposal-class-properties/node_modules/@babel/core/node_modules/.bin/semver" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/node_modules/babel-preset-react-app/node_modules/@babel/preset-env/node_modules/@babel/plugin-proposal-nullish-coalescing-operator/node_modules/@babel/core/node_modules/.bin/json5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/node_modules/babel-preset-react-app/node_modules/@babel/preset-env/node_modules/@babel/plugin-proposal-nullish-coalescing-operator/node_modules/@babel/core/node_modules/.bin/parser" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/node_modules/babel-preset-react-app/node_modules/@babel/preset-env/node_modules/@babel/plugin-proposal-nullish-coalescing-operator/node_modules/@babel/core/node_modules/.bin/semver" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/node_modules/babel-preset-react-app/node_modules/@babel/preset-env/node_modules/@babel/plugin-proposal-numeric-separator/node_modules/@babel/core/node_modules/.bin/json5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/node_modules/babel-preset-react-app/node_modules/@babel/preset-env/node_modules/@babel/plugin-proposal-numeric-separator/node_modules/@babel/core/node_modules/.bin/parser" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/node_modules/babel-preset-react-app/node_modules/@babel/preset-env/node_modules/@babel/plugin-proposal-numeric-separator/node_modules/@babel/core/node_modules/.bin/semver" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/node_modules/babel-preset-react-app/node_modules/@babel/preset-env/node_modules/@babel/plugin-proposal-optional-chaining/node_modules/@babel/core/node_modules/.bin/json5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/node_modules/babel-preset-react-app/node_modules/@babel/preset-env/node_modules/@babel/plugin-proposal-optional-chaining/node_modules/@babel/core/node_modules/.bin/parser" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/node_modules/babel-preset-react-app/node_modules/@babel/preset-env/node_modules/@babel/plugin-proposal-optional-chaining/node_modules/@babel/core/node_modules/.bin/semver" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/node_modules/babel-preset-react-app/node_modules/@babel/preset-react/node_modules/@babel/plugin-transform-react-display-name/node_modules/@babel/core/node_modules/.bin/json5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/node_modules/babel-preset-react-app/node_modules/@babel/preset-react/node_modules/@babel/plugin-transform-react-display-name/node_modules/@babel/core/node_modules/.bin/parser" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/node_modules/babel-preset-react-app/node_modules/@babel/preset-react/node_modules/@babel/plugin-transform-react-display-name/node_modules/@babel/core/node_modules/.bin/semver" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/node_modules/execa/node_modules/cross-spawn/node_modules/.bin/semver" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/node_modules/execa/node_modules/cross-spawn/node_modules/.bin/which" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/node_modules/find-cache-dir/node_modules/make-dir/node_modules/.bin/semver" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/node_modules/jest-cli/node_modules/.bin/import-local-fixture" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/node_modules/jest-cli/node_modules/.bin/is-ci" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/node_modules/node-notifier/node_modules/is-wsl/node_modules/.bin/is-docker" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/node_modules/open/node_modules/is-wsl/node_modules/.bin/is-docker" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/node_modules/postcss-attribute-case-insensitive/node_modules/postcss-selector-parser/node_modules/.bin/cssesc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/node_modules/postcss-calc/node_modules/postcss-selector-parser/node_modules/.bin/cssesc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/node_modules/postcss-modules-local-by-default/node_modules/postcss-selector-parser/node_modules/.bin/cssesc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/node_modules/postcss-modules-scope/node_modules/postcss-selector-parser/node_modules/.bin/cssesc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/node_modules/react-scripts/node_modules/@babel/core/node_modules/.bin/json5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/node_modules/react-scripts/node_modules/@babel/core/node_modules/.bin/parser" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/node_modules/react-scripts/node_modules/babel-loader/node_modules/.bin/mkdirp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/node_modules/react-scripts/node_modules/babel-loader/node_modules/.bin/webpack" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Alana_stuff/Survey.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Alana_stuff/Survey.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Homepage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Homepage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/SharedWithMe.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/SharedWithMe.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/brown/cs/student/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/brown/cs/student/main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/brown/cs/student/main/match_evaluator/MatchEvaluator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/brown/cs/student/main/match_evaluator/MatchEvaluator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/brown/cs/student/main/survey/Answer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/brown/cs/student/main/survey/Answer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/TestMatchEvaluator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestMatchEvaluator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stars.iml" beforeDir="false" afterPath="$PROJECT_DIR$/stars.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Main$ExceptionPrinter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Main$ExceptionPrinter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Main$FrontHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Main$FrontHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/survey/Answer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/survey/Answer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/jacoco.exec" beforeDir="false" afterPath="$PROJECT_DIR$/target/jacoco.exec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-TestMatchEvaluator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-TestMatchEvaluator.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-TestStableRoommates.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-TestStableRoommates.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TestMatchEvaluator.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TestMatchEvaluator.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/TestMatchEvaluator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/TestMatchEvaluator.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
   </component>
   <component name="ProjectId" id="1qzSJfFykrZK2uWGwI0ADl31XDk" />
   <component name="ProjectViewState">
@@ -32,15 +104,29 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -52,10 +138,26 @@
       <updated>1618080856830</updated>
       <workItem from="1618080862321" duration="1256000" />
       <workItem from="1618082514652" duration="1142000" />
+      <workItem from="1618154671106" duration="42000" />
+      <workItem from="1618154726538" duration="7000" />
+      <workItem from="1618154754050" duration="64000" />
+      <workItem from="1618154838314" duration="69000" />
+      <workItem from="1618155045103" duration="630000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

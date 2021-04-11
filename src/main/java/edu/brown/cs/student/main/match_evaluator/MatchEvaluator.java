@@ -12,8 +12,8 @@ import java.util.List;
 import java.util.Map;
 
 public class MatchEvaluator {
-  private List<Question> questions;
-  private Map<Person, List<Answer>> personToAnswers;
+  private List<Question> questions; // a list of the questions
+  private Map<Person, List<Answer>> personToAnswers; // a map from person to their answers
 
   // DATA IS IN FORM:
   // first element is "ID" of person, next are question answers.

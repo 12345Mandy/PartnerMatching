@@ -4,7 +4,7 @@ import Survey from '../Alana_stuff/Survey'
 function Homepage() {
     return (
         <div>
-              <Survey />
+            <Survey/>
         </div>
     )
 }

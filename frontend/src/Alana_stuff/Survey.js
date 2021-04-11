@@ -1,7 +1,8 @@
 import Question from "./Question";
 import React, {useState, useEffect} from 'react';
-import { firestore } from "firebase";
+import {firestore} from "firebase";
 import firebase from "firebase";
+import axios from "axios";
 import fire from '../fire'
 import Option from "./Option";
 
@@ -25,7 +26,6 @@ function Survey() {
     //     firebase.app();
     // }
 
-   
 
     const db = firebase.firestore();
     const currentPoll = "labpartners";
@@ -40,7 +40,7 @@ function Survey() {
         let answers = new Array(ndoc.docs.length);
         // store answer as -1 if user hasn't answered
         console.log(answers.length);
-        for(let i = 0; i < answers.length; i++) {
+        for (let i = 0; i < answers.length; i++) {
             answers[i] = -1;
         }
         setUserAnswers(answers);
@@ -52,25 +52,23 @@ function Survey() {
         // set user ID to be 0 for now
         // add doc to answers collection (need to figure out how to do if not exist stuff to make a responses collection in future)
         await db.collection("surveys").doc(currentPoll).collection("responses").add({
-            userID : 0,
-            responses : userAnswers
+            userID: 0,
+            responses: userAnswers
         });
         // should we add a timestamp?
         console.log("submitted!");
-
-
     }
 
+
     // on page load, load in the survey
-    useEffect( () => {
+    useEffect(() => {
         loadSurvey();
     }, [])
 
 
-
     // set ID, used in child component
     const setAnswerFromChild = (questionID, answer) => {
-        if(userAnswers) {
+        if (userAnswers) {
             userAnswers[questionID] = answer;
         }
     }
@@ -82,15 +80,15 @@ function Survey() {
 
         // make sure each answer isn't null
         let valid = true;
-        for(let i = 0; i < userAnswers.length; i++) {
-            if(userAnswers[i] == -1) {
+        for (let i = 0; i < userAnswers.length; i++) {
+            if (userAnswers[i] === -1) {
                 valid = false;
             }
         }
 
         //TODO: prevent user from submitting duplicates
 
-        if(valid) {
+        if (valid) {
             console.log("attemp ting to submit...");
             sendResults();
         } else {
@@ -99,16 +97,47 @@ function Survey() {
         }
     }
 
+    const generatePairs = async () => {
+        let allQuestions = await db.collection("surveys").doc(currentPoll).collection("questions").orderBy("questionnumber").get();
+        let answers = await db.collection("surveys").doc(currentPoll).collection("responses").orderBy("userID").get();
+
+        // assumes that responses array has the index represent question id and value represent which answer
+        // was picked
+        const toSend = {
+            questions: allQuestions,
+            answers: answers
+        };
+
+        let config = {
+            headers: {
+                "Content-Type": "application/json",
+                'Access-Control-Allow-Origin': '*',
+            }
+        };
+
+        axios.post(
+            "http://localhost:4567/matches",
+            toSend,
+            config
+        ).then(response => {
+            let resp = response.data["ways"];
+
+        }).catch(error => {
+            console.log(error);
+        });
+    }
 
     return (
-        <div className="poll" >
+        <div className="poll">
             <h1>{title}</h1>
+            <button type="button" onClick={generatePairs}>Click for Pairs</button>
             <br/>
             <p>{description}</p>
             {questions.map((q, qid) =>
-                <Question options={q.options} question = {q.question} id={qid} onSelect={setAnswerFromChild}/>
+                <Question options={q.options} question={q.question} id={qid} onSelect={setAnswerFromChild}/>
             )}
             <button type="button" onClick={submitSurvey}>submit</button>
+
         </div>
     );
 }

@@ -6,7 +6,7 @@
   <!-- groupId is used to identify the organization -->
   <groupId>edu.brown.cs</groupId>
   <!-- artifactId is used to name the specific project -->
-  <artifactId>stars</artifactId>
+  <artifactId>term_project</artifactId>
   <!-- type of file you want to output -->
   <packaging>jar</packaging>
   <!-- Version of your project -->
@@ -19,11 +19,14 @@
 
   <!-- Dependencies section for libraries put all of your libraries in here -->
   <dependencies>
+
+    <!-- JSON import -->
     <dependency>
       <groupId>com.vaadin.external.google</groupId>
       <artifactId>android-json</artifactId>
       <version>0.0.20131108.vaadin1</version>
     </dependency>
+
 
     <!--
         jopt-simple is a command line parser.
