@@ -18,12 +18,12 @@ import java.util.concurrent.ExecutionException;
 public class TestMatchEvaluator {
   @Test
   public void pbtTest() {
-    final int NUM_ITERATIONS = 1000000;
+    final int NUM_ITERATIONS = 1000;
 
-    int MAX_NUM_ANSWERS = 1000;
-    int MAX_NUM_QUESTIONS = 1000;
-    int MAX_NUM_PEOPLE = 500;
-    int MAX_QUESTION_VALUE = 1000;
+    int MAX_NUM_ANSWERS = 100;
+    int MAX_NUM_QUESTIONS = 100;
+    int MAX_NUM_PEOPLE = 100;
+    int MAX_QUESTION_VALUE = 100;
 
 //    Set<Integer> foundAns = new HashSet<>();
 //    Set<Integer> foundQues = new HashSet<>();
