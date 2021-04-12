@@ -51,7 +51,7 @@
 .SidebarList .row:hover,
 .rowClicked:hover {
   cursor: pointer;
-  background-color: #b5838d;
+  background-color: darkgray;
 }
 
 a:link {
