@@ -1,6 +1,7 @@
 .Sidebar {
   height: 100%;
   width: 300px;
+  /*width: 30%;*/
   background-color: #c4c4c4;
   margin: 0px;
   padding: 0px;
@@ -63,4 +64,33 @@ a:link {
 .SidebarList #title {
   margin-left: 20px;
   flex: 70%;
+}
+
+.profile {
+  text-align: center;
+  padding: 35px;
+}
+
+ .editProfileButton {
+   height: 50%;
+   width: 75%;
+  border: 3px solid #e5989b;
+  border-radius: 25px;
+}
+
+.editProfileButton:hover {
+  height: 50%;
+  width: 75%;
+  border: 3px solid white;
+  border-radius: 25px;
+}
+
+
+
+.profilePic {
+  /*cite: https://www.w3schools.com/howto/howto_css_image_avatar.asp*/
+  vertical-align: middle;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
 }

@@ -17,44 +17,52 @@ import ProfilePicDefault from "./ProfilePicDefault";
 
 
 function Sidebar(props) {
+    const [imageUrl, setImageUrl] = useState(null);
     //const logo = require('../images/default_profile.png');
     const user = props.user;
-   // // const logo = require(user.photoURL);
-   // // const storage = firebase.storage().ref()
-   //
-   //  let storage = firebase.storage();
-   //  // Create a reference to the file we want to download
-   //  let gsReference = storage.refFromURL('gs://short-demo-login.appspot.com/default_profile.png');
+   // const logo = require(user.photoURL);
+   // const storage = firebase.storage().ref()
 
-// Get the download URL
-//     const getDefaultImage = () => {
-//         gsReference.getDownloadURL()
-//             .then((url) => {
-//                 // Insert url into an <img> tag to "download"
-//                 console.log(user.photoURL ? user.photoURL: url)
-//                 return url;
-//                 //return <img src={url} alt=""/>;
-//             })
-//             .catch((error) => {
-//                 // A full list of error codes is available at
-//                 // https://firebase.google.com/docs/storage/web/handle-errors
-//                 switch (error.code) {
-//                     case 'storage/object-not-found':
-//                         // File doesn't exist
-//                         break;
-//                     case 'storage/unauthorized':
-//                         // User doesn't have permission to access the object
-//                         break;
-//                     case 'storage/canceled':
-//                         // User canceled the upload
-//                         break;
-//                     case 'storage/unknown':
-//                         // Unknown error occurred, inspect the server response
-//                         break;
-//                 }
-//             });
-//     }
+    let storage = firebase.storage();
+    // Create a reference to the file we want to download
+    let gsReference = storage.refFromURL('gs://short-demo-login.appspot.com/default_profile.png');
 
+    const getDefaultImage = () => {
+        gsReference.getDownloadURL()
+            .then((url) => {
+                // Insert url into an <img> tag to "download"
+                console.log(user.photoURL ? user.photoURL: url)
+                setImageUrl(url);
+                //return <img src={url} alt=""/>;
+            })
+            .catch((error) => {
+                // A full list of error codes is available at
+                // https://firebase.google.com/docs/storage/web/handle-errors
+                switch (error.code) {
+                    case 'storage/object-not-found':
+                        // File doesn't exist
+                        break;
+                    case 'storage/unauthorized':
+                        // User doesn't have permission to access the object
+                        break;
+                    case 'storage/canceled':
+                        // User canceled the upload
+                        break;
+                    case 'storage/unknown':
+                        // Unknown error occurred, inspect the server response
+                        break;
+                }
+            });
+    }
+
+    useEffect(() => {
+            if(user.photoURL) {
+                setImageUrl(user.photoURL);
+            } else {
+                setImageUrl(getDefaultImage());
+            }
+        }
+        , []);
 //<img src={user.photoURL ? user.photoURL: getDefaultImage()} alt=""/>
     //<img src = {getDefaultImage()} alt=""/>
     //<img src={require('./default.png')} alt ="LOADDDD"/>
@@ -63,15 +71,17 @@ function Sidebar(props) {
     const [currentPage, setCurrentPage] = useState("/Homepage");
     return (
         <div className="Sidebar">
-            <center className="profile">
-                {/*<img src={logo} alt ="LOADDDD"/>*/}
+            <div className="profile" >
+                <img src={imageUrl} alt ="Profile-pic could not load" className="profilePic"/>
                 {/*<img src={user.photoURL ? user.photoURL: getDefaultImage()} alt="ahhh"/>*/}
-                <ProfilePicDefault user={user}/>
-                        <p>{user.displayName}</p>
-             </center>
-             <button>Edit Profile</button>
-             <br/>
-             <br/>
+                {/*<ProfilePicDefault user={user}/>*/}
+
+                        <p><h3>{user.displayName}</h3></p>
+                <br/>
+                <button className="editProfileButton">Edit Profile</button>
+
+             </div>
+
             <ul className='SidebarList'>
                 {SidebarData.map((item, index) => {
                     return (
