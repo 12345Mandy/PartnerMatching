@@ -6,6 +6,7 @@ import Sidebar from './components/Sidebar'
 import Homepage from './pages/Homepage'
 import SharedWithMe from'./pages/SharedWithMe'
 import EditProfile from "./pages/EditProfile";
+import ViewResults from './pages/ViewResults'
 import {BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Survey from './Alana_stuff/Survey'
 import StartPage from "./pages/StartPage";
@@ -124,6 +125,7 @@ function App() {
               <Route path="/EditProfile" render={() => (
                   <EditProfile user={user}/>
               )}/>
+              <Route path="/ViewResults" component={ViewResults}/>
             </Switch>
             
           </section>

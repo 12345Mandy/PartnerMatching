@@ -1,0 +1,14 @@
+edu/brown/cs/student/main/Main.class
+edu/brown/cs/student/main/survey/Answer.class
+edu/brown/cs/student/main/stable_roommates/PairGenerator.class
+edu/brown/cs/student/main/Main$MatchesHandler.class
+edu/brown/cs/student/main/stable_roommates/RandomPairs.class
+edu/brown/cs/student/main/Main$ExceptionPrinter.class
+edu/brown/cs/student/main/Main$FrontHandler.class
+edu/brown/cs/student/main/match_evaluator/MatchEvaluator.class
+edu/brown/cs/student/main/stable_roommates/GreedyPairs.class
+edu/brown/cs/student/main/match_evaluator/PersonToScore.class
+edu/brown/cs/student/main/stable_roommates/PeoplePair.class
+edu/brown/cs/student/main/stable_roommates/StableRoommates.class
+edu/brown/cs/student/main/survey/Question.class
+edu/brown/cs/student/main/stable_roommates/Person.class
