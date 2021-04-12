@@ -1,10 +1,9 @@
 import Question from "./Question";
 import React, {useState, useEffect} from 'react';
-import {firestore} from "firebase";
+import { Link } from 'react-router-dom'
 import firebase from "firebase";
 import axios from "axios";
 import fire from '../fire'
-import Option from "./Option";
 
 // const firebaseConfig = {
 //     apiKey: "AIzaSyAivvKyzEqMpc5Z8X2eZnUFkWcyCoSFS54",
@@ -15,6 +14,7 @@ import Option from "./Option";
 
 function Survey() {
     const [title, setTitle] = useState("loading...");
+    const [surveyCreator, setCreator] = useState(""); // use this to check if button should show up
     const [description, setDescription] = useState("almost there...");
     const [questions, setQuestions] = useState([]);
     const [userAnswers, setUserAnswers] = useState([]);
@@ -34,6 +34,7 @@ function Survey() {
     const loadSurvey = async () => {
         const doc = await db.collection("surveys").doc(currentPoll).get();
         setTitle(doc.data().title);
+        setCreator(doc.data().creator); // sets creator --> if current user matches this, display button to get results
         setDescription(doc.data().description);
         const ndoc = await db.collection("surveys").doc(currentPoll).collection("questions").orderBy("questionnumber").get();
         await setQuestions(ndoc.docs.map(d => d.data()));
@@ -97,50 +98,37 @@ function Survey() {
         }
     }
 
-    const generatePairs = async () => {
-        let allQuestions = (await db.collection("surveys").doc(currentPoll).collection("questions").orderBy("questionnumber").get()).docs.map(d => d.data());
-        let answers = (await db.collection("surveys").doc(currentPoll).collection("responses").orderBy("userID").get()).docs.map(d => d.data());
+    // checking if user is admin is hard coded in --> will be used to display button for survey results.
+    if(surveyCreator === "userid") {
+        console.log("ssss")
+        return ( <div>
+                <div className="poll">
+                    <h1>{title}</h1>
+                    <br/>
+                    <p>{description}</p>
+                    {questions.map((q, qid) =>
+                        <Question options={q.options} question={q.question} id={qid} onSelect={setAnswerFromChild}/>
+                    )}
+                    <button type="button" onClick={submitSurvey}>submit</button>
 
-        // assumes that responses array has the index represent question id and value represent which answer
-        // was picked
-        const toSend = {
-            questions: allQuestions,
-            answers: answers
-        };
-
-        let config = {
-            headers: {
-                "Content-Type": "application/json",
-                'Access-Control-Allow-Origin': '*',
-            }
-        };
-
-        axios.post(
-            "http://localhost:4567/match",
-            toSend,
-            config
-        ).then(response => {
-            let resp = response.data["pairs"];
-            console.log(resp);
-
-        }).catch(error => {
-            console.log(error);
-        });
-    }
-
-    return (
-        <div className="poll">
-            <h1>{title}</h1>
-            <button type="button" onClick={generatePairs}>Click for Pairs</button>
-            <br/>
-            <p>{description}</p>
-            {questions.map((q, qid) =>
-                <Question options={q.options} question={q.question} id={qid} onSelect={setAnswerFromChild}/>
-            )}
-            <button type="button" onClick={submitSurvey}>submit</button>
-
+                </div>
+                <Link to="/ViewResults" className="poll">Check Results -- Generate Pairs</Link>
         </div>
-    );
+        )
+    } else {
+        return (
+            <div className="poll">
+                <h1>{title}</h1>
+                <br/>
+                <p>{description}</p>
+                {questions.map((q, qid) =>
+                    <Question options={q.options} question={q.question} id={qid} onSelect={setAnswerFromChild}/>
+                )}
+                <button type="button" onClick={submitSurvey}>submit</button>
+
+            </div>
+        );
+    }
 }
 
 export default Survey;
