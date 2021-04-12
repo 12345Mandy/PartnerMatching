@@ -8,6 +8,7 @@ import SharedWithMe from'./pages/SharedWithMe'
 import {BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Survey from './Alana_stuff/Survey'
 import StartPage from "./pages/StartPage";
+import logo from "./default.png"
 
 //https://firebase.google.com/docs/auth/web/manage-users
 
@@ -65,7 +66,7 @@ function App() {
       .then((userCredential) => {
         userCredential.user.updateProfile({
           displayName: userName,
-          photoURL: "gs://short-demo-login.appspot.com/default_profile.png"
+          photoURL: null,
         })
       })
       .catch(err => {
@@ -112,6 +113,7 @@ function App() {
       {user ? (
         <Router>
           <section className = "hero">
+            {/*<img src={logo} alt ="LOADDDD"/>*/}
             <Nav handleLogout = {handleLogout}/>
             <Sidebar user={user}/>
 
