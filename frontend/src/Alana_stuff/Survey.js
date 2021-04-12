@@ -4,13 +4,7 @@ import { Link } from 'react-router-dom'
 import firebase from "firebase";
 import axios from "axios";
 import fire from '../fire'
-
-// const firebaseConfig = {
-//     apiKey: "AIzaSyAivvKyzEqMpc5Z8X2eZnUFkWcyCoSFS54",
-//     authDomain: "survey-creator-cs32.firebaseapp.com",
-//     projectId: "survey-creator-cs32",
-//     name: "survey"
-// };
+import "./Survey.css"
 
 function Survey() {
     const [title, setTitle] = useState("loading...");
@@ -19,16 +13,9 @@ function Survey() {
     const [questions, setQuestions] = useState([]);
     const [userAnswers, setUserAnswers] = useState([]);
 
-    // firebase.initializeApp(firebaseConfig);
-    // if(!firebase.apps.length) {
-    //     firebase.initializeApp(firebaseConfig);
-    // } else {
-    //     firebase.app();
-    // }
-
 
     const db = firebase.firestore();
-    const currentPoll = "labpartners";
+    const currentPoll = "musicmatcher";
 
     // load in a survey - hardcoded to lab partner survey by default
     const loadSurvey = async () => {
@@ -51,7 +38,6 @@ function Survey() {
     const sendResults = async () => {
         // make a new document for submitting
         // set user ID to be 0 for now
-        // add doc to answers collection (need to figure out how to do if not exist stuff to make a responses collection in future)
         await db.collection("surveys").doc(currentPoll).collection("responses").add({
             userID: 0,
             responses: userAnswers
@@ -103,9 +89,10 @@ function Survey() {
         console.log("ssss")
         return ( <div>
                 <div className="poll">
+                    <div className="surveyInfo">
                     <h1>{title}</h1>
-                    <br/>
                     <p>{description}</p>
+                    </div>
                     {questions.map((q, qid) =>
                         <Question options={q.options} question={q.question} id={qid} onSelect={setAnswerFromChild}/>
                     )}
@@ -118,9 +105,10 @@ function Survey() {
     } else {
         return (
             <div className="poll">
-                <h1>{title}</h1>
-                <br/>
-                <p>{description}</p>
+                <div className="surveyInfo">
+                    <h1>{title}</h1>
+                    <p>{description}</p>
+                </div>
                 {questions.map((q, qid) =>
                     <Question options={q.options} question={q.question} id={qid} onSelect={setAnswerFromChild}/>
                 )}
