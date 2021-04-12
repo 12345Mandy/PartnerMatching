@@ -24,7 +24,7 @@ function Sidebar(props) {
     return (
         <div className="Sidebar">
             <div className="profile" >
-                <ProfilePic user={user}/>
+                <ProfilePic user={user} className={"profilePic"}/>
                 {/*<img src={user.photoURL ? user.photoURL: getDefaultImage()} alt="ahhh"/>*/}
                 {/*<ProfilePic user={user}/>*/}
                         <p><h3>{user.displayName}</h3></p>

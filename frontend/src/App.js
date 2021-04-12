@@ -112,10 +112,10 @@ function App() {
   return (
     <div className="App">
       {user ? (
-        <Router>
+        <Router className = "right">
           <section className = "hero">
             {/*<img src={logo} alt ="LOADDDD"/>*/}
-            <Nav handleLogout = {handleLogout}/>
+            <Nav handleLogout = {handleLogout} className="left"/>
             <Sidebar user={user}/>
 
             <Switch>

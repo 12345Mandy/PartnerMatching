@@ -16,7 +16,7 @@ const ProfilePic = (props) => {
         gsReference.getDownloadURL()
             .then((url) => {
                 // Insert url into an <img> tag to "download"
-                console.log(user.photoURL ? user.photoURL: url)
+                console.log(user.photoURL ? user.photoURL : url)
                 setImageUrl(url);
                 //return <img src={url} alt=""/>;
             })
@@ -41,7 +41,7 @@ const ProfilePic = (props) => {
     }
 
     useEffect(() => {
-            if(user.photoURL) {
+            if (user.photoURL) {
                 setImageUrl(user.photoURL);
             } else {
                 setImageUrl(getDefaultImage());
@@ -49,7 +49,7 @@ const ProfilePic = (props) => {
         }
         , []);
     return (
-        <img src={imageUrl} alt ="Profile-pic could not load" className="profilePic"/>
+        <img src={imageUrl} alt="Profile-pic could not load" className={props.className}/>
         // <img src={user.photoURL ? user.photoURL: getDefaultImage()} alt="ahhh"/>
     )
 }
