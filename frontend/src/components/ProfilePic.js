@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useState, useEffect } from "react";
 import firebase from "firebase";
 
-const ProfilePicDefault = (props) => {
+const ProfilePic = (props) => {
+    const [imageUrl, setImageUrl] = useState(null);
+    //const logo = require('../images/default_profile.png');
     const user = props.user;
     // const logo = require(user.photoURL);
     // const storage = firebase.storage().ref()
@@ -15,7 +17,7 @@ const ProfilePicDefault = (props) => {
             .then((url) => {
                 // Insert url into an <img> tag to "download"
                 console.log(user.photoURL ? user.photoURL: url)
-                return url;
+                setImageUrl(url);
                 //return <img src={url} alt=""/>;
             })
             .catch((error) => {
@@ -37,10 +39,19 @@ const ProfilePicDefault = (props) => {
                 }
             });
     }
+
+    useEffect(() => {
+            if(user.photoURL) {
+                setImageUrl(user.photoURL);
+            } else {
+                setImageUrl(getDefaultImage());
+            }
+        }
+        , []);
     return (
-        <img src= {require("./default.png")} alt="ahhh"/>
+        <img src={imageUrl} alt ="Profile-pic could not load" className="profilePic"/>
         // <img src={user.photoURL ? user.photoURL: getDefaultImage()} alt="ahhh"/>
     )
 }
 
-export default ProfilePicDefault
+export default ProfilePic
