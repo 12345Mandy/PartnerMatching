@@ -108,7 +108,7 @@ function App() {
     authListener(); //listen for state change
   }, []);
 
-    
+
 
   return (
     <div className="App">
@@ -126,6 +126,7 @@ function App() {
                   <EditProfile user={user}/>
               )}/>
               <Route path="/ViewResults" component={ViewResults}/>
+              {/*<Route path="/Login" component={StartPage}/>*/}
             </Switch>
             
           </section>

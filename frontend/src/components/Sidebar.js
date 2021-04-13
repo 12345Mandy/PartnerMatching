@@ -27,7 +27,7 @@ function Sidebar(props) {
                 <ProfilePic user={user} className={"profilePic"}/>
                 {/*<img src={user.photoURL ? user.photoURL: getDefaultImage()} alt="ahhh"/>*/}
                 {/*<ProfilePic user={user}/>*/}
-                        <p><h3>{user.displayName}</h3></p>
+                        <h3>{user.displayName}</h3>
                 <br/><br/>
 
                 {/*<button className="editProfileButton" >Edit Profile</button>*/}
