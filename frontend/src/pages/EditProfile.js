@@ -19,7 +19,7 @@ function EditProfile(props) {
         user.delete().then(function() {
             console.log("user successfully deleted")
         }).catch(function(error) {
-            console.log("user was not successfully deleted")
+            console.log("user was not successfully deleted"+      error)
         });
         setDeleteAccount(true);
     }
