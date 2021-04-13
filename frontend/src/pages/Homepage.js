@@ -8,7 +8,7 @@ function Homepage() {
 
             {/*<PopUp props = <Survey />/>*/}
               {/*<Survey />*/}
-            <Survey />
+            {/*<Survey />*/}
 
         </div>
     )

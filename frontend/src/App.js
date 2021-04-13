@@ -11,6 +11,7 @@ import {BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Survey from './Alana_stuff/Survey'
 import StartPage from "./pages/StartPage";
 import logo from "./default.png"
+import TakeSurvey from "./pages/TakeSurvey";
 
 //https://firebase.google.com/docs/auth/web/manage-users
 
@@ -126,6 +127,7 @@ function App() {
                   <EditProfile user={user}/>
               )}/>
               <Route path="/ViewResults" component={ViewResults}/>
+              <Route path="/TakeSurvey" component={TakeSurvey}/>
               {/*<Route path="/Login" component={StartPage}/>*/}
             </Switch>
             
