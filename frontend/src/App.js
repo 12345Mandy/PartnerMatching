@@ -123,6 +123,7 @@ function App() {
                             <Switch >
                                 <Route path="/Homepage"  component={Homepage}/>
                                 <Route path="/SharedWithMe" component={SharedWithMe}/>
+                                <Route path="/TakeSurvey" component={TakeSurvey}/>
                                 <Route path="/EditProfile" render={() => (
                                     <EditProfile user={user}/>
                                 )}/>

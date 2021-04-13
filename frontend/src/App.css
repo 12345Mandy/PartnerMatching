@@ -10,28 +10,7 @@
   flex-flow: row wrap;
 }
 
-/*.App .hero > * {*/
-/*  flex: 1 100%;*/
-/*}*/
-/*@media all and (min-width: 600px) {*/
-/*  !* We tell both sidebars to share a row *!*/
-/*  .aside { flex: 1 auto; }*/
-/*}*/
 
-/*@media all and (min-width: 800px) {*/
-/*  !* We invert order of first sidebar and main*/
-/*   * And tell the main element to take twice as much width as the other two sidebars*/
-/*   *!*/
-/*  .main { flex: 2 0px; }*/
-/*  .sideBarLeft { order: 1; }*/
-/*  .main    { order: 2; }*/
-
-/*}*/
-/*.topNav {*/
-/*  order: 1;*/
-/*  flex: 1 100%;*/
-/*  width: 100%*/
-/*}*/
 .sideBarLeft {
   order: 1;
   flex: 40%;
@@ -40,6 +19,7 @@
 .main {
   order: 2;
   flex: 60%;
+  align-content: center;
   display: grid;
   grid-area: center;
   margin-left: 10px;
