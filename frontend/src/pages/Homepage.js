@@ -8,6 +8,7 @@ function Homepage() {
     const [surveyVisibility, setSurveyVisibility] = useState(false)
     return (
         <div>
+
             <NewSurvey setSurveyVisibility={setSurveyVisibility}/>
             {surveyVisibility ? ( <Survey />) : null}
         </div>

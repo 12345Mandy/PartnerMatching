@@ -6,13 +6,14 @@ import axios from "axios";
 import firebase from "firebase";
 
 function SurveyAdmin(props) {
+    const [surveyCreator, setCreator] = useState(""); // use this to check if button should show up
 
     const [title, setTitle] = useState("loading...");
     const [results, setResults] = useState([])
     const [pairs, setPairs] = useState([])
     const db = firebase.firestore();
     // EDIT THIS DEPENDING ON WHAT SURVEY IS NEEDED.
-    const currentPoll = "labpartners";
+    const currentPoll = props.uniqueID;
 
     // on page load, load in the survey
     useEffect(() => {
@@ -44,6 +45,11 @@ function SurveyAdmin(props) {
         ).then(response => {
             console.log(response.data)
             setPairs(response.data.pairs)
+
+            db.collection("surveys").doc(currentPoll).collection("pairs")
+                .doc("generatedPairs").set(
+                response.data.pairs
+            )
         }).catch(error => {
             console.log(error);
         });
@@ -52,6 +58,7 @@ function SurveyAdmin(props) {
     // sets any info needed for survey
     const loadInfo = async () => {
         const doc = await db.collection("surveys").doc(currentPoll).get();
+        setCreator(doc.data().creator); // sets creator --> if current user matches this, display button to get results
         setTitle(doc.data().title);
         let temp = []
         const responses =
@@ -60,32 +67,62 @@ function SurveyAdmin(props) {
             temp.push(user)
         })
         setResults(temp)
-        console.log(temp)
     }
 
 
-    return (
-        <div className="poll">
-            <h1>{title}</h1>
-            <button>Current Survey Results</button>
-            <div>
-                {results && results.map(user => {
-                    return( <DisplayPerson
-                        name={user.userID}
-                    />);
-                })}
+    if (surveyCreator === firebase.auth().currentUser.uid) {
+        console.log("in admin");
+        return (
+            <div className="poll">
+                <h1>{title}</h1>
+                <button>Current Survey Results</button>
+                <div>
+                    {results && results.map(user => {
+                        return (<DisplayPerson
+                            name={user.userID}
+                        />);
+                    })}
+                </div>
+                <button type="button" onClick={generatePairs}>Click for Pairs</button>
+                <div>
+                    {pairs && Object.entries(pairs).map(([key, value]) => {
+                        return (<DisplayPair
+                            user1={key}
+                            user2={value}
+                        />);
+                    })}
+                </div>
             </div>
-            <button type="button" onClick={generatePairs}>Click for Pairs</button>
-            <div>
-                {pairs && Object.entries(pairs).map(([key, value]) => {
-                    return( <DisplayPair
-                        user1={key}
-                        user2={value}
-                    />);
-                })}
+        );
+    } else {
+        // console.log(pairs)
+        // const getPairs = async () => {
+        //     let pairs = await db.collection("surveys").doc(currentPoll).collection("pairs")
+        //         .doc("generatedPairs").get().then(snap =>snap.data())
+        //    console.log(pairs[0])
+        // }
+        // getPairs()
+        return (
+            <div className="poll">
+                {/*<h1>{title}</h1>*/}
+                {/*<button>Your Current Pair</button>*/}
+                {/*<div>*/}
+                {/*    { db.collection("surveys").doc(currentPoll).collection("pairs")*/}
+                {/*        .doc("generatedPairs").get().then(snap => snap.exists) &&*/}
+
+                {/*        <div>*/}
+                {/*            You have been paired with:*/}
+                {/*            pairs[0]*/}
+
+                {/*        </div>*/}
+                {/*    }*/}
+
+                {/*</div>*/}
+                ur not admin
             </div>
-        </div>
-    );
+        );
+    }
+
 }
 
 
