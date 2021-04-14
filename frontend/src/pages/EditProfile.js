@@ -35,16 +35,25 @@ function EditProfile(props) {
         setLogMessage('');
     }
 
+    // const removeUserAndData = () => {
+    //     // //remove user data
+    //     // db.collection("users").document(user.uid).delete();
+    //     // remove account
+    //     user.delete().then(function() {
+    //         console.log("user successfully deleted")
+    //     }).catch(function(error) {
+    //         console.log("user was not successfully deleted"+      error)
+    //     });
+    //     setDeleteAccount(true);
+    // }
+
     const removeUserAndData = () => {
-        // //remove user data
-         db.collection("users").document(user.uid).delete();
-        // remove account
-        user.delete().then(function() {
-            console.log("user successfully deleted")
-        }).catch(function(error) {
-            console.log("user was not successfully deleted"+      error)
+        user.delete().catch(function(error) {
+            if (error.code === 'auth/requires-recent-login') {
+                window.alert('Please sign-in and try again.');
+                firebase.auth().signOut();
+            }
         });
-        setDeleteAccount(true);
     }
 
     const updateProfile = () => {
@@ -52,33 +61,24 @@ function EditProfile(props) {
         updatePassword();
         user.updateProfile({
             displayName: newName !== "" ? newName: user.displayName,
-            photoURL: newPicURL,
         }).then(function() {
-            console.log("user successfully updated to " + newName)
-            setLogMessage(logMessage  + "user info successfully updated")
+            console.log("user successfully updated:  " + logMessage)
+            console.log(user)
             // newPassword ? user.updatePassword(newPassword) : null;
             // newEmail ? user.updateEmail(newEmail) : null;
         }).catch(function(error) {
-            console.log("user not successfully updated"+  error)
+            console.log( error)
+            console.log(user)
+            console.log(firebase.storage().ref('users/' + user.uid +'/profile.jpg').getDownloadURL())
         });
         clearInputs();
     }
+
     // useEffect(() => {
-    //     if (newEmail !== "")
-    //         user.updateEmail(newEmail)
-    //             .then(r =>  {
-    //                 console.log(r + ":user successfully updated Email")
-    //                 setLogMessage(logMessage + "<br>" + "user successfully updated Email " + newEmail)
-    //             })
-    //             .catch(err => {
-    //                 switch(err.code) {
-    //                     case "auth/email-already-in-use":
-    //                     case "auth/invalid-email":
-    //                         setLogMessage(err.message);
-    //                         break;
-    //                 }
-    //             });
-    //     }, [newEmail]);
+    //     firebase.storage().ref('users/' + user.uid +'/profile.jpg').put(newPicURL);
+    //     setLogMessage("user image updated")
+    //     updateProfile();
+    //     }, [newPicURL]);
 
     function updatePassword() {
         if (newPassword !== "")
@@ -110,10 +110,26 @@ function EditProfile(props) {
                         });
     }
 
-
+    const profilePicRef = firebase.storage().ref('users/' + user.uid +'/profile.jpg')
+//TODO:
+    //sources: https://stackoverflow.com/questions/45386065/firebase-user-photourl-to-string
+    // https://www.youtube.com/watch?v=31MVIwvstzs&ab_channel=SoftAuthor
     function getNewPicUrl(e) {
-        setNewPicURL(e.target.files[0])
-        updateProfile();
+        setNewPicURL(e.target.files[0]);
+        profilePicRef.put(e.target.files[0])
+            .then(function(snapshot) {
+                console.log(snapshot)
+                snapshot.ref.getDownloadURL()
+                    .then(function(url) {  // Now I can use url
+                        user.updateProfile({
+                            photoURL: url       // <- URL from uploaded photo.
+                        }).then(r => {
+                            setLogMessage("user image updated" + r)
+                        });
+                    })
+            })
+        console.log("user image updated")
+        //updateProfile();
     }
 
     return (
