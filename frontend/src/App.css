@@ -5,6 +5,27 @@
   font-family: "Nunito", sans-serif;
 }
 
+.App .hero .page {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+
+.sideBarLeft {
+  order: 1;
+  flex: 40%;
+}
+
+.main {
+  order: 2;
+  flex: 60%;
+  align-content: center;
+  display: grid;
+  grid-area: center;
+  margin-left: 10px;
+}
+
+
 button {
   border: none;
   outline: none;
@@ -160,10 +181,10 @@ input[type="password"]:focus {
   width: 100%;
   min-height: 100vh;
   background: radial-gradient(
-    ellipse at bottom,
-    rgba(245, 245, 245, 1) 30%,
-    rgba(255, 205, 178, 0.9) 90%,
-    rgba(245, 245, 245, 0.9) 100%
+          ellipse at bottom,
+          rgba(245, 245, 245, 1) 30%,
+          rgba(255, 205, 178, 0.9) 90%,
+          rgba(245, 245, 245, 0.9) 100%
   );
 }
 
@@ -192,7 +213,6 @@ input[type="password"]:focus {
   z-index: 1;
   background-color: rgba(0, 0, 0, 0.25);
 }
-
 .modal_content {
   background-color: white;
   position: absolute;

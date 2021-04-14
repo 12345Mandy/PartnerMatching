@@ -1,0 +1,32 @@
+.addSurveyIcon {
+    display: flex;
+    flex-flow: row wrap;
+    margin: 5%;
+
+}
+
+.addSurveyIcon .icon {
+    order: 2;
+
+    box-shadow: 0 50px 20px -20px rgba(109, 104, 117, 0.2);
+    background-color: #b5838d;
+    border-radius: 20%;
+    height: 200px;
+    width: 200px;
+    text-align: center;
+    font-size: 500%;
+    display: grid;
+    grid-area: center;
+    margin-left: 10px;
+
+}
+
+.addSurveyIcon .icon:hover {
+    background-color: #6d6875;
+}
+
+.addSurveyIcon .labelIcon {
+    order: 1;
+    padding: 10%;
+    padding-left: 0%;
+}
