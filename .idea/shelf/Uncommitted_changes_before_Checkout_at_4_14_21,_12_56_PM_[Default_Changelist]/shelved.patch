@@ -1,0 +1,30 @@
+Index: frontend/src/Alana_stuff/Survey.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import Question from \"./Question\";\nimport React, {useState, useEffect} from 'react';\nimport {Link} from 'react-router-dom'\nimport firebase from \"firebase\";\nimport axios from \"axios\";\nimport fire from '../fire'\nimport \"./Survey.css\"\n\nfunction Survey(props) {\n    const [title, setTitle] = useState(\"loading...\");\n    const [surveyCreator, setCreator] = useState(\"\"); // use this to check if button should show up\n    const [description, setDescription] = useState(\"almost there...\");\n    const [questions, setQuestions] = useState([]);\n    const [userAnswers, setUserAnswers] = useState([]);\n\n\n    const db = firebase.firestore();\n    const currentPoll = props.uniqueID;\n\n    // load in a survey - hardcoded to lab partner survey by default\n    const loadSurvey = async () => {\n        const doc = await db.collection(\"surveys\").doc(currentPoll).get();\n        setTitle(doc.data().title);\n        setCreator(doc.data().creator); // sets creator --> if current user matches this, display button to get results\n        setDescription(doc.data().description);\n        const ndoc = await db.collection(\"surveys\").doc(currentPoll).collection(\"questions\").orderBy(\"questionnumber\").get();\n        await setQuestions(ndoc.docs.map(d => d.data()));\n        let answers = new Array(ndoc.docs.length);\n        // store answer as -1 if user hasn't answered\n        console.log(answers.length);\n        for (let i = 0; i < answers.length; i++) {\n            answers[i] = -1;\n        }\n        setUserAnswers(answers);\n\n    }\n\n    const sendResults = async () => {\n        // make a new document for submitting\n        // set user ID to be 0 for now\n        await db.collection(\"surveys\").doc(currentPoll).collection(\"responses\").add({\n            userID: firebase.auth().currentUser.uid,\n            responses: userAnswers\n        });\n        // should we add a timestamp?\n        console.log(\"submitted!\");\n    }\n\n\n    // on page load, load in the survey\n    useEffect(() => {\n        loadSurvey();\n    }, [])\n\n\n    // set ID, used in child component\n    const setAnswerFromChild = (questionID, answer) => {\n        if (userAnswers) {\n            userAnswers[questionID] = answer;\n        }\n    }\n\n    // attempt to submit survey\n    const submitSurvey = () => {\n        //TODO: obtain a user ID and add that to the submission\n        console.log(userAnswers);\n\n        // make sure each answer isn't null\n        let valid = true;\n        for (let i = 0; i < userAnswers.length; i++) {\n            if (userAnswers[i] === -1) {\n                valid = false;\n            }\n        }\n\n        //TODO: prevent user from submitting duplicates\n\n        if (valid) {\n            console.log(\"attemp ting to submit...\");\n            sendResults();\n        } else {\n            // TODO: error message\n            console.log(\"you didn't pick answer choices :(\");\n        }\n    }\n\n    const createSurvey = (creator, description, title) => {\n        db.collection(\"surveys\").doc().set({\n                creator: creator,\n                description: description,\n                title: title\n            }\n        )\n            .then(() => console.log(\"Created survey!\"))\n            .catch((error) => {\n                console.error(\"Error making survey: \", error);\n            });\n    }\n\n    // checking if user is admin is hard coded in --> will be used to display button for survey results.\n    if (surveyCreator === firebase.auth().currentUser.uid) {\n        console.log(db.collection(\"surveys\").doc(currentPoll).id)\n        return (<div>\n                <div className=\"poll\">\n                    <div className=\"surveyInfo\">\n                        <h1>{title}</h1>\n                        <p>{description}</p>\n                    </div>\n                    {questions.map((q, qid) =>\n                        <Question options={q.options} question={q.question} id={qid} onSelect={setAnswerFromChild}/>\n                    )}\n                    <button type=\"button\" onClick={submitSurvey}>submit</button>\n\n                </div>\n                <Link to={`/ViewResults/${currentPoll}`} className=\"poll\">Check Results -- Generate Pairs</Link>\n            </div>\n        )\n    } else {\n        console.log(\"yes\")\n        console.log(surveyCreator)\n        return (\n            <div className=\"poll\">\n                <div className=\"surveyInfo\">\n                    <h1>{title}</h1>\n                    <p>{description}</p>\n                </div>\n                {questions.map((q, qid) =>\n                    <Question options={q.options} question={q.question} id={qid} onSelect={setAnswerFromChild}/>\n                )}\n                <button type=\"button\" onClick={submitSurvey}>submit</button>\n\n            </div>\n        );\n    }\n}\n\nexport default Survey;
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/frontend/src/Alana_stuff/Survey.js b/frontend/src/Alana_stuff/Survey.js
+--- a/frontend/src/Alana_stuff/Survey.js	
++++ b/frontend/src/Alana_stuff/Survey.js	
+@@ -84,19 +84,6 @@
+         }
+     }
+ 
+-    const createSurvey = (creator, description, title) => {
+-        db.collection("surveys").doc().set({
+-                creator: creator,
+-                description: description,
+-                title: title
+-            }
+-        )
+-            .then(() => console.log("Created survey!"))
+-            .catch((error) => {
+-                console.error("Error making survey: ", error);
+-            });
+-    }
+-
+     // checking if user is admin is hard coded in --> will be used to display button for survey results.
+     if (surveyCreator === firebase.auth().currentUser.uid) {
+         console.log(db.collection("surveys").doc(currentPoll).id)
