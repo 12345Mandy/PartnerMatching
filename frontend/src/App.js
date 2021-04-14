@@ -5,6 +5,7 @@ import Nav from './components/Nav'
 import Sidebar from './components/Sidebar'
 import Homepage from './pages/Homepage'
 import SharedWithMe from'./pages/SharedWithMe'
+import ViewResults from './pages/ViewResults'
 import {BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Survey from './Alana_stuff/Survey'
 import StartPage from "./pages/StartPage";
@@ -118,6 +119,7 @@ function App() {
             <Switch>
               <Route path="/Homepage" component={Homepage}/>
               <Route path="/SharedWithMe" component={SharedWithMe}/>
+              <Route path="/ViewResults" component={ViewResults}/>
             </Switch>
             
           </section>

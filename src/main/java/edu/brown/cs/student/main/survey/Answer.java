@@ -1,16 +1,16 @@
 package edu.brown.cs.student.main.survey;
 
+/**
+ * class to represent an answer.
+ */
 public class Answer {
-  private int id;
   private String text;
-  private boolean selected;
 
+  /**
+   * @param text - the text of the answer
+   */
   public Answer(String text) {
     this.text = text;
-  }
-
-  public int getId() {
-    return id;
   }
 
   @Override

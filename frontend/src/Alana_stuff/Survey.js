@@ -1,39 +1,27 @@
 import Question from "./Question";
 import React, {useState, useEffect} from 'react';
-import {firestore} from "firebase";
+import { Link } from 'react-router-dom'
 import firebase from "firebase";
 import axios from "axios";
 import fire from '../fire'
-import Option from "./Option";
-
-// const firebaseConfig = {
-//     apiKey: "AIzaSyAivvKyzEqMpc5Z8X2eZnUFkWcyCoSFS54",
-//     authDomain: "survey-creator-cs32.firebaseapp.com",
-//     projectId: "survey-creator-cs32",
-//     name: "survey"
-// };
+import "./Survey.css"
 
 function Survey() {
     const [title, setTitle] = useState("loading...");
+    const [surveyCreator, setCreator] = useState(""); // use this to check if button should show up
     const [description, setDescription] = useState("almost there...");
     const [questions, setQuestions] = useState([]);
     const [userAnswers, setUserAnswers] = useState([]);
 
-    // firebase.initializeApp(firebaseConfig);
-    // if(!firebase.apps.length) {
-    //     firebase.initializeApp(firebaseConfig);
-    // } else {
-    //     firebase.app();
-    // }
-
 
     const db = firebase.firestore();
-    const currentPoll = "labpartners";
+    const currentPoll = "musicmatcher";
 
     // load in a survey - hardcoded to lab partner survey by default
     const loadSurvey = async () => {
         const doc = await db.collection("surveys").doc(currentPoll).get();
         setTitle(doc.data().title);
+        setCreator(doc.data().creator); // sets creator --> if current user matches this, display button to get results
         setDescription(doc.data().description);
         const ndoc = await db.collection("surveys").doc(currentPoll).collection("questions").orderBy("questionnumber").get();
         await setQuestions(ndoc.docs.map(d => d.data()));
@@ -50,7 +38,6 @@ function Survey() {
     const sendResults = async () => {
         // make a new document for submitting
         // set user ID to be 0 for now
-        // add doc to answers collection (need to figure out how to do if not exist stuff to make a responses collection in future)
         await db.collection("surveys").doc(currentPoll).collection("responses").add({
             userID: 0,
             responses: userAnswers
@@ -97,50 +84,39 @@ function Survey() {
         }
     }
 
-    const generatePairs = async () => {
-        let allQuestions = (await db.collection("surveys").doc(currentPoll).collection("questions").orderBy("questionnumber").get()).docs.map(d => d.data());
-        let answers = (await db.collection("surveys").doc(currentPoll).collection("responses").orderBy("userID").get()).docs.map(d => d.data());
+    // checking if user is admin is hard coded in --> will be used to display button for survey results.
+    if(surveyCreator === "userid") {
+        console.log("ssss")
+        return ( <div>
+                <div className="poll">
+                    <div className="surveyInfo">
+                    <h1>{title}</h1>
+                    <p>{description}</p>
+                    </div>
+                    {questions.map((q, qid) =>
+                        <Question options={q.options} question={q.question} id={qid} onSelect={setAnswerFromChild}/>
+                    )}
+                    <button type="button" onClick={submitSurvey}>submit</button>
 
-        // assumes that responses array has the index represent question id and value represent which answer
-        // was picked
-        const toSend = {
-            questions: allQuestions,
-            answers: answers
-        };
-
-        let config = {
-            headers: {
-                "Content-Type": "application/json",
-                'Access-Control-Allow-Origin': '*',
-            }
-        };
-
-        axios.post(
-            "http://localhost:4567/match",
-            toSend,
-            config
-        ).then(response => {
-            let resp = response.data["pairs"];
-            console.log(resp);
-
-        }).catch(error => {
-            console.log(error);
-        });
-    }
-
-    return (
-        <div className="poll">
-            <h1>{title}</h1>
-            <button type="button" onClick={generatePairs}>Click for Pairs</button>
-            <br/>
-            <p>{description}</p>
-            {questions.map((q, qid) =>
-                <Question options={q.options} question={q.question} id={qid} onSelect={setAnswerFromChild}/>
-            )}
-            <button type="button" onClick={submitSurvey}>submit</button>
-
+                </div>
+                <Link to="/ViewResults" className="poll">Check Results -- Generate Pairs</Link>
         </div>
-    );
+        )
+    } else {
+        return (
+            <div className="poll">
+                <div className="surveyInfo">
+                    <h1>{title}</h1>
+                    <p>{description}</p>
+                </div>
+                {questions.map((q, qid) =>
+                    <Question options={q.options} question={q.question} id={qid} onSelect={setAnswerFromChild}/>
+                )}
+                <button type="button" onClick={submitSurvey}>submit</button>
+
+            </div>
+        );
+    }
 }
 
 export default Survey;

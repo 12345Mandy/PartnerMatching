@@ -1,5 +1,7 @@
 package edu.brown.cs.student.main.stable_roommates;
 
+import edu.brown.cs.student.main.pair.Pair;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -52,7 +54,7 @@ public class StableRoommates extends PairGenerator {
    * @return - true if a stable match was found, false otherwise
    */
   private boolean generatePairs() {
-    if (!stablize()) {
+    if (!stabilize()) {
       return false;
     }
 
@@ -60,8 +62,9 @@ public class StableRoommates extends PairGenerator {
       return true;
     }
 
+    // continue iterating until a matching is found or isn't possible
     while (true) {
-      List<PeoplePair> currRotation = findRotation();
+      List<Pair<Person, Person>> currRotation = findRotation();
       removeRotation(currRotation);
 
 
@@ -81,7 +84,8 @@ public class StableRoommates extends PairGenerator {
   /**
    * @return - a list of pairs that comprise a rotation
    */
-  private List<PeoplePair> findRotation() {
+  private List<Pair<Person, Person>> findRotation() {
+    // follows algorithm from wiki article
     Set<Person> foundPeople = new HashSet<>();
     Person currP = null;
 
@@ -96,15 +100,15 @@ public class StableRoommates extends PairGenerator {
 
     foundPeople.add(currP);
 
-    LinkedList<PeoplePair> pairsToReturn = new LinkedList<>();
+    LinkedList<Pair<Person, Person>> pairsToReturn = new LinkedList<>();
     Person initialP = currP;
-    PeoplePair repeated;
+    Pair<Person, Person> repeated;
 
     while (true) {
       Person currQ = personToPreferences.get(currP).get(1);
       currP = personToPreferences.get(currQ).get(currQ.getPreferences().size() - 1);
 
-      PeoplePair currPair = new PeoplePair(currP, currQ);
+      Pair<Person, Person> currPair = new Pair<Person, Person>(currP, currQ);
       pairsToReturn.addLast(currPair);
 
       if (foundPeople.contains(currP)) {
@@ -115,22 +119,25 @@ public class StableRoommates extends PairGenerator {
       foundPeople.add(currP);
     }
 
-    if (repeated.getFirstPerson().equals(initialP)) {
+    if (repeated.getFirst().equals(initialP)) {
       // removes pairing that was first seen and adds it to front of list
-      PeoplePair p = pairsToReturn.removeLast();
+      Pair<Person, Person> p = pairsToReturn.removeLast();
       pairsToReturn.addFirst(p);
 
       return pairsToReturn;
     } else {
       int indexOfRepeated = pairsToReturn.indexOf(repeated);
-      List<PeoplePair> toReturn = pairsToReturn.subList(indexOfRepeated, pairsToReturn.size() - 1);
-      return toReturn;
+      return pairsToReturn.subList(indexOfRepeated, pairsToReturn.size() - 1);
     }
 
 
   }
 
-  private boolean stablize() {
+  /**
+   * @return - true if the stabilization was successful, false if it failed
+   */
+  private boolean stabilize() {
+    // follows algorithm listed in wiki article
     for (Person currPerson : personToPreferences.keySet()) {
       Person rejected = currPerson.propose(currPerson.getPreferences().get(0));
       while (rejected != null) {
@@ -149,6 +156,7 @@ public class StableRoommates extends PairGenerator {
       Person p = q.getPersonWhoProposed();
       List<Person> qPref = q.getPreferences();
 
+      // every person that is less preferable to p from q's perspective
       List<Person> peopleAfterP =
           new ArrayList<>(qPref.subList(qPref.indexOf(p) + 1, qPref.size()));
       for (Person after : peopleAfterP) {
@@ -159,6 +167,9 @@ public class StableRoommates extends PairGenerator {
     return true;
   }
 
+  /**
+   * @return - true if a stable matching exists, false otherwise
+   */
   private boolean checkIfStableMatchingIsPossible() {
     for (Person currPerson : personToPreferences.keySet()) {
       if (currPerson.getPersonWhoProposed() == null) {
@@ -172,27 +183,28 @@ public class StableRoommates extends PairGenerator {
   /**
    * @param rotation - the rotation to remove from the map
    */
-  private void removeRotation(List<PeoplePair> rotation) {
+  private void removeRotation(List<Pair<Person, Person>> rotation) {
+    // follows algorithm listed in wiki article
     int k = rotation.size();
     for (int i = 0; i < k; i++) {
-      PeoplePair pair = rotation.get(i % k);
-      PeoplePair nextPair = rotation.get((i + 1) % k);
+      Pair<Person, Person> pair = rotation.get(i % k);
+      Pair<Person, Person> nextPair = rotation.get((i + 1) % k);
 
-      Person currY = pair.getSecondPerson();
-      Person currX = pair.getFirstPerson();
+      Person currY = pair.getSecond();
+      Person currX = pair.getFirst();
 
-      Person nextY = nextPair.getSecondPerson();
+      Person nextY = nextPair.getSecond();
 
       currY.reject(currX);
       currX.propose(nextY);
     }
 
     for (int i = 0; i < k; i++) {
-      PeoplePair pair = rotation.get(i % k);
-      PeoplePair prevPair = rotation.get(Math.floorMod((i - 1), k));
+      Pair<Person, Person> pair = rotation.get(i % k);
+      Pair<Person, Person> prevPair = rotation.get(Math.floorMod((i - 1), k));
 
-      Person currY = pair.getSecondPerson();
-      Person prevX = prevPair.getFirstPerson();
+      Person currY = pair.getSecond();
+      Person prevX = prevPair.getFirst();
 
       List<Person> yPrefs = currY.getPreferences();
 
@@ -219,6 +231,9 @@ public class StableRoommates extends PairGenerator {
     return true;
   }
 
+  /**
+   * @return - true if the input is valid, false otherwise
+   */
   private boolean isValidInput() {
     int numPeople = this.personToPreferences.size();
 

@@ -9,9 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
 
-import com.google.common.collect.ImmutableList;
 import com.google.gson.Gson;
 import edu.brown.cs.student.main.match_evaluator.MatchEvaluator;
 import edu.brown.cs.student.main.stable_roommates.Person;
@@ -20,16 +18,13 @@ import edu.brown.cs.student.main.survey.Answer;
 import edu.brown.cs.student.main.survey.Question;
 import joptsimple.OptionParser;
 import joptsimple.OptionSet;
-import org.checkerframework.checker.units.qual.A;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import spark.ExceptionHandler;
-import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
 import spark.Route;
 import spark.Spark;
-import spark.TemplateViewRoute;
 import spark.template.freemarker.FreeMarkerEngine;
 
 import com.google.common.collect.ImmutableMap;
@@ -119,17 +114,21 @@ public final class Main {
     public Object handle(Request request, Response response) throws Exception {
       JSONObject jsonObject = new JSONObject(request.body());
 
+      // get the questions and answers sent from the frontend
       JSONArray questions = jsonObject.getJSONArray("questions");
       JSONArray answers = jsonObject.getJSONArray("answers");
 
+      // creates a list of the questions from the survey
       List<Question> questionList = new ArrayList<>();
       for (int i = 0; i < questions.length(); i++) {
         JSONObject currQuestionData = questions.getJSONObject(i);
 
+        // get the fields for a Question
         String questionText = currQuestionData.getString("question");
         double value = currQuestionData.getDouble("importance");
         JSONArray questionAnswers = currQuestionData.getJSONArray("options");
 
+        // get the possible answers choices for each question
         List<Answer> actualAnswers = new ArrayList<>();
         for (int j = 0; j < questionAnswers.length(); j++) {
           String answerText = questionAnswers.getString(j);
@@ -143,13 +142,16 @@ public final class Main {
         questionList.add(currQuestion);
       }
 
+      // maps a person with their answer choice from the survey
       Map<Person, List<Answer>> personToAnswers = new HashMap<>();
-
       for (int i = 0; i < answers.length(); i++) {
         JSONObject currResponse = answers.getJSONObject(i);
-        Person currPerson = new Person(currResponse.getInt("userID"));
+        Person currPerson =
+            new Person(currResponse.getString("userID"), currResponse.getString("email"));
 
         JSONArray currPersonAnswers = currResponse.getJSONArray("responses");
+
+        // get the answers that the person responded with
         List<Answer> listOfAnswers = new ArrayList<>();
         for (int j = 0; j < currPersonAnswers.length(); j++) {
           assert currPersonAnswers.length() == questionList.size();
@@ -165,6 +167,7 @@ public final class Main {
         personToAnswers.put(currPerson, listOfAnswers);
       }
 
+      // run the algorithm
       MatchEvaluator matchEvaluator = new MatchEvaluator(questionList, personToAnswers);
       Map<Person, List<Person>> prefs = matchEvaluator.evaluateMatches();
 
@@ -174,25 +177,20 @@ public final class Main {
 
       StableRoommates sr = new StableRoommates(prefs);
       Map<Person, Person> pairs = sr.getPairs();
-      Map<Integer, Integer> idPairs = pairs.entrySet()
+
+      // convert Person objects to their IDs
+      Map<String, String> idPairs = pairs.entrySet()
           .stream()
           .collect(Collectors.toMap(map -> map.getKey().getId(), map -> map.getValue().getId()));
 
-      Map<String, Object> variables = ImmutableMap.of("pairs", idPairs);
+      Map<String, List<Answer>> idToAnswers = personToAnswers.entrySet()
+          .stream()
+          .collect(Collectors.toMap(map -> map.getKey().getId(), Map.Entry::getValue));
+
+      // send pairs and answers to frontend
+      Map<String, Object> variables = ImmutableMap.of("pairs", idPairs, "answers", idToAnswers);
 
       return GSON.toJson(variables);
-    }
-  }
-
-  /**
-   * Handle requests to the front page of our Stars website.
-   */
-  private static class FrontHandler implements TemplateViewRoute {
-    @Override
-    public ModelAndView handle(Request req, Response res) {
-      Map<String, Object> variables = ImmutableMap.of("title",
-          "Stars: Query the database");
-      return new ModelAndView(variables, "query.ftl");
     }
   }
 
@@ -212,5 +210,4 @@ public final class Main {
       res.body(stacktrace.toString());
     }
   }
-
 }

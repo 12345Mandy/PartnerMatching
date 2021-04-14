@@ -7,38 +7,61 @@ import java.util.Objects;
  * class to represent a person and their data.
  */
 public class Person {
-  private int id;
+  private String id;
+  private String email;
   private List<Person> preferences;
   private Person personWhoProposed;
 
-  public Person(int id) {
+  /**
+   * @param id    - the person's unique id
+   * @param email - the email of the person
+   */
+  public Person(String id, String email) {
     this.id = id;
+    this.email = email;
   }
 
   /**
    * @return - the person's id
    */
-  public int getId() {
+  public String getId() {
     return id;
   }
 
 
+  /**
+   * @return - the person who proposed to this person
+   */
   public Person getPersonWhoProposed() {
     return personWhoProposed;
   }
 
+  /**
+   * @param personWhoProposed - the person who wants to propose to this person
+   */
   public void setPersonWhoProposed(Person personWhoProposed) {
     this.personWhoProposed = personWhoProposed;
   }
 
+  /**
+   * @return - a list of this persons preferences in sorted from most preferred to least preferred
+   */
   public List<Person> getPreferences() {
     return preferences;
   }
 
+  /**
+   * @param preferences - a list of this persons preferences in sorted from most preferred
+   *                    to least preferred
+   */
   public void setPreferences(List<Person> preferences) {
     this.preferences = preferences;
   }
 
+  /**
+   * @param toPropose - the person who wants to propose to this person
+   * @return - whoever got rejected as a result of this proposal, or null if no one got rejected
+   */
   public Person propose(Person toPropose) {
     Person currentProposer = toPropose.getPersonWhoProposed();
 
@@ -61,6 +84,9 @@ public class Person {
     return this;
   }
 
+  /**
+   * @param toReject - the person to reject
+   */
   public void reject(Person toReject) {
     this.preferences.remove(toReject);
     toReject.getPreferences().remove(this);
@@ -83,11 +109,11 @@ public class Person {
 
     Person other = (Person) obj;
 
-    return this.id == other.id;
+    return this.id.equals(other.id);
   }
 
   @Override
   public String toString() {
-    return Integer.toString(this.id);
+    return this.id;
   }
 }
