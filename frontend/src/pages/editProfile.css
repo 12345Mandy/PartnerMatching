@@ -1,3 +1,6 @@
+* {
+    font-size: 20px;
+}
 .profilePicLarge {
     /*cite: https://www.w3schools.com/howto/howto_css_image_avatar.asp*/
     vertical-align: middle;
@@ -7,6 +10,42 @@
     padding: 25px;
 }
 
+.profileChangeContainer {
+    margin: 8%;
+    align-content: center;
+}
 .profilePicLarge button {
-    width: 50%;
+    width: 20%;
+}
+
+.profileChange {
+    display: flex;
+    flex-flow: row wrap;
+    margin: 5px;
+    align-content: space-between;
+}
+
+#EditUserInfoTitle{
+    padding-bottom: 3%;
+}
+
+.profileChange .changeBox {
+    flex: 5;
+    /*flex: 70%;*/
+    margin-top: 2px;
+    display: grid;
+    grid-area: center;
+}
+.profileChange .profileChangeButton {
+    font-size: 18px;
+    /*flex: 0.75;*/
+    flex: 0.65;
+    display: grid;
+    grid-area: center;
+    margin: 5px;
+    margin-left: 15%;
+    margin-top: 0px;
+    height: auto;
+    width: 30px;
+    min-width: 10px;
 }

@@ -8,7 +8,7 @@ import { Redirect } from 'react-router-dom'
 import Auth from "firebase";
 import TextBox from "../components/TextBox";
 
-function EditProfile(props) {
+function EditProfile() {
     //let user = props.user
     const [deleteAccount, setDeleteAccount] = useState(false);
     const [newEmail, setNewEmail] = useState("")
@@ -57,8 +57,7 @@ function EditProfile(props) {
     }
 
     const updateProfile = () => {
-        updateEmail();
-        updatePassword();
+        clearInputs();
         user.updateProfile({
             displayName: newName !== "" ? newName: user.displayName,
         }).then(function() {
@@ -74,13 +73,9 @@ function EditProfile(props) {
         clearInputs();
     }
 
-    // useEffect(() => {
-    //     firebase.storage().ref('users/' + user.uid +'/profile.jpg').put(newPicURL);
-    //     setLogMessage("user image updated")
-    //     updateProfile();
-    //     }, [newPicURL]);
 
     function updatePassword() {
+        clearInputs();
         if (newPassword !== "")
             user.updatePassword(newPassword)
                 .then(r =>  console.log(r + ":user successfully updated password"))
@@ -93,6 +88,7 @@ function EditProfile(props) {
                 });
     }
     function updateEmail() {
+        clearInputs();
         if (newEmail !== "")
                     user.updateEmail(newEmail)
                         .then(r =>  {
@@ -124,7 +120,7 @@ function EditProfile(props) {
                         user.updateProfile({
                             photoURL: url       // <- URL from uploaded photo.
                         }).then(r => {
-                            setLogMessage("user image updated" + r)
+                            setLogMessage("user image updated. Refresh page to see changes")
                         });
                     })
             })
@@ -144,13 +140,29 @@ function EditProfile(props) {
                <h1>Name: {user.displayName}</h1>
                 <hr/>
 
-                <h2>Edit User Information</h2>
-                <TextBox type={"text"} label={"Change name "} focus={false} value={newName} change={setNewName}/>
-                <TextBox type={"text"} label={"Change email "} focus={false} value={newEmail} change={setNewEmail}/>
-                <TextBox type={"text"} label={"Change password "} focus={false} value={newPassword} change={setNewPassword}/>
-                <button onClick={()=>updateProfile()}>Submit changes</button>
+
+                <div className="profileChangeContainer">
+                    <h2 id="EditUserInfoTitle">Edit User Information</h2>
+                    <br/>
+                    <div className="profileChange">
+                        <TextBox className = "changeBox" type={"text"} label={"Change name "} focus={false} value={newName} change={setNewName}/>{" "}
+                        <button onClick={()=>updateProfile()} className="profileChangeButton">Submit change</button>
+                    </div>
+                    <div className="profileChange">
+                        <TextBox className = "changeBox"  type={"text"} label={"Change email "} focus={false} value={newEmail} change={setNewEmail}/>{" "}
+                        <button onClick={()=>updateEmail()} className="profileChangeButton">Submit change</button>
+                    </div>
+                    <div className="profileChange">
+                        <TextBox className = "changeBox"  type={"text"} label={"Change password "} focus={false} value={newPassword} change={setNewPassword}/>{" "}
+                        <button onClick={()=>updatePassword()} className="profileChangeButton">Submit change</button>
+                    </div>
+                    <p className="errorMsg">{logMessage}</p>
+                </div>
+
+
+
                 <br/><br/>
-                <p>{logMessage}</p>
+
                 <button onClick={() => removeUserAndData()}>Delete  Account</button>
                 {deleteAccount ? <Redirect to="/Login" /> : null}
             </div>

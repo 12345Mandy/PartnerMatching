@@ -16,7 +16,7 @@ function TextBox(props) {
         />
     ) : (
         <input 
-        className="inputBox"
+        // className="inputBox"
         type={props.type}
         label={props.type}
         required 
