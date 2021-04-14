@@ -12,6 +12,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * class for converting answer choices into preferences.
+ */
 public class MatchEvaluator {
   private List&lt;Question&gt; questions; // a list of the questions
   private Map&lt;Person, List&lt;Answer&gt;&gt; personToAnswers; // a map from person to their answers
@@ -20,11 +23,11 @@ public class MatchEvaluator {
    * @param questions       - the list of the questions that were asked
    * @param personToAnswers - a map from a person to their answer choices
    */
-<span class="fc" id="L23">  public MatchEvaluator(List&lt;Question&gt; questions, Map&lt;Person, List&lt;Answer&gt;&gt; personToAnswers) {</span>
-<span class="fc" id="L24">    this.questions = questions;</span>
-<span class="fc" id="L25">    this.personToAnswers = personToAnswers;</span>
+<span class="fc" id="L26">  public MatchEvaluator(List&lt;Question&gt; questions, Map&lt;Person, List&lt;Answer&gt;&gt; personToAnswers) {</span>
+<span class="fc" id="L27">    this.questions = questions;</span>
+<span class="fc" id="L28">    this.personToAnswers = personToAnswers;</span>
 
-<span class="fc" id="L27">  }</span>
+<span class="fc" id="L30">  }</span>
 
   /**
    * Gets all the info -- answers from each user who took survey -- evaluates similarity.
@@ -32,43 +35,43 @@ public class MatchEvaluator {
    * @return a hashmap mapping ids to a list of their matches sorted
    */
   public Map&lt;Person, List&lt;Person&gt;&gt; evaluateMatches() {
-<span class="fc" id="L35">    Map&lt;Person, List&lt;Person&gt;&gt; finalMatches = new HashMap&lt;&gt;();</span>
-<span class="fc" id="L36">    List&lt;Question&gt; questionInfo = this.questions;</span>
+<span class="fc" id="L38">    Map&lt;Person, List&lt;Person&gt;&gt; finalMatches = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L39">    List&lt;Question&gt; questionInfo = this.questions;</span>
 
     // starts through every person
-<span class="fc bfc" id="L39" title="All 2 branches covered.">    for (Person currPerson : this.personToAnswers.keySet()) {</span>
+<span class="fc bfc" id="L42" title="All 2 branches covered.">    for (Person currPerson : this.personToAnswers.keySet()) {</span>
       // stores list of ids that represent the similarity
-<span class="fc" id="L41">      List&lt;Pair&lt;Person, Double&gt;&gt; idScorePairs = new ArrayList&lt;&gt;();</span>
-<span class="fc" id="L42">      List&lt;Answer&gt; currPersonsAnswers = this.personToAnswers.get(currPerson);</span>
+<span class="fc" id="L44">      List&lt;Pair&lt;Person, Double&gt;&gt; idScorePairs = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L45">      List&lt;Answer&gt; currPersonsAnswers = this.personToAnswers.get(currPerson);</span>
 
       // goes through each person who took the survey
       // if not the same person, calculate score
       // score will be [id, score] and put into similarity array
-<span class="fc bfc" id="L47" title="All 2 branches covered.">      for (Person potMatch : this.personToAnswers.keySet()) {</span>
-<span class="fc bfc" id="L48" title="All 2 branches covered.">        if (!currPerson.equals(potMatch)) {</span>
-<span class="fc" id="L49">          List&lt;Answer&gt; pot = this.personToAnswers.get(potMatch);</span>
-<span class="fc" id="L50">          double potScore = getScore(currPersonsAnswers, pot, questionInfo);</span>
+<span class="fc bfc" id="L50" title="All 2 branches covered.">      for (Person potMatch : this.personToAnswers.keySet()) {</span>
+<span class="fc bfc" id="L51" title="All 2 branches covered.">        if (!currPerson.equals(potMatch)) {</span>
+<span class="fc" id="L52">          List&lt;Answer&gt; pot = this.personToAnswers.get(potMatch);</span>
+<span class="fc" id="L53">          double potScore = getScore(currPersonsAnswers, pot, questionInfo);</span>
 
-<span class="fc" id="L52">          Pair&lt;Person, Double&gt; pair = new Pair&lt;Person, Double&gt;(potMatch, potScore);</span>
-<span class="fc" id="L53">          idScorePairs.add(pair);</span>
+<span class="fc" id="L55">          Pair&lt;Person, Double&gt; pair = new Pair&lt;Person, Double&gt;(potMatch, potScore);</span>
+<span class="fc" id="L56">          idScorePairs.add(pair);</span>
         }
-<span class="fc" id="L55">      }</span>
+<span class="fc" id="L58">      }</span>
 
       // sort the array of [id, score] pairs based off score
       // when sorted --&gt; go through each element and add to list
       // so this will give us a list of IDs based on order of score
-<span class="fc" id="L60">      idScorePairs.sort((a, b) -&gt; Double.compare(b.getSecond(), a.getSecond()));</span>
-<span class="fc" id="L61">      List&lt;Person&gt; sortedIDs = new ArrayList&lt;&gt;();</span>
-<span class="fc bfc" id="L62" title="All 2 branches covered.">      for (Pair&lt;Person, Double&gt; pairs : idScorePairs) {</span>
-<span class="fc" id="L63">        sortedIDs.add(pairs.getFirst());</span>
-<span class="fc" id="L64">      }</span>
+<span class="fc" id="L63">      idScorePairs.sort((a, b) -&gt; Double.compare(b.getSecond(), a.getSecond()));</span>
+<span class="fc" id="L64">      List&lt;Person&gt; sortedIDs = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L65" title="All 2 branches covered.">      for (Pair&lt;Person, Double&gt; pairs : idScorePairs) {</span>
+<span class="fc" id="L66">        sortedIDs.add(pairs.getFirst());</span>
+<span class="fc" id="L67">      }</span>
 
       // add to hashmap
       // will have ID --&gt; List of sorted IDs
       // the first id being most similar
-<span class="fc" id="L69">      finalMatches.put(currPerson, sortedIDs);</span>
-<span class="fc" id="L70">    }</span>
-<span class="fc" id="L71">    return finalMatches;</span>
+<span class="fc" id="L72">      finalMatches.put(currPerson, sortedIDs);</span>
+<span class="fc" id="L73">    }</span>
+<span class="fc" id="L74">    return finalMatches;</span>
   }
 
   /**
@@ -82,14 +85,14 @@ public class MatchEvaluator {
    */
   public double getScore(List&lt;Answer&gt; person1answers, List&lt;Answer&gt; person2answers,
                          List&lt;Question&gt; questionList) {
-<span class="fc" id="L85">    int totalScore = 0;</span>
-<span class="fc bfc" id="L86" title="All 2 branches covered.">    for (int i = 1; i &lt; person1answers.size(); i++) {</span>
-<span class="fc bfc" id="L87" title="All 2 branches covered.">      if (person1answers.get(i).equals(person2answers.get(i))) {</span>
-<span class="fc" id="L88">        totalScore += questionList.get(i).getScore();</span>
+<span class="fc" id="L88">    int totalScore = 0;</span>
+<span class="fc bfc" id="L89" title="All 2 branches covered.">    for (int i = 0; i &lt; person1answers.size(); i++) {</span>
+<span class="fc bfc" id="L90" title="All 2 branches covered.">      if (person1answers.get(i).equals(person2answers.get(i))) {</span>
+<span class="fc" id="L91">        totalScore += questionList.get(i).getScore();</span>
       }
     }
 
-<span class="fc" id="L92">    return totalScore;</span>
+<span class="fc" id="L95">    return totalScore;</span>
   }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

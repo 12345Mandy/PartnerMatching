@@ -15,35 +15,38 @@ import java.util.Set;
  */
 <span class="pc bpc" id="L16" title="1 of 2 branches missed.">public class StableRoommates extends PairGenerator {</span>
 
+  /**
+   * @param personToPreferences - a map of persons to their preferences
+   */
   public StableRoommates(Map&lt;Person, List&lt;Person&gt;&gt; personToPreferences) {
-<span class="fc" id="L19">    super(personToPreferences);</span>
-<span class="fc" id="L20">  }</span>
+<span class="fc" id="L22">    super(personToPreferences);</span>
+<span class="fc" id="L23">  }</span>
 
   /**
    * @return - a mapping from person to person that represents pairs
    */
   @Override
   public Map&lt;Person, Person&gt; getPairs() {
-<span class="pc bpc" id="L27" title="2 of 4 branches missed.">    assert isValidInput();</span>
-<span class="fc bfc" id="L28" title="All 2 branches covered.">    if (generatePairs()) {</span>
-<span class="fc" id="L29">      Map&lt;Person, Person&gt; toReturn = new HashMap&lt;&gt;();</span>
-<span class="fc bfc" id="L30" title="All 2 branches covered.">      for (Person currPerson : personToPreferences.keySet()) {</span>
-<span class="fc" id="L31">        toReturn.put(currPerson, personToPreferences.get(currPerson).get(0));</span>
-<span class="fc" id="L32">      }</span>
+<span class="pc bpc" id="L30" title="2 of 4 branches missed.">    assert isValidInput();</span>
+<span class="fc bfc" id="L31" title="All 2 branches covered.">    if (generatePairs()) {</span>
+<span class="fc" id="L32">      Map&lt;Person, Person&gt; toReturn = new HashMap&lt;&gt;();</span>
+<span class="fc bfc" id="L33" title="All 2 branches covered.">      for (Person currPerson : personToPreferences.keySet()) {</span>
+<span class="fc" id="L34">        toReturn.put(currPerson, personToPreferences.get(currPerson).get(0));</span>
+<span class="fc" id="L35">      }</span>
 
-<span class="fc" id="L34">      return toReturn;</span>
+<span class="fc" id="L37">      return toReturn;</span>
     }
 
-<span class="fc" id="L37">    Map&lt;Person, Person&gt; toReturn = new HashMap&lt;&gt;();</span>
-<span class="fc bfc" id="L38" title="All 2 branches covered.">    for (Person currPerson : personToPreferences.keySet()) {</span>
-<span class="fc bfc" id="L39" title="All 2 branches covered.">      if (personToPreferences.get(currPerson).isEmpty()) {</span>
-<span class="fc" id="L40">        toReturn.put(currPerson, null);</span>
+<span class="fc" id="L40">    Map&lt;Person, Person&gt; toReturn = new HashMap&lt;&gt;();</span>
+<span class="fc bfc" id="L41" title="All 2 branches covered.">    for (Person currPerson : personToPreferences.keySet()) {</span>
+<span class="fc bfc" id="L42" title="All 2 branches covered.">      if (personToPreferences.get(currPerson).isEmpty()) {</span>
+<span class="fc" id="L43">        toReturn.put(currPerson, null);</span>
       } else {
-<span class="fc" id="L42">        toReturn.put(currPerson, personToPreferences.get(currPerson).get(0));</span>
+<span class="fc" id="L45">        toReturn.put(currPerson, personToPreferences.get(currPerson).get(0));</span>
       }
-<span class="fc" id="L44">    }</span>
+<span class="fc" id="L47">    }</span>
 
-<span class="fc" id="L46">    return toReturn;</span>
+<span class="fc" id="L49">    return toReturn;</span>
   }
 
   /**
@@ -54,31 +57,31 @@ import java.util.Set;
    * @return - true if a stable match was found, false otherwise
    */
   private boolean generatePairs() {
-<span class="fc bfc" id="L57" title="All 2 branches covered.">    if (!stabilize()) {</span>
-<span class="fc" id="L58">      return false;</span>
+<span class="fc bfc" id="L60" title="All 2 branches covered.">    if (!stabilize()) {</span>
+<span class="fc" id="L61">      return false;</span>
     }
 
-<span class="fc bfc" id="L61" title="All 2 branches covered.">    if (foundStableMatching()) {</span>
-<span class="fc" id="L62">      return true;</span>
+<span class="fc bfc" id="L64" title="All 2 branches covered.">    if (foundStableMatching()) {</span>
+<span class="fc" id="L65">      return true;</span>
     }
 
     // continue iterating until a matching is found or isn't possible
     while (true) {
-<span class="fc" id="L67">      List&lt;Pair&lt;Person, Person&gt;&gt; currRotation = findRotation();</span>
-<span class="fc" id="L68">      removeRotation(currRotation);</span>
+<span class="fc" id="L70">      List&lt;Pair&lt;Person, Person&gt;&gt; currRotation = findRotation();</span>
+<span class="fc" id="L71">      removeRotation(currRotation);</span>
 
 
-<span class="fc bfc" id="L71" title="All 2 branches covered.">      for (Person currPerson : personToPreferences.keySet()) {</span>
+<span class="fc bfc" id="L74" title="All 2 branches covered.">      for (Person currPerson : personToPreferences.keySet()) {</span>
         // no stable matching exists
-<span class="fc bfc" id="L73" title="All 2 branches covered.">        if (personToPreferences.get(currPerson).isEmpty()) {</span>
-<span class="fc" id="L74">          return false;</span>
+<span class="fc bfc" id="L76" title="All 2 branches covered.">        if (personToPreferences.get(currPerson).isEmpty()) {</span>
+<span class="fc" id="L77">          return false;</span>
         }
-<span class="fc" id="L76">      }</span>
+<span class="fc" id="L79">      }</span>
 
-<span class="fc bfc" id="L78" title="All 2 branches covered.">      if (foundStableMatching()) {</span>
-<span class="fc" id="L79">        return true;</span>
+<span class="fc bfc" id="L81" title="All 2 branches covered.">      if (foundStableMatching()) {</span>
+<span class="fc" id="L82">        return true;</span>
       }
-<span class="fc" id="L81">    }</span>
+<span class="fc" id="L84">    }</span>
   }
 
   /**
@@ -86,48 +89,48 @@ import java.util.Set;
    */
   private List&lt;Pair&lt;Person, Person&gt;&gt; findRotation() {
     // follows algorithm from wiki article
-<span class="fc" id="L89">    Set&lt;Person&gt; foundPeople = new HashSet&lt;&gt;();</span>
-<span class="fc" id="L90">    Person currP = null;</span>
+<span class="fc" id="L92">    Set&lt;Person&gt; foundPeople = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L93">    Person currP = null;</span>
 
-<span class="pc bpc" id="L92" title="1 of 2 branches missed.">    for (Person currPerson : personToPreferences.keySet()) {</span>
-<span class="fc bfc" id="L93" title="All 2 branches covered.">      if (personToPreferences.get(currPerson).size() &gt;= 2) {</span>
-<span class="fc" id="L94">        currP = currPerson;</span>
-<span class="fc" id="L95">        break;</span>
+<span class="pc bpc" id="L95" title="1 of 2 branches missed.">    for (Person currPerson : personToPreferences.keySet()) {</span>
+<span class="fc bfc" id="L96" title="All 2 branches covered.">      if (personToPreferences.get(currPerson).size() &gt;= 2) {</span>
+<span class="fc" id="L97">        currP = currPerson;</span>
+<span class="fc" id="L98">        break;</span>
       }
-<span class="fc" id="L97">    }</span>
+<span class="fc" id="L100">    }</span>
 
-<span class="pc bpc" id="L99" title="2 of 4 branches missed.">    assert currP != null;</span>
+<span class="pc bpc" id="L102" title="2 of 4 branches missed.">    assert currP != null;</span>
 
-<span class="fc" id="L101">    foundPeople.add(currP);</span>
+<span class="fc" id="L104">    foundPeople.add(currP);</span>
 
-<span class="fc" id="L103">    LinkedList&lt;Pair&lt;Person, Person&gt;&gt; pairsToReturn = new LinkedList&lt;&gt;();</span>
-<span class="fc" id="L104">    Person initialP = currP;</span>
+<span class="fc" id="L106">    LinkedList&lt;Pair&lt;Person, Person&gt;&gt; pairsToReturn = new LinkedList&lt;&gt;();</span>
+<span class="fc" id="L107">    Person initialP = currP;</span>
     Pair&lt;Person, Person&gt; repeated;
 
     while (true) {
-<span class="fc" id="L108">      Person currQ = personToPreferences.get(currP).get(1);</span>
-<span class="fc" id="L109">      currP = personToPreferences.get(currQ).get(currQ.getPreferences().size() - 1);</span>
+<span class="fc" id="L111">      Person currQ = personToPreferences.get(currP).get(1);</span>
+<span class="fc" id="L112">      currP = personToPreferences.get(currQ).get(currQ.getPreferences().size() - 1);</span>
 
-<span class="fc" id="L111">      Pair&lt;Person, Person&gt; currPair = new Pair&lt;Person, Person&gt;(currP, currQ);</span>
-<span class="fc" id="L112">      pairsToReturn.addLast(currPair);</span>
+<span class="fc" id="L114">      Pair&lt;Person, Person&gt; currPair = new Pair&lt;Person, Person&gt;(currP, currQ);</span>
+<span class="fc" id="L115">      pairsToReturn.addLast(currPair);</span>
 
-<span class="fc bfc" id="L114" title="All 2 branches covered.">      if (foundPeople.contains(currP)) {</span>
-<span class="fc" id="L115">        repeated = currPair;</span>
-<span class="fc" id="L116">        break;</span>
+<span class="fc bfc" id="L117" title="All 2 branches covered.">      if (foundPeople.contains(currP)) {</span>
+<span class="fc" id="L118">        repeated = currPair;</span>
+<span class="fc" id="L119">        break;</span>
       }
 
-<span class="fc" id="L119">      foundPeople.add(currP);</span>
-<span class="fc" id="L120">    }</span>
+<span class="fc" id="L122">      foundPeople.add(currP);</span>
+<span class="fc" id="L123">    }</span>
 
-<span class="fc bfc" id="L122" title="All 2 branches covered.">    if (repeated.getFirst().equals(initialP)) {</span>
+<span class="fc bfc" id="L125" title="All 2 branches covered.">    if (repeated.getFirst().equals(initialP)) {</span>
       // removes pairing that was first seen and adds it to front of list
-<span class="fc" id="L124">      Pair&lt;Person, Person&gt; p = pairsToReturn.removeLast();</span>
-<span class="fc" id="L125">      pairsToReturn.addFirst(p);</span>
+<span class="fc" id="L127">      Pair&lt;Person, Person&gt; p = pairsToReturn.removeLast();</span>
+<span class="fc" id="L128">      pairsToReturn.addFirst(p);</span>
 
-<span class="fc" id="L127">      return pairsToReturn;</span>
+<span class="fc" id="L130">      return pairsToReturn;</span>
     } else {
-<span class="fc" id="L129">      int indexOfRepeated = pairsToReturn.indexOf(repeated);</span>
-<span class="fc" id="L130">      return pairsToReturn.subList(indexOfRepeated, pairsToReturn.size() - 1);</span>
+<span class="fc" id="L132">      int indexOfRepeated = pairsToReturn.indexOf(repeated);</span>
+<span class="fc" id="L133">      return pairsToReturn.subList(indexOfRepeated, pairsToReturn.size() - 1);</span>
     }
 
 
@@ -138,46 +141,46 @@ import java.util.Set;
    */
   private boolean stabilize() {
     // follows algorithm listed in wiki article
-<span class="fc bfc" id="L141" title="All 2 branches covered.">    for (Person currPerson : personToPreferences.keySet()) {</span>
-<span class="fc" id="L142">      Person rejected = currPerson.propose(currPerson.getPreferences().get(0));</span>
-<span class="fc bfc" id="L143" title="All 2 branches covered.">      while (rejected != null) {</span>
-<span class="fc bfc" id="L144" title="All 2 branches covered.">        if (rejected.getPreferences().isEmpty()) {</span>
-<span class="fc" id="L145">          return false;</span>
+<span class="fc bfc" id="L144" title="All 2 branches covered.">    for (Person currPerson : personToPreferences.keySet()) {</span>
+<span class="fc" id="L145">      Person rejected = currPerson.propose(currPerson.getPreferences().get(0));</span>
+<span class="fc bfc" id="L146" title="All 2 branches covered.">      while (rejected != null) {</span>
+<span class="fc bfc" id="L147" title="All 2 branches covered.">        if (rejected.getPreferences().isEmpty()) {</span>
+<span class="fc" id="L148">          return false;</span>
         }
-<span class="fc" id="L147">        rejected = rejected.propose(rejected.getPreferences().get(0));</span>
+<span class="fc" id="L150">        rejected = rejected.propose(rejected.getPreferences().get(0));</span>
       }
-<span class="fc" id="L149">    }</span>
+<span class="fc" id="L152">    }</span>
 
-<span class="pc bpc" id="L151" title="1 of 2 branches missed.">    if (!checkIfStableMatchingIsPossible()) {</span>
-<span class="nc" id="L152">      return false;</span>
+<span class="pc bpc" id="L154" title="1 of 2 branches missed.">    if (!checkIfStableMatchingIsPossible()) {</span>
+<span class="nc" id="L155">      return false;</span>
     }
 
-<span class="fc bfc" id="L155" title="All 2 branches covered.">    for (Person q : personToPreferences.keySet()) {</span>
-<span class="fc" id="L156">      Person p = q.getPersonWhoProposed();</span>
-<span class="fc" id="L157">      List&lt;Person&gt; qPref = q.getPreferences();</span>
+<span class="fc bfc" id="L158" title="All 2 branches covered.">    for (Person q : personToPreferences.keySet()) {</span>
+<span class="fc" id="L159">      Person p = q.getPersonWhoProposed();</span>
+<span class="fc" id="L160">      List&lt;Person&gt; qPref = q.getPreferences();</span>
 
       // every person that is less preferable to p from q's perspective
-<span class="fc" id="L160">      List&lt;Person&gt; peopleAfterP =</span>
-<span class="fc" id="L161">          new ArrayList&lt;&gt;(qPref.subList(qPref.indexOf(p) + 1, qPref.size()));</span>
-<span class="fc bfc" id="L162" title="All 2 branches covered.">      for (Person after : peopleAfterP) {</span>
-<span class="fc" id="L163">        q.reject(after);</span>
-<span class="fc" id="L164">      }</span>
-<span class="fc" id="L165">    }</span>
+<span class="fc" id="L163">      List&lt;Person&gt; peopleAfterP =</span>
+<span class="fc" id="L164">          new ArrayList&lt;&gt;(qPref.subList(qPref.indexOf(p) + 1, qPref.size()));</span>
+<span class="fc bfc" id="L165" title="All 2 branches covered.">      for (Person after : peopleAfterP) {</span>
+<span class="fc" id="L166">        q.reject(after);</span>
+<span class="fc" id="L167">      }</span>
+<span class="fc" id="L168">    }</span>
 
-<span class="fc" id="L167">    return true;</span>
+<span class="fc" id="L170">    return true;</span>
   }
 
   /**
    * @return - true if a stable matching exists, false otherwise
    */
   private boolean checkIfStableMatchingIsPossible() {
-<span class="fc bfc" id="L174" title="All 2 branches covered.">    for (Person currPerson : personToPreferences.keySet()) {</span>
-<span class="pc bpc" id="L175" title="1 of 2 branches missed.">      if (currPerson.getPersonWhoProposed() == null) {</span>
-<span class="nc" id="L176">        return false;</span>
+<span class="fc bfc" id="L177" title="All 2 branches covered.">    for (Person currPerson : personToPreferences.keySet()) {</span>
+<span class="pc bpc" id="L178" title="1 of 2 branches missed.">      if (currPerson.getPersonWhoProposed() == null) {</span>
+<span class="nc" id="L179">        return false;</span>
       }
-<span class="fc" id="L178">    }</span>
+<span class="fc" id="L181">    }</span>
 
-<span class="fc" id="L180">    return true;</span>
+<span class="fc" id="L183">    return true;</span>
   }
 
   /**
@@ -185,78 +188,78 @@ import java.util.Set;
    */
   private void removeRotation(List&lt;Pair&lt;Person, Person&gt;&gt; rotation) {
     // follows algorithm listed in wiki article
-<span class="fc" id="L188">    int k = rotation.size();</span>
-<span class="fc bfc" id="L189" title="All 2 branches covered.">    for (int i = 0; i &lt; k; i++) {</span>
-<span class="fc" id="L190">      Pair&lt;Person, Person&gt; pair = rotation.get(i % k);</span>
-<span class="fc" id="L191">      Pair&lt;Person, Person&gt; nextPair = rotation.get((i + 1) % k);</span>
+<span class="fc" id="L191">    int k = rotation.size();</span>
+<span class="fc bfc" id="L192" title="All 2 branches covered.">    for (int i = 0; i &lt; k; i++) {</span>
+<span class="fc" id="L193">      Pair&lt;Person, Person&gt; pair = rotation.get(i % k);</span>
+<span class="fc" id="L194">      Pair&lt;Person, Person&gt; nextPair = rotation.get((i + 1) % k);</span>
 
-<span class="fc" id="L193">      Person currY = pair.getSecond();</span>
-<span class="fc" id="L194">      Person currX = pair.getFirst();</span>
+<span class="fc" id="L196">      Person currY = pair.getSecond();</span>
+<span class="fc" id="L197">      Person currX = pair.getFirst();</span>
 
-<span class="fc" id="L196">      Person nextY = nextPair.getSecond();</span>
+<span class="fc" id="L199">      Person nextY = nextPair.getSecond();</span>
 
-<span class="fc" id="L198">      currY.reject(currX);</span>
-<span class="fc" id="L199">      currX.propose(nextY);</span>
+<span class="fc" id="L201">      currY.reject(currX);</span>
+<span class="fc" id="L202">      currX.propose(nextY);</span>
     }
 
-<span class="fc bfc" id="L202" title="All 2 branches covered.">    for (int i = 0; i &lt; k; i++) {</span>
-<span class="fc" id="L203">      Pair&lt;Person, Person&gt; pair = rotation.get(i % k);</span>
-<span class="fc" id="L204">      Pair&lt;Person, Person&gt; prevPair = rotation.get(Math.floorMod((i - 1), k));</span>
+<span class="fc bfc" id="L205" title="All 2 branches covered.">    for (int i = 0; i &lt; k; i++) {</span>
+<span class="fc" id="L206">      Pair&lt;Person, Person&gt; pair = rotation.get(i % k);</span>
+<span class="fc" id="L207">      Pair&lt;Person, Person&gt; prevPair = rotation.get(Math.floorMod((i - 1), k));</span>
 
-<span class="fc" id="L206">      Person currY = pair.getSecond();</span>
-<span class="fc" id="L207">      Person prevX = prevPair.getFirst();</span>
+<span class="fc" id="L209">      Person currY = pair.getSecond();</span>
+<span class="fc" id="L210">      Person prevX = prevPair.getFirst();</span>
 
-<span class="fc" id="L209">      List&lt;Person&gt; yPrefs = currY.getPreferences();</span>
+<span class="fc" id="L212">      List&lt;Person&gt; yPrefs = currY.getPreferences();</span>
 
       // every person that is less preferable to x from y's perspective
-<span class="fc" id="L212">      List&lt;Person&gt; successorsOfPrevX =</span>
-<span class="fc" id="L213">          new LinkedList&lt;&gt;(yPrefs.subList(yPrefs.indexOf(prevX) + 1, yPrefs.size()));</span>
+<span class="fc" id="L215">      List&lt;Person&gt; successorsOfPrevX =</span>
+<span class="fc" id="L216">          new LinkedList&lt;&gt;(yPrefs.subList(yPrefs.indexOf(prevX) + 1, yPrefs.size()));</span>
 
-<span class="fc bfc" id="L215" title="All 2 branches covered.">      for (Person successor : successorsOfPrevX) {</span>
-<span class="fc" id="L216">        currY.reject(successor);</span>
-<span class="fc" id="L217">      }</span>
+<span class="fc bfc" id="L218" title="All 2 branches covered.">      for (Person successor : successorsOfPrevX) {</span>
+<span class="fc" id="L219">        currY.reject(successor);</span>
+<span class="fc" id="L220">      }</span>
     }
-<span class="fc" id="L219">  }</span>
+<span class="fc" id="L222">  }</span>
 
   /**
    * @return - true if each person has one other person in the map
    */
   private boolean foundStableMatching() {
-<span class="fc bfc" id="L225" title="All 2 branches covered.">    for (Person currPerson : this.personToPreferences.keySet()) {</span>
-<span class="fc bfc" id="L226" title="All 2 branches covered.">      if (this.personToPreferences.get(currPerson).size() != 1) {</span>
-<span class="fc" id="L227">        return false;</span>
+<span class="fc bfc" id="L228" title="All 2 branches covered.">    for (Person currPerson : this.personToPreferences.keySet()) {</span>
+<span class="fc bfc" id="L229" title="All 2 branches covered.">      if (this.personToPreferences.get(currPerson).size() != 1) {</span>
+<span class="fc" id="L230">        return false;</span>
       }
-<span class="fc" id="L229">    }</span>
+<span class="fc" id="L232">    }</span>
 
-<span class="fc" id="L231">    return true;</span>
+<span class="fc" id="L234">    return true;</span>
   }
 
   /**
    * @return - true if the input is valid, false otherwise
    */
   private boolean isValidInput() {
-<span class="fc" id="L238">    int numPeople = this.personToPreferences.size();</span>
+<span class="fc" id="L241">    int numPeople = this.personToPreferences.size();</span>
 
     // go through every possible person
-<span class="fc bfc" id="L241" title="All 2 branches covered.">    for (Person currPerson : this.personToPreferences.keySet()) {</span>
+<span class="fc bfc" id="L244" title="All 2 branches covered.">    for (Person currPerson : this.personToPreferences.keySet()) {</span>
       // each person should have everybody else ranked
-<span class="pc bpc" id="L243" title="1 of 2 branches missed.">      if (currPerson.getPreferences().size() != numPeople - 1) {</span>
-<span class="nc" id="L244">        return false;</span>
+<span class="pc bpc" id="L246" title="1 of 2 branches missed.">      if (currPerson.getPreferences().size() != numPeople - 1) {</span>
+<span class="nc" id="L247">        return false;</span>
       }
 
-<span class="fc" id="L247">      Set&lt;Person&gt; peopleInPrefList = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L250">      Set&lt;Person&gt; peopleInPrefList = new HashSet&lt;&gt;();</span>
       // each person should only be in the preferences list once and a person shouldn't ranked
       // themselves
-<span class="fc bfc" id="L250" title="All 2 branches covered.">      for (Person pref : currPerson.getPreferences()) {</span>
-<span class="pc bpc" id="L251" title="2 of 4 branches missed.">        if (peopleInPrefList.contains(pref) || pref.equals(currPerson)) {</span>
-<span class="nc" id="L252">          return false;</span>
+<span class="fc bfc" id="L253" title="All 2 branches covered.">      for (Person pref : currPerson.getPreferences()) {</span>
+<span class="pc bpc" id="L254" title="2 of 4 branches missed.">        if (peopleInPrefList.contains(pref) || pref.equals(currPerson)) {</span>
+<span class="nc" id="L255">          return false;</span>
         }
 
-<span class="fc" id="L255">        peopleInPrefList.add(pref);</span>
-<span class="fc" id="L256">      }</span>
-<span class="fc" id="L257">    }</span>
+<span class="fc" id="L258">        peopleInPrefList.add(pref);</span>
+<span class="fc" id="L259">      }</span>
+<span class="fc" id="L260">    }</span>
 
-<span class="fc" id="L259">    return true;</span>
+<span class="fc" id="L262">    return true;</span>
   }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

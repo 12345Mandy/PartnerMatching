@@ -109,88 +109,91 @@ public final class Main {
 <span class="nc" id="L109">    Spark.post(&quot;/match&quot;, new MatchesHandler());</span>
 <span class="nc" id="L110">  }</span>
 
-<span class="nc bnc" id="L112" title="All 2 branches missed.">  private static class MatchesHandler implements Route {</span>
+  /**
+   * handles creating matches.
+   */
+<span class="nc bnc" id="L115" title="All 2 branches missed.">  private static class MatchesHandler implements Route {</span>
     @Override
     public Object handle(Request request, Response response) throws Exception {
-<span class="nc" id="L115">      JSONObject jsonObject = new JSONObject(request.body());</span>
+<span class="nc" id="L118">      JSONObject jsonObject = new JSONObject(request.body());</span>
 
       // get the questions and answers sent from the frontend
-<span class="nc" id="L118">      JSONArray questions = jsonObject.getJSONArray(&quot;questions&quot;);</span>
-<span class="nc" id="L119">      JSONArray answers = jsonObject.getJSONArray(&quot;answers&quot;);</span>
+<span class="nc" id="L121">      JSONArray questions = jsonObject.getJSONArray(&quot;questions&quot;);</span>
+<span class="nc" id="L122">      JSONArray answers = jsonObject.getJSONArray(&quot;answers&quot;);</span>
 
       // creates a list of the questions from the survey
-<span class="nc" id="L122">      List&lt;Question&gt; questionList = new ArrayList&lt;&gt;();</span>
-<span class="nc bnc" id="L123" title="All 2 branches missed.">      for (int i = 0; i &lt; questions.length(); i++) {</span>
-<span class="nc" id="L124">        JSONObject currQuestionData = questions.getJSONObject(i);</span>
+<span class="nc" id="L125">      List&lt;Question&gt; questionList = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L126" title="All 2 branches missed.">      for (int i = 0; i &lt; questions.length(); i++) {</span>
+<span class="nc" id="L127">        JSONObject currQuestionData = questions.getJSONObject(i);</span>
 
         // get the fields for a Question
-<span class="nc" id="L127">        String questionText = currQuestionData.getString(&quot;question&quot;);</span>
-<span class="nc" id="L128">        double value = currQuestionData.getDouble(&quot;importance&quot;);</span>
-<span class="nc" id="L129">        JSONArray questionAnswers = currQuestionData.getJSONArray(&quot;options&quot;);</span>
+<span class="nc" id="L130">        String questionText = currQuestionData.getString(&quot;question&quot;);</span>
+<span class="nc" id="L131">        double value = currQuestionData.getDouble(&quot;importance&quot;);</span>
+<span class="nc" id="L132">        JSONArray questionAnswers = currQuestionData.getJSONArray(&quot;options&quot;);</span>
 
         // get the possible answers choices for each question
-<span class="nc" id="L132">        List&lt;Answer&gt; actualAnswers = new ArrayList&lt;&gt;();</span>
-<span class="nc bnc" id="L133" title="All 2 branches missed.">        for (int j = 0; j &lt; questionAnswers.length(); j++) {</span>
-<span class="nc" id="L134">          String answerText = questionAnswers.getString(j);</span>
+<span class="nc" id="L135">        List&lt;Answer&gt; actualAnswers = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L136" title="All 2 branches missed.">        for (int j = 0; j &lt; questionAnswers.length(); j++) {</span>
+<span class="nc" id="L137">          String answerText = questionAnswers.getString(j);</span>
 
-<span class="nc" id="L136">          actualAnswers.add(new Answer(answerText));</span>
+<span class="nc" id="L139">          actualAnswers.add(new Answer(answerText));</span>
         }
 
-<span class="nc" id="L139">        Question currQuestion = new Question(questionText, value);</span>
-<span class="nc" id="L140">        currQuestion.setAnswers(actualAnswers);</span>
+<span class="nc" id="L142">        Question currQuestion = new Question(questionText, value);</span>
+<span class="nc" id="L143">        currQuestion.setAnswers(actualAnswers);</span>
 
-<span class="nc" id="L142">        questionList.add(currQuestion);</span>
+<span class="nc" id="L145">        questionList.add(currQuestion);</span>
       }
 
       // maps a person with their answer choice from the survey
-<span class="nc" id="L146">      Map&lt;Person, List&lt;Answer&gt;&gt; personToAnswers = new HashMap&lt;&gt;();</span>
-<span class="nc bnc" id="L147" title="All 2 branches missed.">      for (int i = 0; i &lt; answers.length(); i++) {</span>
-<span class="nc" id="L148">        JSONObject currResponse = answers.getJSONObject(i);</span>
-<span class="nc" id="L149">        Person currPerson =</span>
-<span class="nc" id="L150">            new Person(currResponse.getString(&quot;userID&quot;), currResponse.getString(&quot;email&quot;));</span>
+<span class="nc" id="L149">      Map&lt;Person, List&lt;Answer&gt;&gt; personToAnswers = new HashMap&lt;&gt;();</span>
+<span class="nc bnc" id="L150" title="All 2 branches missed.">      for (int i = 0; i &lt; answers.length(); i++) {</span>
+<span class="nc" id="L151">        JSONObject currResponse = answers.getJSONObject(i);</span>
+<span class="nc" id="L152">        Person currPerson =</span>
+<span class="nc" id="L153">            new Person(currResponse.getString(&quot;userID&quot;), currResponse.getString(&quot;email&quot;));</span>
 
-<span class="nc" id="L152">        JSONArray currPersonAnswers = currResponse.getJSONArray(&quot;responses&quot;);</span>
+<span class="nc" id="L155">        JSONArray currPersonAnswers = currResponse.getJSONArray(&quot;responses&quot;);</span>
 
         // get the answers that the person responded with
-<span class="nc" id="L155">        List&lt;Answer&gt; listOfAnswers = new ArrayList&lt;&gt;();</span>
-<span class="nc bnc" id="L156" title="All 2 branches missed.">        for (int j = 0; j &lt; currPersonAnswers.length(); j++) {</span>
-<span class="nc bnc" id="L157" title="All 4 branches missed.">          assert currPersonAnswers.length() == questionList.size();</span>
-<span class="nc" id="L158">          Question parentQuestion = questionList.get(j);</span>
+<span class="nc" id="L158">        List&lt;Answer&gt; listOfAnswers = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L159" title="All 2 branches missed.">        for (int j = 0; j &lt; currPersonAnswers.length(); j++) {</span>
+<span class="nc bnc" id="L160" title="All 4 branches missed.">          assert currPersonAnswers.length() == questionList.size();</span>
+<span class="nc" id="L161">          Question parentQuestion = questionList.get(j);</span>
 
-<span class="nc" id="L160">          int indexOfAnswer = currPersonAnswers.getInt(j);</span>
+<span class="nc" id="L163">          int indexOfAnswer = currPersonAnswers.getInt(j);</span>
 
-<span class="nc" id="L162">          Answer chosenAnswer = parentQuestion.getAnswers().get(indexOfAnswer);</span>
+<span class="nc" id="L165">          Answer chosenAnswer = parentQuestion.getAnswers().get(indexOfAnswer);</span>
 
-<span class="nc" id="L164">          listOfAnswers.add(chosenAnswer);</span>
+<span class="nc" id="L167">          listOfAnswers.add(chosenAnswer);</span>
         }
 
-<span class="nc" id="L167">        personToAnswers.put(currPerson, listOfAnswers);</span>
+<span class="nc" id="L170">        personToAnswers.put(currPerson, listOfAnswers);</span>
       }
 
       // run the algorithm
-<span class="nc" id="L171">      MatchEvaluator matchEvaluator = new MatchEvaluator(questionList, personToAnswers);</span>
-<span class="nc" id="L172">      Map&lt;Person, List&lt;Person&gt;&gt; prefs = matchEvaluator.evaluateMatches();</span>
+<span class="nc" id="L174">      MatchEvaluator matchEvaluator = new MatchEvaluator(questionList, personToAnswers);</span>
+<span class="nc" id="L175">      Map&lt;Person, List&lt;Person&gt;&gt; prefs = matchEvaluator.evaluateMatches();</span>
 
-<span class="nc bnc" id="L174" title="All 2 branches missed.">      for (Person currPerson : prefs.keySet()) {</span>
-<span class="nc" id="L175">        currPerson.setPreferences(prefs.get(currPerson));</span>
-<span class="nc" id="L176">      }</span>
+<span class="nc bnc" id="L177" title="All 2 branches missed.">      for (Person currPerson : prefs.keySet()) {</span>
+<span class="nc" id="L178">        currPerson.setPreferences(prefs.get(currPerson));</span>
+<span class="nc" id="L179">      }</span>
 
-<span class="nc" id="L178">      StableRoommates sr = new StableRoommates(prefs);</span>
-<span class="nc" id="L179">      Map&lt;Person, Person&gt; pairs = sr.getPairs();</span>
+<span class="nc" id="L181">      StableRoommates sr = new StableRoommates(prefs);</span>
+<span class="nc" id="L182">      Map&lt;Person, Person&gt; pairs = sr.getPairs();</span>
 
       // convert Person objects to their IDs
-<span class="nc" id="L182">      Map&lt;String, String&gt; idPairs = pairs.entrySet()</span>
-<span class="nc" id="L183">          .stream()</span>
-<span class="nc" id="L184">          .collect(Collectors.toMap(map -&gt; map.getKey().getId(), map -&gt; map.getValue().getId()));</span>
+<span class="nc" id="L185">      Map&lt;String, String&gt; idPairs = pairs.entrySet()</span>
+<span class="nc" id="L186">          .stream()</span>
+<span class="nc" id="L187">          .collect(Collectors.toMap(map -&gt; map.getKey().getId(), map -&gt; map.getValue().getId()));</span>
 
-<span class="nc" id="L186">      Map&lt;String, List&lt;Answer&gt;&gt; idToAnswers = personToAnswers.entrySet()</span>
-<span class="nc" id="L187">          .stream()</span>
-<span class="nc" id="L188">          .collect(Collectors.toMap(map -&gt; map.getKey().getId(), Map.Entry::getValue));</span>
+<span class="nc" id="L189">      Map&lt;String, List&lt;Answer&gt;&gt; idToAnswers = personToAnswers.entrySet()</span>
+<span class="nc" id="L190">          .stream()</span>
+<span class="nc" id="L191">          .collect(Collectors.toMap(map -&gt; map.getKey().getId(), Map.Entry::getValue));</span>
 
       // send pairs and answers to frontend
-<span class="nc" id="L191">      Map&lt;String, Object&gt; variables = ImmutableMap.of(&quot;pairs&quot;, idPairs, &quot;answers&quot;, idToAnswers);</span>
+<span class="nc" id="L194">      Map&lt;String, Object&gt; variables = ImmutableMap.of(&quot;pairs&quot;, idPairs, &quot;answers&quot;, idToAnswers);</span>
 
-<span class="nc" id="L193">      return GSON.toJson(variables);</span>
+<span class="nc" id="L196">      return GSON.toJson(variables);</span>
     }
   }
 
@@ -200,15 +203,15 @@ public final class Main {
   private static class ExceptionPrinter implements ExceptionHandler {
     @Override
     public void handle(Exception e, Request req, Response res) {
-<span class="nc" id="L203">      res.status(500);</span>
-<span class="nc" id="L204">      StringWriter stacktrace = new StringWriter();</span>
-<span class="nc" id="L205">      try (PrintWriter pw = new PrintWriter(stacktrace)) {</span>
-<span class="nc" id="L206">        pw.println(&quot;&lt;pre&gt;&quot;);</span>
-<span class="nc" id="L207">        e.printStackTrace(pw);</span>
-<span class="nc" id="L208">        pw.println(&quot;&lt;/pre&gt;&quot;);</span>
+<span class="nc" id="L206">      res.status(500);</span>
+<span class="nc" id="L207">      StringWriter stacktrace = new StringWriter();</span>
+<span class="nc" id="L208">      try (PrintWriter pw = new PrintWriter(stacktrace)) {</span>
+<span class="nc" id="L209">        pw.println(&quot;&lt;pre&gt;&quot;);</span>
+<span class="nc" id="L210">        e.printStackTrace(pw);</span>
+<span class="nc" id="L211">        pw.println(&quot;&lt;/pre&gt;&quot;);</span>
       }
-<span class="nc" id="L210">      res.body(stacktrace.toString());</span>
-<span class="nc" id="L211">    }</span>
+<span class="nc" id="L213">      res.body(stacktrace.toString());</span>
+<span class="nc" id="L214">    }</span>
   }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

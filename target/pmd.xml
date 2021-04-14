@@ -2,7 +2,7 @@
 <pmd xmlns="http://pmd.sourceforge.net/report/2.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 http://pmd.sourceforge.net/report_2_0_0.xsd"
-    version="6.13.0" timestamp="2021-04-14T14:46:40.084">
+    version="6.13.0" timestamp="2021-04-14T15:32:56.772">
 <file name="/Users/pedromonteiroborges/Desktop/CS32/Projects/term-project-awhite35-mcamach6-mhe26-pmontei1/src/main/java/edu/brown/cs/student/main/Main.java">
 <violation beginline="89" endline="89" begincolumn="22" endcolumn="31" rule="UnusedLocalVariable" ruleset="Best Practices" package="edu.brown.cs.student.main" class="Main" method="runSparkServer" variable="freeMarker" externalInfoUrl="https://pmd.github.io/pmd-6.13.0/pmd_rules_java_bestpractices.html#unusedlocalvariable" priority="3">
 Avoid unused local variables such as 'freeMarker'.
@@ -14,7 +14,7 @@ Avoid unused private fields such as 'email'.
 </violation>
 </file>
 <file name="/Users/pedromonteiroborges/Desktop/CS32/Projects/term-project-awhite35-mcamach6-mhe26-pmontei1/src/main/java/edu/brown/cs/student/main/stable_roommates/StableRoommates.java">
-<violation beginline="204" endline="204" begincolumn="67" endcolumn="71" rule="UselessParentheses" ruleset="Code Style" package="edu.brown.cs.student.main.stable_roommates" class="StableRoommates" method="removeRotation" externalInfoUrl="https://pmd.github.io/pmd-6.13.0/pmd_rules_java_codestyle.html#uselessparentheses" priority="4">
+<violation beginline="207" endline="207" begincolumn="67" endcolumn="71" rule="UselessParentheses" ruleset="Code Style" package="edu.brown.cs.student.main.stable_roommates" class="StableRoommates" method="removeRotation" externalInfoUrl="https://pmd.github.io/pmd-6.13.0/pmd_rules_java_codestyle.html#uselessparentheses" priority="4">
 Useless parentheses.
 </violation>
 </file>

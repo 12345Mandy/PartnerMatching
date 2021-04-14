@@ -12,6 +12,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * class for converting answer choices into preferences.
+ */
 public class MatchEvaluator {
   private List<Question> questions; // a list of the questions
   private Map<Person, List<Answer>> personToAnswers; // a map from person to their answers
@@ -83,7 +86,7 @@ public class MatchEvaluator {
   public double getScore(List<Answer> person1answers, List<Answer> person2answers,
                          List<Question> questionList) {
     int totalScore = 0;
-    for (int i = 1; i < person1answers.size(); i++) {
+    for (int i = 0; i < person1answers.size(); i++) {
       if (person1answers.get(i).equals(person2answers.get(i))) {
         totalScore += questionList.get(i).getScore();
       }

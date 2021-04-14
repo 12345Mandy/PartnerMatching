@@ -109,6 +109,9 @@ public final class Main {
     Spark.post("/match", new MatchesHandler());
   }
 
+  /**
+   * handles creating matches.
+   */
   private static class MatchesHandler implements Route {
     @Override
     public Object handle(Request request, Response response) throws Exception {

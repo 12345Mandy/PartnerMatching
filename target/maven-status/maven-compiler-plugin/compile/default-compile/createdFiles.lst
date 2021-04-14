@@ -2,7 +2,6 @@ edu/brown/cs/student/main/Main.class
 edu/brown/cs/student/main/survey/Answer.class
 edu/brown/cs/student/main/stable_roommates/PairGenerator.class
 edu/brown/cs/student/main/Main$MatchesHandler.class
-edu/brown/cs/student/main/stable_roommates/RandomPairs.class
 edu/brown/cs/student/main/Main$ExceptionPrinter.class
 edu/brown/cs/student/main/match_evaluator/MatchEvaluator.class
 edu/brown/cs/student/main/stable_roommates/GreedyPairs.class

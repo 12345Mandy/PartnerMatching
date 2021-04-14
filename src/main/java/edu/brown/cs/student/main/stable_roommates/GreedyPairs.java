@@ -8,7 +8,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ * generates pairs through a greedy algorithm.
+ */
 public class GreedyPairs extends PairGenerator {
+  /**
+   * @param personToPreferences - a map of persons to their preferences
+   */
   public GreedyPairs(Map<Person, List<Person>> personToPreferences) {
     super(personToPreferences);
   }

@@ -15,6 +15,9 @@ import java.util.Set;
  */
 public class StableRoommates extends PairGenerator {
 
+  /**
+   * @param personToPreferences - a map of persons to their preferences
+   */
   public StableRoommates(Map<Person, List<Person>> personToPreferences) {
     super(personToPreferences);
   }

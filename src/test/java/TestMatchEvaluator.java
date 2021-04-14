@@ -40,7 +40,7 @@ public class TestMatchEvaluator {
       // RANDOMIZED MOCK DATA!
       int NUM_ANSWERS = (int) Math.floor(Math.random() * MAX_NUM_ANSWERS) + 1;
       int NUM_QUESTIONS = (int) Math.floor(Math.random() * MAX_NUM_QUESTIONS) + 1;
-      int NUM_PEOPLE = (int) (Math.floor(Math.random() * MAX_NUM_PEOPLE) + 1) * 2; // should be even
+      int NUM_PEOPLE = (int) 12; // should be even
       int QUESTION_VALUE = (int) Math.floor(Math.random() * MAX_QUESTION_VALUE) + 1;
 
 //      foundAns.add(NUM_ANSWERS);
