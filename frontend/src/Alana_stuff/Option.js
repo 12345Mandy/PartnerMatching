@@ -1,7 +1,7 @@
 function Option(props) {
     // onClick={() => props.toUpdate(props.id)}
     let classToUse = "option";
-    if(props.id == props.highlighted) {
+    if(props.id === props.highlighted) {
         classToUse = "optionSelected";
     }
 

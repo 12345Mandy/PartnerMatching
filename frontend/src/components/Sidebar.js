@@ -3,39 +3,37 @@ import "./Sidebar.css";
 import { SidebarData } from './SidebarData'
 import { Link } from 'react-router-dom'
 import firebase from "firebase"
-import "../pages/default_profile.png"
+//import "./default.png"
+import logo from "./default.png"
+import ProfilePic from "./ProfilePic";
+
 //https://www.youtube.com/watch?v=5R9jFHlG6ik&ab_channel=PedroTech -> css
 //https://www.youtube.com/watch?v=Law7wfdg_ls&ab_channel=DevEd -> routing
 //https://www.youtube.com/watch?v=CXa0f4-dWi4&ab_channel=BrianDesign -> using routing for sidebar
-
+//https://firebase.google.com/docs/storage/web/download-files -> taking stuff from firebasestorage
 /* <div id="icon">{item.icon}</div>
 {" "} <div id="title">{item.title}</div> */
 
 
 
 function Sidebar(props) {
-    const logo = require('../pages/default_profile.png');
-    //const logo = require(props.user.photoURL);
-    const storage = firebase.storage().ref()
+    const user = props.user;
 
-
-    function getImage(image) {
-    storage.child(`${image}.png`).getDownloadURL().then((url) => {
-      this.state[image] = url
-      this.setState(this.state)
-    })
-  }
 
     const [currentPage, setCurrentPage] = useState("/Homepage");
     return (
         <div className="Sidebar">
-            <center className="profile">
-                        <img src={logo} alt=""/>
-                        <p>Jessica</p>
-             </center>
-             <button>Edit Profile</button>
-             <br/>
-             <br/>
+            <div className="profile" >
+                <ProfilePic user={user} className={"profilePic"}/>
+                {/*<img src={user.photoURL ? user.photoURL: getDefaultImage()} alt="ahhh"/>*/}
+                {/*<ProfilePic user={user}/>*/}
+                <h3>{user.displayName}</h3>
+                <br/><br/>
+
+                {/*<button className="editProfileButton" >Edit Profile</button>*/}
+                <Link to="/EditProfile" className="editProfileButton">Edit Profile</Link>
+            </div>
+
             <ul className='SidebarList'>
                 {SidebarData.map((item, index) => {
                     return (
@@ -49,7 +47,7 @@ function Sidebar(props) {
                         </li>
                     )
                 })
-                    
+
                 }
 
             </ul>
@@ -58,5 +56,3 @@ function Sidebar(props) {
 }
 
 export default Sidebar
-{/* <span id="icon">{item.icon}</span>
-{" "} <span id="title">{item.title}</span>  */}
