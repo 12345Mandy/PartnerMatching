@@ -1,0 +1,12 @@
+.profilePicLarge {
+    /*cite: https://www.w3schools.com/howto/howto_css_image_avatar.asp*/
+    vertical-align: middle;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    padding: 25px;
+}
+
+.profilePicLarge button {
+    width: 50%;
+}

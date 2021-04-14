@@ -3,7 +3,7 @@ import "./Sidebar.css";
 import { SidebarData } from './SidebarData'
 import { Link } from 'react-router-dom'
 import firebase from "firebase"
-import "../images/default_profile.png"
+import "../pages/default_profile.png"
 //https://www.youtube.com/watch?v=5R9jFHlG6ik&ab_channel=PedroTech -> css
 //https://www.youtube.com/watch?v=Law7wfdg_ls&ab_channel=DevEd -> routing
 //https://www.youtube.com/watch?v=CXa0f4-dWi4&ab_channel=BrianDesign -> using routing for sidebar
@@ -14,7 +14,7 @@ import "../images/default_profile.png"
 
 
 function Sidebar(props) {
-    const logo = require('../images/default_profile.png');
+    const logo = require('../pages/default_profile.png');
     //const logo = require(props.user.photoURL);
     const storage = firebase.storage().ref()
 

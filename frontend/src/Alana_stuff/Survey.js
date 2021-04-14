@@ -1,12 +1,12 @@
 import Question from "./Question";
 import React, {useState, useEffect} from 'react';
-import { Link } from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import firebase from "firebase";
 import axios from "axios";
 import fire from '../fire'
 import "./Survey.css"
 
-function Survey() {
+function Survey(props) {
     const [title, setTitle] = useState("loading...");
     const [surveyCreator, setCreator] = useState(""); // use this to check if button should show up
     const [description, setDescription] = useState("almost there...");
@@ -15,7 +15,7 @@ function Survey() {
 
 
     const db = firebase.firestore();
-    const currentPoll = "musicmatcher";
+    const currentPoll = props.uniqueID;
 
     // load in a survey - hardcoded to lab partner survey by default
     const loadSurvey = async () => {
@@ -39,7 +39,7 @@ function Survey() {
         // make a new document for submitting
         // set user ID to be 0 for now
         await db.collection("surveys").doc(currentPoll).collection("responses").add({
-            userID: 0,
+            userID: firebase.auth().currentUser.uid,
             responses: userAnswers
         });
         // should we add a timestamp?
@@ -84,14 +84,27 @@ function Survey() {
         }
     }
 
+    const createSurvey = (creator, description, title) => {
+        db.collection("surveys").doc().set({
+                creator: creator,
+                description: description,
+                title: title
+            }
+        )
+            .then(() => console.log("Created survey!"))
+            .catch((error) => {
+                console.error("Error making survey: ", error);
+            });
+    }
+
     // checking if user is admin is hard coded in --> will be used to display button for survey results.
-    if(surveyCreator === "userid") {
-        console.log("ssss")
-        return ( <div>
+    if (surveyCreator === firebase.auth().currentUser.uid) {
+        console.log(db.collection("surveys").doc(currentPoll).id)
+        return (<div>
                 <div className="poll">
                     <div className="surveyInfo">
-                    <h1>{title}</h1>
-                    <p>{description}</p>
+                        <h1>{title}</h1>
+                        <p>{description}</p>
                     </div>
                     {questions.map((q, qid) =>
                         <Question options={q.options} question={q.question} id={qid} onSelect={setAnswerFromChild}/>
@@ -99,10 +112,12 @@ function Survey() {
                     <button type="button" onClick={submitSurvey}>submit</button>
 
                 </div>
-                <Link to="/ViewResults" className="poll">Check Results -- Generate Pairs</Link>
-        </div>
+                <Link to={`/ViewResults/${currentPoll}`} className="poll">Check Results -- Generate Pairs</Link>
+            </div>
         )
     } else {
+        console.log("yes")
+        console.log(surveyCreator)
         return (
             <div className="poll">
                 <div className="surveyInfo">
