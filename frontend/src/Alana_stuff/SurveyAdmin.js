@@ -49,7 +49,7 @@ function SurveyAdmin(props) {
 
             db.collection("surveys").doc(currentPoll).collection("pairs")
                 .doc("generatedPairs").set(
-                response.data.pairs
+                {pairs: response.data.pairs}
             )
         }).catch(error => {
             console.log(error);

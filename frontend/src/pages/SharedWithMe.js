@@ -1,10 +1,10 @@
-import React from 'react'
-import Survey from "../Alana_stuff/Survey";
+import React, {useState, useEffect} from 'react'
+import DisplayAllSurvey from "../Alana_stuff/DisplayAllSurvey";
 
 function SharedWithMe() {
     return (
         <div>
-
+            <DisplayAllSurvey/>
         </div>
     )
 }

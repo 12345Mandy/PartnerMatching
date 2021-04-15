@@ -5,14 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="942e858d-e70a-4479-b912-59cc151b8fbc" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/frontend/src/Alana_stuff/DisplayAllSurvey.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/Alana_stuff/DisplayCreatorSurvey.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/Alana_stuff/DisplayHomeSurveys.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/Alana_stuff/DisplaySurvey.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_11_21__9_40_AM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_11_21__9_40_AM__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_14_21__12_56_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_14_21__12_56_PM__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_14_21__12_56_PM__Default_Changelist_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_4_14_21__12_56_PM__Default_Changelist_1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/brown/cs/student/main/match_evaluator/MatchEvaluator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/brown/cs/student/main/match_evaluator/MatchEvaluator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/brown/cs/student/main/survey/Answer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/brown/cs/student/main/survey/Answer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/TestMatchEvaluator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestMatchEvaluator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/match_evaluator/MatchEvaluator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/match_evaluator/MatchEvaluator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/stable_roommates/StableRoommates.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/stable_roommates/StableRoommates.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/survey/Answer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/survey/Answer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/TestMatchEvaluator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/TestMatchEvaluator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.cache/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.cache/.eslintcache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Alana_stuff/SurveyAdmin.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Alana_stuff/SurveyAdmin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Homepage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Homepage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/SharedWithMe.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/SharedWithMe.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,9 +29,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="CSS File" />
         <option value="Class" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -80,15 +84,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -157,6 +159,7 @@
       <workItem from="1618155045103" duration="6945000" />
       <workItem from="1618181790522" duration="12230000" />
       <workItem from="1618199808686" duration="4316000" />
+      <workItem from="1618444187751" duration="7177000" />
     </task>
     <servers />
   </component>
@@ -180,12 +183,12 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/edu/brown/cs/student/main/Main.java</url>
-          <line>182</line>
+          <line>195</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/TestMatchEvaluator.java</url>
-          <line>89</line>
+          <line>193</line>
           <option name="timeStamp" value="15" />
         </line-breakpoint>
       </breakpoints>
