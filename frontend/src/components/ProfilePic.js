@@ -10,6 +10,7 @@ const ProfilePic = (props) => {
     // Create a reference to the file we want to download
     let gsReference = storage.refFromURL('gs://short-demo-login.appspot.com/default_profile.png');
 
+
     // const getDefaultImage = () => {
     //     gsReference.getDownloadURL()
     //         .then((url) => {

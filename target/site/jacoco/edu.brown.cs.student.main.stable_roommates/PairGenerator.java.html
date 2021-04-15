@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PairGenerator.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">term_project</a> &gt; <a href="index.source.html" class="el_package">edu.brown.cs.student.main.stable_roommates</a> &gt; <span class="el_source">PairGenerator.java</span></div><h1>PairGenerator.java</h1><pre class="source lang-java linenums">package edu.brown.cs.student.main.stable_roommates;
+
+import java.util.List;
+import java.util.Map;
+
+/**
+ * general class for making pairs.
+ */
+public abstract class PairGenerator {
+  /**
+   * This maps a person to a set of their preferences, sorted from highest preference to
+   * lowest preference.
+   * &lt;p&gt;
+   * The value should refer to the same list in memory as the key's preferences list.
+   */
+  protected final Map&lt;Person, List&lt;Person&gt;&gt; personToPreferences;
+
+  /**
+   * @param personToPreferences - a map of persons to their preferences
+   */
+<span class="fc" id="L21">  public PairGenerator(Map&lt;Person, List&lt;Person&gt;&gt; personToPreferences) {</span>
+<span class="fc" id="L22">    this.personToPreferences = personToPreferences;</span>
+<span class="fc" id="L23">  }</span>
+
+  /**
+   * @return - a map that represents pairs
+   */
+  public abstract Map&lt;Person, Person&gt; getPairs();
+
+  /**
+   * @param map - a map that represents pairs
+   * @return - true if the pairs are stable, false otherwise
+   */
+  public boolean isStable(Map&lt;Person, Person&gt; map) {
+<span class="pc bpc" id="L35" title="1 of 2 branches missed.">    if (map == null) {</span>
+<span class="nc" id="L36">      return false;</span>
+    }
+
+    // if someone doesn't have a partner
+<span class="fc bfc" id="L40" title="All 2 branches covered.">    for (Person currPerson : map.keySet()) {</span>
+<span class="fc bfc" id="L41" title="All 2 branches covered.">      if (map.get(currPerson) == null) {</span>
+<span class="fc" id="L42">        return false;</span>
+      }
+<span class="fc" id="L44">    }</span>
+
+    // someone's partner's partner should be themselves and their partner should not be themselves
+<span class="fc bfc" id="L47" title="All 2 branches covered.">    for (Person currPerson : map.keySet()) {</span>
+<span class="pc bpc" id="L48" title="1 of 2 branches missed.">      if (!map.get(map.get(currPerson)).equals(currPerson)</span>
+<span class="pc bpc" id="L49" title="1 of 2 branches missed.">          || map.get(currPerson).equals(currPerson)) {</span>
+<span class="nc" id="L50">        return false;</span>
+      }
+<span class="fc" id="L52">    }</span>
+
+<span class="fc" id="L54">    return true;</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

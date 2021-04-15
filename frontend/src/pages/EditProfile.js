@@ -8,6 +8,7 @@ import { Redirect } from 'react-router-dom'
 import Auth from "firebase";
 import TextBox from "../components/TextBox";
 
+
 function EditProfile() {
     //let user = props.user
     const [deleteAccount, setDeleteAccount] = useState(false);
@@ -34,6 +35,7 @@ function EditProfile() {
         setLogMessage('');
         setLogMessage('');
     }
+
 
     // const removeUserAndData = () => {
     //     // //remove user data

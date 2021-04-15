@@ -181,10 +181,10 @@ input[type="password"]:focus {
   width: 100%;
   min-height: 100vh;
   background: radial-gradient(
-    ellipse at bottom,
-    rgba(245, 245, 245, 1) 30%,
-    rgba(255, 205, 178, 0.9) 90%,
-    rgba(245, 245, 245, 0.9) 100%
+          ellipse at bottom,
+          rgba(245, 245, 245, 1) 30%,
+          rgba(255, 205, 178, 0.9) 90%,
+          rgba(245, 245, 245, 0.9) 100%
   );
 }
 
@@ -213,7 +213,6 @@ input[type="password"]:focus {
   z-index: 1;
   background-color: rgba(0, 0, 0, 0.25);
 }
-
 .modal_content {
   background-color: white;
   position: absolute;
@@ -253,4 +252,3 @@ input[type="password"]:focus {
   color: Black;
   float: right;
 }
-

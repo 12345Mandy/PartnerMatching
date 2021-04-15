@@ -15,4 +15,6 @@ function TakeSurvey() {
     )
 }
 
-export default TakeSurvey
+
+export default TakeSurvey;
+

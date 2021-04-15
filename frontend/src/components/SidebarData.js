@@ -2,7 +2,7 @@ import React from 'react'
 import * as RiIcons from "react-icons/ri";
 
 // this is just an array of objects
-export const SidebarData = [ 
+export const SidebarData = [
     {
         title: "Home",
         icon: <RiIcons.RiHome3Fill/>,
@@ -13,5 +13,5 @@ export const SidebarData = [
         icon: <RiIcons.RiUserSharedFill/>,
         path: "/SharedWithMe"
     },
-    
+
 ]

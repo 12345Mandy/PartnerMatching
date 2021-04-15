@@ -1,4 +1,3 @@
-import React from 'react'
 import SurveyAdmin from '../Alana_stuff/SurveyAdmin';
 
 
@@ -15,4 +14,4 @@ function ViewResults() {
     )
 }
 
-export default ViewResults
+export default ViewResults;

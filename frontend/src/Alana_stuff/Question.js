@@ -16,7 +16,7 @@ function Question(props) {
     return (
         <div className="question" >
             <div className="theQuestion">
-            {props.question}
+                {props.question}
             </div>
             {props.options.map((item, index) =>
                 <Option id={index} option={item} onSelected={setAnswer} highlighted={selectedOption}/>

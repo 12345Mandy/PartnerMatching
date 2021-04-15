@@ -1,12 +1,20 @@
 package edu.brown.cs.student.main.stable_roommates;
 
+import edu.brown.cs.student.main.pair.Pair;
+
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+/**
+ * generates pairs through a greedy algorithm.
+ */
 public class GreedyPairs extends PairGenerator {
+  /**
+   * @param personToPreferences - a map of persons to their preferences
+   */
   public GreedyPairs(Map<Person, List<Person>> personToPreferences) {
     super(personToPreferences);
   }
@@ -17,7 +25,7 @@ public class GreedyPairs extends PairGenerator {
     Set<Person> people = this.personToPreferences.keySet();
 
     while (!people.isEmpty()) {
-      Map<Double, PeoplePair> rankToPair = new HashMap<>();
+      Map<Double, Pair<Person, Person>> rankToPair = new HashMap<>();
       for (Person first : people) {
         for (Person second : people) {
           if (first.equals(second)) {
@@ -28,18 +36,18 @@ public class GreedyPairs extends PairGenerator {
           int secondRank = first.getPreferences().indexOf(second);
 
           double avgRank = (firstRank + secondRank) / 2.0;
-          rankToPair.put(avgRank, new PeoplePair(first, second));
+          rankToPair.put(avgRank, new Pair<Person, Person>(first, second));
         }
       }
 
       double minRank = Collections.min(rankToPair.keySet());
-      PeoplePair minPair = rankToPair.get(minRank);
+      Pair<Person, Person> minPair = rankToPair.get(minRank);
 
-      toReturn.put(minPair.getFirstPerson(), minPair.getSecondPerson());
-      toReturn.put(minPair.getSecondPerson(), minPair.getFirstPerson());
+      toReturn.put(minPair.getFirst(), minPair.getSecond());
+      toReturn.put(minPair.getSecond(), minPair.getFirst());
 
-      people.remove(minPair.getFirstPerson());
-      people.remove(minPair.getSecondPerson());
+      people.remove(minPair.getFirst());
+      people.remove(minPair.getSecond());
     }
 
     return toReturn;

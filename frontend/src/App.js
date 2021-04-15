@@ -167,20 +167,19 @@ export default App;
           <section className = "hero">
             <Nav handleLogout = {handleLogout}/>
             <Sidebar user={user}/>
-
             <Switch>
               <Route path="/Homepage" component={Homepage}/>
               <Route path="/SharedWithMe" component={SharedWithMe}/>
             </Switch>
-            
+
           </section>
         </Router>
-        
+
       ): (
-      
-         <div>    
-     
-      <Start 
+
+         <div>
+
+      <Start
         email={email}
         setEmail={setEmail}
         password={password}
@@ -191,7 +190,6 @@ export default App;
         setHasAccount={setHasAccount}
         emailError={emailError}
         passwordError={passwordError}
-
         popUpSeen = {popUpSeen}
         setPopUpSeen = {setPopUpSeen}
         userName = {userName}

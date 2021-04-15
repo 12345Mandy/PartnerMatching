@@ -21,6 +21,7 @@ function Sidebar(props) {
     let user = Auth.auth().currentUser
 
 
+
     const [currentPage, setCurrentPage] = useState("/Homepage");
     return (
         <div className="Sidebar">
@@ -28,7 +29,7 @@ function Sidebar(props) {
                 <ProfilePic user={user} className={"profilePic"}/>
                 {/*<img src={user.photoURL ? user.photoURL: getDefaultImage()} alt="ahhh"/>*/}
                 {/*<ProfilePic user={user}/>*/}
-                        <h3>{user.displayName}</h3>
+                <h3>{user.displayName}</h3>
                 <br/><br/>
 
                 {/*<button className="editProfileButton" >Edit Profile</button>*/}
@@ -48,7 +49,7 @@ function Sidebar(props) {
                         </li>
                     )
                 })
-                    
+
                 }
 
             </ul>
@@ -57,3 +58,4 @@ function Sidebar(props) {
 }
 
 export default Sidebar
+
