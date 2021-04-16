@@ -98,6 +98,19 @@ function SurveyAdmin(props) {
                 console.log(error));
     }
 
+    const deleteSurvey = () => {
+        let input = prompt("Type DELETE to delete this survey.");
+        if (input === "DELETE") {
+            const thisSurvey = db.collection("surveys").doc(currentPoll);
+
+            // apparently this doesn't delete subcollections so welp
+            thisSurvey.delete().then(x => {
+                alert("Survey Successfully Deleted!")
+                window.location.replace("http://localhost:3000/Homepage")
+            });
+        }
+    }
+
     if (surveyCreator === firebase.auth().currentUser.uid) {
         console.log("in admin");
         return (
@@ -120,6 +133,7 @@ function SurveyAdmin(props) {
                         />);
                     })}
                 </div>
+                <button type="button" onClick={deleteSurvey}>Delete This Survey</button>
             </div>
         );
     } else {
