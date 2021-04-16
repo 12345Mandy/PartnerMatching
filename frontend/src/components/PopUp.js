@@ -190,24 +190,7 @@ function PopUp(props) {
             </div>
         </div>
     );
-    // return (
-    //   <div className="modal">
-    //     <div className="modal_content">
-    //       <span className="close" onClick={handleClick}>
-    //         &times;
-    //       </span>
-    //       <form>
-    //         <h3>Register!</h3>
-    //         <label>
-    //           Name:
-    //           <input type="text" name="name" />
-    //         </label>
-    //         <br />
-    //         <input type="submit" />
-    //       </form>
-    //     </div>
-    //   </div>
-    // );
+
     //https://medium.com/@daniela.sandoval/creating-a-popup-window-using-js-and-react-4c4bd125da57
 }
 

@@ -6,6 +6,7 @@ import firebase from "firebase"
 //import "./default.png"
 import logo from "./default.png"
 import ProfilePic from "./ProfilePic";
+import Auth from "firebase";
 
 //https://www.youtube.com/watch?v=5R9jFHlG6ik&ab_channel=PedroTech -> css
 //https://www.youtube.com/watch?v=Law7wfdg_ls&ab_channel=DevEd -> routing
@@ -17,7 +18,8 @@ import ProfilePic from "./ProfilePic";
 
 
 function Sidebar(props) {
-    const user = props.user;
+    let user = Auth.auth().currentUser
+
 
 
     const [currentPage, setCurrentPage] = useState("/Homepage");
@@ -32,7 +34,7 @@ function Sidebar(props) {
 
                 {/*<button className="editProfileButton" >Edit Profile</button>*/}
                 <Link to="/EditProfile" className="editProfileButton">Edit Profile</Link>
-            </div>
+             </div>
 
             <ul className='SidebarList'>
                 {SidebarData.map((item, index) => {
@@ -56,3 +58,4 @@ function Sidebar(props) {
 }
 
 export default Sidebar
+

@@ -42,6 +42,8 @@ function Survey(props) {
             userID: firebase.auth().currentUser.uid,
             responses: userAnswers
         });
+
+
         // should we add a timestamp?
         console.log("submitted!");
     }

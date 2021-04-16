@@ -67,7 +67,7 @@ a:hover {
 
 
 .editProfileButton a:link{
-  padding: 15px;
+ padding: 15px;
 }
 
 .SidebarList #icon {
@@ -86,6 +86,7 @@ a:hover {
   text-align: center;
   padding: 35px;
 }
+
 
 .editProfileButton {
   height: 50%;

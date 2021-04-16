@@ -51,6 +51,7 @@ function SurveyAdmin(props) {
             db.collection("surveys").doc(currentPoll).collection("pairs")
                 .doc("generatedPairs").set(
                 {pairs: response.data["pairs"]}
+
             )
         }).catch(error => {
             console.log(error);
