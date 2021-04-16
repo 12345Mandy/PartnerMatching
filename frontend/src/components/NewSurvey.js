@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from "react";
 import * as RiIcons from "react-icons/ri";
-import Survey from "../Alana_stuff/Survey";
+import {Link} from "react-router-dom";
 
-
-function NewSurvey(props) {
+function NewSurvey() {
     return (
         <div className="addSurveyIcon" >
-            <RiIcons.RiAddLine className="icon" onClick={()=>props.setSurveyVisibility(true)}/>
+            <Link to="/CreateSurvey" className="createSurveyButton">
+            <RiIcons.RiAddLine className="icon" />
+            </Link>
             <span className="labelIcon"><h3> Click to create new survey</h3></span>
+
         </div>
 
     )

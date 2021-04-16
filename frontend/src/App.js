@@ -12,6 +12,7 @@ import Survey from './Alana_stuff/Survey'
 import StartPage from "./pages/StartPage";
 import logo from "./default.png"
 import TakeSurvey from "./pages/TakeSurvey";
+import SurveyCreator from "./creating_surveys/SurveyCreator";
 
 //https://firebase.google.com/docs/auth/web/manage-users
 
@@ -124,6 +125,7 @@ function App() {
                                 <Route path="/Homepage"  component={Homepage}/>
                                 <Route path="/SharedWithMe" component={SharedWithMe}/>
                                 <Route path="/TakeSurvey" component={TakeSurvey}/>
+                                <Route path="/CreateSurvey" component={SurveyCreator}/>
                                 <Route path="/EditProfile" render={() => (
                                     <EditProfile user={user}/>
                                 )}/>
