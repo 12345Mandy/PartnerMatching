@@ -43,6 +43,7 @@ function Survey(props) {
 
         await responsesRef.doc(firebase.auth().currentUser.uid).set({
             userID: firebase.auth().currentUser.uid,
+            email: firebase.auth().currentUser.email,
             responses: userAnswers
         });
 

@@ -1,11 +1,10 @@
 import SurveyAdmin from '../Alana_stuff/SurveyAdmin';
-
+import firebase from "firebase";
 
 function ViewResults() {
     let url = window.location.pathname;
 
     let uniqueID = url.split("/")[2];
-    console.log(uniqueID);
 
     return (
         <div>
