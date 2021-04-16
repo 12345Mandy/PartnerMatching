@@ -80,7 +80,6 @@ function SurveyAdmin(props) {
 
     }
 
-
     if (surveyCreator === firebase.auth().currentUser.uid) {
         console.log("in admin");
         return (

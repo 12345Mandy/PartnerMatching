@@ -37,7 +37,6 @@ function Survey(props) {
 
     const sendResults = async () => {
         // make a new document for submitting
-        // set user ID to be 0 for now
 
         // makes the document id the same as the user id and also overrides previous changes if the user
         // submits twice
@@ -104,7 +103,6 @@ function Survey(props) {
     }
 
     // checking if user is admin is hard coded in --> will be used to display button for survey results.
-    if (surveyCreator === firebase.auth().currentUser.uid) {
         console.log(db.collection("surveys").doc(currentPoll).id)
         return (<div>
                 <div className="poll">
@@ -118,26 +116,8 @@ function Survey(props) {
                     <button type="button" onClick={submitSurvey}>submit</button>
 
                 </div>
-                <Link to={`/ViewResults/${currentPoll}`} className="poll">Check Results -- Generate Pairs</Link>
+                <Link to={`/ViewResults/${currentPoll}`} className="poll">Check Results</Link>
             </div>
         )
-    } else {
-        console.log("yes")
-        console.log(surveyCreator)
-        return (
-            <div className="poll">
-                <div className="surveyInfo">
-                    <h1>{title}</h1>
-                    <p>{description}</p>
-                </div>
-                {questions.map((q, qid) =>
-                    <Question options={q.options} question={q.question} id={qid} onSelect={setAnswerFromChild}/>
-                )}
-                <button type="button" onClick={submitSurvey}>submit</button>
-
-            </div>
-        );
-    }
 }
-
 export default Survey;

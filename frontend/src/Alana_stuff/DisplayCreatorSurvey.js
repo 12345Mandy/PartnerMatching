@@ -3,6 +3,7 @@ import React from "react";
 
 function DisplayCreatorSurvey(props) {
     return (
+        <div className="hover-over">
         <Link to={`/ViewResults/${props.link}`}>
         <div className="display-survey" >
                 <div className="survey-info">
@@ -11,6 +12,7 @@ function DisplayCreatorSurvey(props) {
                     <div>{props.data.description}</div>
         </div>
         </Link>
+        </div>
     );
 }
 
