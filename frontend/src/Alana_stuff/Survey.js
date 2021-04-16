@@ -62,7 +62,6 @@ function Survey(props) {
 
     // attempt to submit survey
     const submitSurvey = () => {
-        //TODO: obtain a user ID and add that to the submission
         console.log(userAnswers);
 
         // make sure each answer isn't null
