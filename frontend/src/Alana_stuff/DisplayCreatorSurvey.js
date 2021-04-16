@@ -3,12 +3,14 @@ import React from "react";
 
 function DisplayCreatorSurvey(props) {
     return (
-        <div className="display-survey">
-            <Link to={`/ViewResults/${props.link}`}>
-                {props.data.title}
-                {props.data.description}
-            </Link>
+        <Link to={`/ViewResults/${props.link}`}>
+        <div className="display-survey" >
+                <div className="survey-info">
+                    <div><strong>{props.data.title}</strong></div>
+                </div>
+                    <div>{props.data.description}</div>
         </div>
+        </Link>
     );
 }
 

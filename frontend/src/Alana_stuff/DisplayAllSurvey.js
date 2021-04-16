@@ -28,7 +28,6 @@ function DisplayAllSurvey() {
 
         return (
             <div>
-                <div>All Surveys</div>
                 {allSurveys.map((s) => {
                     return (<DisplaySurvey data={s.data()} link={s.id}/>);
                 })}
