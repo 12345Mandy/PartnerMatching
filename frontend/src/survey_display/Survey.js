@@ -12,6 +12,7 @@ function Survey(props) {
     const [description, setDescription] = useState("almost there...");
     const [questions, setQuestions] = useState([]);
     const [userAnswers, setUserAnswers] = useState([]);
+    const [error, setError] = useState("");
 
 
     const db = firebase.firestore();
@@ -46,11 +47,16 @@ function Survey(props) {
             email: firebase.auth().currentUser.email,
             name: firebase.auth().currentUser.displayName,
             responses: userAnswers
+        }).then(() => {
+            setError("Successfully submitted survey response!");
+            console.log("submitted survey response!");
+
+        }).catch((error) => {
+            console.error("Error making survey: ", error);
+            setError("Error submitting survey: " + error);
         });
 
         // should we add a timestamp?
-
-        console.log("submitted!");
     }
 
 
@@ -79,28 +85,14 @@ function Survey(props) {
             }
         }
 
-        //TODO: prevent user from submitting duplicates
 
         if (valid) {
             console.log("attemp ting to submit...");
             sendResults();
         } else {
-            // TODO: error message
             console.log("you didn't pick answer choices :(");
+            setError("Please answer every question!");
         }
-    }
-
-    const createSurvey = (creator, description, title) => {
-        db.collection("surveys").doc().set({
-                creator: creator,
-                description: description,
-                title: title
-            }
-        )
-            .then(() => console.log("Created survey!"))
-            .catch((error) => {
-                console.error("Error making survey: ", error);
-            });
     }
 
     // checking if user is admin is hard coded in --> will be used to display button for survey results.
@@ -115,7 +107,7 @@ function Survey(props) {
                         <Question options={q.options} question={q.question} id={qid} onSelect={setAnswerFromChild}/>
                     )}
                     <button type="button" onClick={submitSurvey}>submit</button>
-
+                    {error}
                 </div>
                 <Link to={`/ViewResults/${currentPoll}`} className="poll">Check Results</Link>
             </div>

@@ -3,7 +3,7 @@ import "../Homepage.css";
 import PopUp from "../components/PopUp";
 import NewSurvey from "../components/NewSurvey";
 
-import DisplayHomeSurveys from "../Alana_stuff/DisplayHomeSurveys"
+import DisplayHomeSurveys from "../survey_display/DisplayHomeSurveys"
 
 
 function Homepage() {
