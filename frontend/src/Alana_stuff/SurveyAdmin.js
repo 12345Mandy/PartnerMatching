@@ -1,4 +1,3 @@
-
 import Option from "./Option";
 import DisplayPerson from "./DisplayPerson";
 import DisplayPair from "./DisplayPair.js";
@@ -8,6 +7,8 @@ import firebase from "firebase";
 
 function SurveyAdmin(props) {
     const [surveyCreator, setCreator] = useState(""); // use this to check if button should show up
+
+    const [displayResults, setDisplayResults] = useState(false);
 
     const [title, setTitle] = useState("loading...");
     const [results, setResults] = useState([])
@@ -45,11 +46,11 @@ function SurveyAdmin(props) {
             config
         ).then(response => {
             console.log(response.data)
-            setPairs(response.data.pairs)
+            setPairs(response.data["pairs"])
 
             db.collection("surveys").doc(currentPoll).collection("pairs")
                 .doc("generatedPairs").set(
-                response.data.pairs
+                {pairs: response.data["pairs"]}
             )
         }).catch(error => {
             console.log(error);
@@ -67,7 +68,15 @@ function SurveyAdmin(props) {
         responses.forEach(user => {
             temp.push(user)
         })
+
         setResults(temp)
+    }
+
+    const onPairClicked = () => {
+        console.log("Temp has: " + results);
+        console.log(results);
+
+
     }
 
 
@@ -105,20 +114,22 @@ function SurveyAdmin(props) {
         // getPairs()
         return (
             <div className="poll">
-                {/*<h1>{title}</h1>*/}
-                {/*<button>Your Current Pair</button>*/}
-                {/*<div>*/}
-                {/*    { db.collection("surveys").doc(currentPoll).collection("pairs")*/}
-                {/*        .doc("generatedPairs").get().then(snap => snap.exists) &&*/}
+                <h1>{title}</h1>
+                <button onClick={onPairClicked}>Your Current Pair</button>
+                <div>
+                    {/*{ db.collection("surveys").doc(currentPoll).collection("pairs")*/}
+                    {/*    .doc("generatedPairs").get().then(snap => snap.exists) &&*/}
 
-                {/*        <div>*/}
-                {/*            You have been paired with:*/}
-                {/*            pairs[0]*/}
+                    {/*    <div>*/}
+                    {/*        You have been paired with:*/}
+                    {/*        pairs[0]*/}
 
-                {/*        </div>*/}
-                {/*    }*/}
-
-                {/*</div>*/}
+                    {/*    </div>*/}
+                    {/*}*/}
+                    ${
+                        pairs[firebase.auth().currentUser.uid.toString()]
+                    }
+                </div>
                 ur not admin
             </div>
         );
