@@ -86,7 +86,7 @@ function SurveyCreator() {
             // if valid, submit to firebase
             // make a new survey collection
             await db.collection("surveys").add({
-                userID : firebase.auth().currentUser.uid,
+                creator : firebase.auth().currentUser.uid,
                 description : descr,
                 title: inputTitle
             }).then(docRef => {
