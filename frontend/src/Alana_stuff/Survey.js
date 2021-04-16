@@ -38,13 +38,18 @@ function Survey(props) {
     const sendResults = async () => {
         // make a new document for submitting
         // set user ID to be 0 for now
-        await db.collection("surveys").doc(currentPoll).collection("responses").add({
+
+        // makes the document id the same as the user id and also overrides previous changes if the user
+        // submits twice
+        let responsesRef = db.collection("surveys").doc(currentPoll).collection("responses");
+
+        await responsesRef.doc(firebase.auth().currentUser.uid).set({
             userID: firebase.auth().currentUser.uid,
             responses: userAnswers
         });
 
-
         // should we add a timestamp?
+
         console.log("submitted!");
     }
 

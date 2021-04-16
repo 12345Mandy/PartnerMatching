@@ -29,7 +29,6 @@ function DisplayHomeSurveys() {
 
     return (
         <div>
-            <div>All Surveys</div>
             {allSurveys.map((s) => {
                 return (<DisplayCreatorSurvey data={s.data()} link={s.id}/>);
             })}
