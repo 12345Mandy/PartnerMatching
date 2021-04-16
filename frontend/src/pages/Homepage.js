@@ -8,7 +8,7 @@ import DisplayHomeSurveys from "../Alana_stuff/DisplayHomeSurveys"
 
 function Homepage() {
     return (
-        <div>
+        <div style={{width: "70%"}}>
             <NewSurvey />
             <DisplayHomeSurveys/>
         </div>

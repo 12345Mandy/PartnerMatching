@@ -57,8 +57,8 @@ h1 {
 }
 
 .display-survey {
-    color: rgb(92, 156, 205);
-    background-color: lightpink;
+    color: #fafafa;
+    background-color: #e5989b;
     padding: 8px;
     font-size: calc(3px + 1vmin);
     width: 50%;
@@ -68,7 +68,7 @@ h1 {
 
 
 .survey-info {
-    color: floralwhite;
+    color: #fafafa;
     font-size: calc(1px + 1.7vmin);
     margin-bottom: 0.3rem;
     display: flex;
@@ -76,5 +76,9 @@ h1 {
 }
 
 .hover-over div:hover {
-    background-color: deeppink;
+    background-color: #b5838d;
+}
+
+.homeSurveys {
+    width: 100%;
 }

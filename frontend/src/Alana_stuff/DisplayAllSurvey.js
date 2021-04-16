@@ -3,6 +3,7 @@ import Survey from "./Survey";
 import firebase from "firebase";
 import Question from "./Question";
 import DisplaySurvey from "./DisplaySurvey";
+import "./Survey.css"
 
 function DisplayAllSurvey() {
     const [allSurveys, setSurveys] = useState([])
@@ -27,7 +28,7 @@ function DisplayAllSurvey() {
 
 
         return (
-            <div>
+            <div className="homeSurveys">
                 {allSurveys.map((s) => {
                     return (<DisplaySurvey data={s.data()} link={s.id}/>);
                 })}

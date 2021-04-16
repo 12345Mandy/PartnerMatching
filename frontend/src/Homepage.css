@@ -8,7 +8,7 @@
 
 .addSurveyIcon .icon {
     order: 2;
-
+    color: #fafafa;
     box-shadow: 0 50px 20px -20px rgba(109, 104, 117, 0.2);
     background-color: #b5838d;
     border-radius: 20%;

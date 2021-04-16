@@ -5,6 +5,7 @@ import NewQuestionButton from "./NewQuestionButton";
 import QuestionEntry from "./QuestionEntry";
 import SurveyInfoBox from "./SurveyInfoBox";
 import GeneratedLink from "./GeneratedLink";
+import "./SurveyCreator.css"
 
 //TODO: delete a question or option
 
@@ -131,17 +132,17 @@ function SurveyCreator() {
     return(<div className="surveyMaker">
         <div className="surveyCreatorTitle"><h1>Create a Survey!</h1></div>
         <h3>Survey Name:</h3>
-        <SurveyInfoBox placeholder="survey name" change={updateTitle}/>
+        <SurveyInfoBox className="nameBox" placeholder="survey name" change={updateTitle}/>
         <h3>Survey Description:</h3>
-        <SurveyInfoBox placeholder="survey description" change={updateDesc}/>
+        <SurveyInfoBox className="descBox" placeholder="survey description" change={updateDesc}/>
         <h3>Questions:</h3>
         {questions.map((q, qid) =>
             <QuestionEntry id={qid} options={questionOptions[qid]} addAnswer={addOption} change={changeQuestionContent}
                            changeAnswer={changeAnswerContent} changeImp={changeImportance}/>)}
         <NewQuestionButton addQuestion={addAQuestion}/>
-        <button type="button" onClick={submitSurvey}>submit</button>
+        <button className="submitButton" type="button" onClick={submitSurvey}>submit</button>
         {error}
-        <GeneratedLink madeLink={submitted} link={"localhost:3000/TakeSurvey/" + customURL}/>
+        <GeneratedLink madeLink={submitted} link={"localhost:3000/TakeSurvey/" + customURL} shortlink={"TakeSurvey/" + customURL}/>
 
     </div>);
 

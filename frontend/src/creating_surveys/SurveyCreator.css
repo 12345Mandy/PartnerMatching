@@ -1,0 +1,59 @@
+.surveyMaker {
+    align-content: center;
+    width: 68%;
+    margin-left: 2%;
+}
+
+.addButton {
+    border-radius: 10px;
+    width: 20%;
+    height: 40px;
+    padding: 2px;
+    margin-top: 8px;
+}
+
+
+input {
+    background-color: rgba(250, 250, 250, 0.8);
+    border: none;
+    border-bottom: 2px solid #b5838d;
+    border-radius: 5px;
+    padding: 12px 20px;
+
+}
+
+.submitButton {
+    width: 100%;
+    border-radius: 10px;
+    height: 40px;
+    padding: 2px;
+    margin-top: 8px;
+}
+
+
+.questionInput {
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.importance {
+    width: 80px;
+}
+
+.answers {
+    margin-left: 10%;
+    width: 100%;
+}
+
+.answerInput {
+    width: 100%;
+}
+
+.nameBox {
+    margin-bottom: 5px;
+}
+
+.descBox {
+    margin-bottom: 5px;
+    width: 100%;
+}

@@ -17,7 +17,6 @@ function Survey(props) {
     const db = firebase.firestore();
     const currentPoll = props.uniqueID;
 
-    // load in a survey - hardcoded to lab partner survey by default
     const loadSurvey = async () => {
         const doc = await db.collection("surveys").doc(currentPoll).get();
         setTitle(doc.data().title);
