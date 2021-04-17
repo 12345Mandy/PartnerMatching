@@ -113,6 +113,7 @@ function SurveyAdmin(props) {
 
     if (surveyCreator === firebase.auth().currentUser.uid) {
         console.log("in admin");
+        console.log(pairs["dnjlancdjsncd"])
         return (
             <div className="poll">
                 <h1>{title}</h1>
