@@ -82,3 +82,7 @@ h1 {
 .homeSurveys {
     width: 100%;
 }
+
+#linkToCheckResults {
+    visibility: hidden;
+}

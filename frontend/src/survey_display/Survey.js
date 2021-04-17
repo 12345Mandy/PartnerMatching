@@ -33,6 +33,11 @@ function Survey(props) {
         }
         setUserAnswers(answers);
 
+        if ((await
+            db.collection("surveys").doc(currentPoll).collection("responses").doc(firebase.auth()
+                .currentUser.uid).get()).exists) {
+            document.getElementById("linkToCheckResults").style.visibility = "visible";
+        }
     }
 
     const sendResults = async () => {
@@ -49,6 +54,10 @@ function Survey(props) {
             responses: userAnswers
         }).then(() => {
             setError("Successfully submitted survey response!");
+
+            document.getElementById("linkToCheckResults").style.visibility = "visible";
+            alert("Successfully submitted survey response!");
+
             console.log("submitted survey response!");
 
         }).catch((error) => {
@@ -96,21 +105,25 @@ function Survey(props) {
     }
 
     // checking if user is admin is hard coded in --> will be used to display button for survey results.
-        console.log(db.collection("surveys").doc(currentPoll).id)
-        return (<div>
-                <div className="poll">
-                    <div className="surveyInfo">
-                        <h1>{title}</h1>
-                        <p>{description}</p>
-                    </div>
-                    {questions.map((q, qid) =>
-                        <Question options={q.options} question={q.question} id={qid} onSelect={setAnswerFromChild}/>
-                    )}
-                    <button type="button" onClick={submitSurvey}>submit</button>
-                    {error}
+    console.log(db.collection("surveys").doc(currentPoll).id)
+    return (<div>
+            <div className="poll">
+                <div className="surveyInfo">
+                    <h1>{title}</h1>
+                    <p>{description}</p>
                 </div>
+                {questions.map((q, qid) =>
+                    <Question options={q.options} question={q.question} id={qid} onSelect={setAnswerFromChild}/>
+                )}
+                <button type="button" onClick={submitSurvey}>submit</button>
+                {error}
+            </div>
+            <div id="linkToCheckResults">
                 <Link to={`/ViewResults/${currentPoll}`} className="poll">Check Results</Link>
             </div>
-        )
+
+        </div>
+    )
 }
+
 export default Survey;

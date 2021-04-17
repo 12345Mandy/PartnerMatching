@@ -118,6 +118,20 @@ function SurveyAdmin(props) {
         }
     }
 
+    const deleteResponse = () => {
+        let input = prompt("Type DELETE to delete your response to this survey.");
+        if (input === "DELETE") {
+            const userResponseRef =  db.collection("surveys").doc(currentPoll).collection("responses")
+                .doc(firebase.auth().currentUser.uid);
+
+            // apparently this doesn't delete subcollections so welp
+            userResponseRef.delete().then(x => {
+                alert("Survey Successfully Deleted!")
+                window.location.replace("http://localhost:3000/Homepage")
+            });
+        }
+    }
+
     if (surveyCreator === firebase.auth().currentUser.uid) {
         console.log("in admin");
         console.log(pairs["dnjlancdjsncd"])
@@ -166,7 +180,12 @@ function SurveyAdmin(props) {
             return (
                 <div className="poll">
                     <h1>{title}</h1>
-                    Survey Results Aren't Ready Yet!
+                    <div>
+                        Survey Results Aren't Ready Yet!
+                    </div>
+
+
+                    <button typeof="button" onClick={deleteResponse}>Delete Response</button>
                 </div>
             );
         }
