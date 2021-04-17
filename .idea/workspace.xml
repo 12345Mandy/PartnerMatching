@@ -6,6 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="942e858d-e70a-4479-b912-59cc151b8fbc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
+=======
+      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.cache/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.cache/.eslintcache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/survey_display/Survey.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/survey_display/Survey.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/survey_display/Survey.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/survey_display/Survey.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/survey_display/SurveyAdmin.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/survey_display/SurveyAdmin.js" afterDir="false" />
+>>>>>>> 39aa608b72a677bfc708a89ccbd8526440ee465d
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,8 +25,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
         <option value="Class" />
+        <option value="CSS File" />
         <option value="JavaScript File" />
       </list>
     </option>

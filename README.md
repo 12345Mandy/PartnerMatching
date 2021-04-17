@@ -138,7 +138,7 @@ Requirements:
 
 **HTA Approval (dpark20):** Idea approved
 
-**Mentor TA:** _Put your mentor TA's name and email here once you're assigned one!_
+**Mentor TA:** Raj!
 
 ## Meetings
 _On your first meeting with your mentor TA, you should plan dates for at least the following meetings:_
@@ -150,4 +150,7 @@ _On your first meeting with your mentor TA, you should plan dates for at least t
 **Adversary Checkpoint:** _(Schedule for on or before April 12 once you are assigned an adversary TA)_
 
 ## How to Build and Run
-_A necessary part of any README!_
+
+To build: mvn package in the top-level directory
+To run: run ./run --gui from the top-level directory and yarn start from inside /frontend (see README in /frontend)
+To run java tests: 

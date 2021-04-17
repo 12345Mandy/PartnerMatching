@@ -1,0 +1,27 @@
+.partner-name {
+    color: #fafafa;
+    background-color: #e5989b;
+    padding: 8px;
+    font-size: calc(3px + 1vmin);
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 0.3rem;
+}
+
+.partner-email {
+    color: #fafafa;
+    font-size: calc(1px + 1.7vmin);
+    margin-bottom: 0.3rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.compare-answers {
+    color: #fafafa;
+    background-color: #b5838d;
+    padding: 8px;
+    font-size: calc(3px + 1vmin);
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 0.3rem;
+}

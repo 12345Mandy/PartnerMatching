@@ -1,4 +1,4 @@
-import SurveyAdmin from '../Alana_stuff/SurveyAdmin';
+import SurveyAdmin from '../survey_display/SurveyAdmin';
 import firebase from "firebase";
 
 function ViewResults() {
