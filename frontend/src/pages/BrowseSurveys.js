@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import DisplayAllSurvey from "../survey_display/DisplayAllSurvey";
 
-function SharedWithMe() {
+function BrowseSurveys() {
     return (
         <div>
             <DisplayAllSurvey/>
@@ -9,4 +9,4 @@ function SharedWithMe() {
     )
 }
 
-export default SharedWithMe
+export default BrowseSurveys

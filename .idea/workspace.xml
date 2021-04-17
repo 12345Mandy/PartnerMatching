@@ -6,18 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="942e858d-e70a-4479-b912-59cc151b8fbc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/build/static/js/main.02991354.chunk.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/build/static/js/main.02991354.chunk.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/build/static/js/main.02991354.chunk.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/build/static/js/main.02991354.chunk.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/node_modules/.cache/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.cache/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/ProfilePic.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ProfilePic.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Sidebar.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Sidebar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Sidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Sidebar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/TextBox.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/TextBox.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/default.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/default.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/EditProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/EditProfile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/StartPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/StartPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/default_profile.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/editProfile.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/editProfile.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/SidebarData.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/SidebarData.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/SharedWithMe.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/BrowseSurveys.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

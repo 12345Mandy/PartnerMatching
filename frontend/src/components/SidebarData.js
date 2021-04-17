@@ -9,9 +9,9 @@ export const SidebarData = [
         path: "/Homepage"
     },
     {
-        title: "Shared With Me",
-        icon: <RiIcons.RiUserSharedFill/>,
-        path: "/SharedWithMe"
+        title: "Browse Surveys",
+        icon: <RiIcons.RiFileSearchFill/>,
+        path: "/BrowseSurveys"
     },
 
 ]

@@ -4,7 +4,7 @@ import fire from "./fire";
 import Nav from './components/Nav'
 import Sidebar from './components/Sidebar'
 import Homepage from './pages/Homepage'
-import SharedWithMe from './pages/SharedWithMe'
+import BrowseSurveys from './pages/BrowseSurveys'
 import EditProfile from "./pages/EditProfile";
 import ViewResults from './pages/ViewResults'
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
@@ -116,7 +116,7 @@ function App() {
                             <Sidebar className="sideBarLeft" user={user}/>
                             <Switch >
                                 <Route path="/Homepage"  component={Homepage}/>
-                                <Route path="/SharedWithMe" component={SharedWithMe}/>
+                                <Route path="/BrowseSurveys" component={BrowseSurveys}/>
                                 <Route path="/TakeSurvey" component={TakeSurvey}/>
                                 <Route path="/CreateSurvey" component={SurveyCreator}/>
                                 <Route path="/EditProfile" render={() => (
