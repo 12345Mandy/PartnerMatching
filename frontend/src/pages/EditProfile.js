@@ -76,7 +76,7 @@ function EditProfile() {
         //updateProfile();
     }
 
-// Delete the file
+// Delete the user file in storage
     function deleteProfPic() {
         profilePicRef.delete().then(() => {
             // File deleted successfully
@@ -88,7 +88,7 @@ function EditProfile() {
 
     }
 
-
+// Delete User's Account
     const removeUserAndData = () => {
         if (hasPic) {
             deleteProfPic();
@@ -191,7 +191,7 @@ function EditProfile() {
 
                 <br/><br/>
 
-                <button onClick={() => setPopUpSeen(true)}>Delete Account</button>
+                <button className="deleteButton" onClick={() => setPopUpSeen(true)}>Delete Account</button>
                 {popUpSeen === true ?
                     <PopUp
                         toggle={setPopUpSeen}
@@ -200,15 +200,9 @@ function EditProfile() {
                         }
                     /> : null}
 
-                {/*{deleteAccount ? <Redirect to="/Login" /> : null}*/}
             </div>
         </div>
     )
 }
 
 export default EditProfile
-
-// content={
-// // "Are you sure you want to delete your account?"
-// <button onClick={() => removeUserAndData()}>delete your account</button>
-//     }

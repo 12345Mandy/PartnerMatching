@@ -5,8 +5,7 @@ function TextBox(props) {
     <div>
         <label className="textbox" htmlFor={props.label + ": "}>{props.label + ": "}</label>
     {props.focus ? (
-        <input 
-        
+        <input
         type={props.type}
         autoFocus
         label={props.label} 
@@ -15,8 +14,7 @@ function TextBox(props) {
         onChange={(e) => props.change(e.target.value)} 
         />
     ) : (
-        <input 
-        // className="inputBox"
+        <input
         type={props.type}
         label={props.type}
         required 

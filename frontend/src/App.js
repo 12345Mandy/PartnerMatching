@@ -8,13 +8,11 @@ import SharedWithMe from './pages/SharedWithMe'
 import EditProfile from "./pages/EditProfile";
 import ViewResults from './pages/ViewResults'
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
-import Survey from './survey_display/Survey'
 import StartPage from "./pages/StartPage";
-import logo from "./default.png"
 import TakeSurvey from "./pages/TakeSurvey";
 import SurveyCreator from "./creating_surveys/SurveyCreator";
 
-//https://firebase.google.com/docs/auth/web/manage-users
+
 
 function App() {
 
@@ -25,9 +23,7 @@ function App() {
     const [passwordError, setPasswordError] = useState('')
     const [hasAccount, setHasAccount] = useState(false)
 
-    //const [popUpSeen, setPopUpSeen] = useState(false);
     const [userName, setUserName] = useState('')
-    //const [agreed, setAgreed] = useState(false)
 
 
     const clearInputs = () => {
@@ -83,8 +79,6 @@ function App() {
                     case "auth/weak-password":
                         setPasswordError(err.message);
                         break;
-                    // case agreed === true:
-                    //     setPasswordError("Agree to the privacy policy in order to create an account");
                 }
             });
         console.log(user);
@@ -116,7 +110,6 @@ function App() {
         <div className="App">
             {user ? (
                 <section className="hero">
-                    {/*<img src={logo} alt ="LOADDDD"/>*/}
                     <Nav handleLogout={handleLogout} className="topNav"/>
                     <div className="page">
                         <Router>
@@ -130,7 +123,6 @@ function App() {
                                     <EditProfile user={user}/>
                                 )}/>
                                 <Route path="/ViewResults" component={ViewResults}/>
-                                {/*<Route path="/Login" component={StartPage}/>*/}
                             </Switch>
                         </Router>
                     </div>
@@ -164,39 +156,3 @@ function App() {
 }
 
 export default App;
-/* {user ? (
-        <Router>
-          <section className = "hero">
-            <Nav handleLogout = {handleLogout}/>
-            <Sidebar user={user}/>
-            <Switch>
-              <Route path="/Homepage" component={Homepage}/>
-              <Route path="/SharedWithMe" component={SharedWithMe}/>
-            </Switch>
-
-          </section>
-        </Router>
-
-      ): (
-
-         <div>
-
-      <Start
-        email={email}
-        setEmail={setEmail}
-        password={password}
-        setPassword={setPassword}
-        handleLogin={handleLogin}
-        handleSignup={handleSignup}
-        hasAccount={hasAccount}
-        setHasAccount={setHasAccount}
-        emailError={emailError}
-        passwordError={passwordError}
-        popUpSeen = {popUpSeen}
-        setPopUpSeen = {setPopUpSeen}
-        userName = {userName}
-        setUserName = {setUserName}
-        //setAgreed = {setAgreed}
-      />
-      </div>   
-      )} */
