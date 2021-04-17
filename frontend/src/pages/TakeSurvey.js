@@ -1,5 +1,5 @@
 import React from 'react'
-import Survey from "../Alana_stuff/Survey";
+import Survey from "../survey_display/Survey";
 
 
 function TakeSurvey() {

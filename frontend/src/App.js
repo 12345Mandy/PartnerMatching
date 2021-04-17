@@ -8,7 +8,7 @@ import SharedWithMe from './pages/SharedWithMe'
 import EditProfile from "./pages/EditProfile";
 import ViewResults from './pages/ViewResults'
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
-import Survey from './Alana_stuff/Survey'
+import Survey from './survey_display/Survey'
 import StartPage from "./pages/StartPage";
 import logo from "./default.png"
 import TakeSurvey from "./pages/TakeSurvey";

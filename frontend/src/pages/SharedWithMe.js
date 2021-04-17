@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import DisplayAllSurvey from "../Alana_stuff/DisplayAllSurvey";
+import DisplayAllSurvey from "../survey_display/DisplayAllSurvey";
 
 function SharedWithMe() {
     return (
