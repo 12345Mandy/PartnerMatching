@@ -5,8 +5,15 @@ function Option(props) {
         classToUse = "optionSelected";
     }
 
+    // for accessibility!
+    const selectWithEnterOrSpace = (key) => {
+        if(key.code === "Enter" ||  key.code === "Space") {
+            props.onSelected(props.id);
+        }
+    }
+
     return (
-        <div className={classToUse} onClick={() => props.onSelected(props.id)}>
+        <div tabindex="0" className={classToUse} onClick={() => props.onSelected(props.id)} onKeyPress={selectWithEnterOrSpace}>
             {props.option}
             <br/>
         </div>
