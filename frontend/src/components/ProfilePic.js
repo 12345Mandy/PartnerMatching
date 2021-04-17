@@ -86,16 +86,8 @@ const ProfilePic = (props) => {
         }
         , [imageUrl]);
 
-    // useEffect(() => {
-    //         if (user.photoURL) {
-    //             setImageUrl(user.photoURL);
-    //         }
-    //     }
-    //     , [user.photoURL]);
-
     return (
         <img src={imageUrl} alt="Profile-pic could not load" className={props.className}/>
-        // <img src={user.photoURL ? user.photoURL: getDefaultImage()} alt="ahhh"/>
     )
 }
 
