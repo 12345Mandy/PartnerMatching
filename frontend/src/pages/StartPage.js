@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import TextBox from '../components/TextBox';
 import PopUp from '../components/PopUp';
+import PopUpText from "../components/PopUpText";
 
 const StartPage = (props) => {
     const [visibility, setVisiblity] = useState("password")
@@ -76,7 +77,8 @@ const StartPage = (props) => {
                                 I accept the
                                 <span onClick={()=>setPopUpSeen(true)} className="hoverChange" id="fakeSpace"><u> Privacy Policy:  </u> </span>
                                 <input  type="checkbox" id="agreePrivacy" onClick={() => setAgreed(!agreed)}/>
-                                {popUpSeen===true ? <PopUp toggle={setPopUpSeen} /> : null}
+                                {/*{popUpSeen===true ? <PopUp toggle={setPopUpSeen} /> : null}*/}
+                                {popUpSeen===true ? <PopUp toggle={setPopUpSeen} content={PopUpText()}/> : null}
                             </div>
 
 

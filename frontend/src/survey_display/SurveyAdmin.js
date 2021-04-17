@@ -16,6 +16,8 @@ function SurveyAdmin(props) {
     const [userData, setUserData] = useState({});
     const [partnerData, setPartnerData] = useState({});
 
+    const [idToName, setIDToName] = useState({});
+
     const db = firebase.firestore();
 
     const currentPoll = props.uniqueID;
@@ -59,6 +61,8 @@ function SurveyAdmin(props) {
             answers: answers
         };
 
+        console.log(answers);
+
         let config = {
             headers: {
                 "Content-Type": "application/json",
@@ -70,16 +74,29 @@ function SurveyAdmin(props) {
             "http://localhost:4567/match",
             toSend,
             config
-        ).then(response => {
+        ).then(async response =>  {
             console.log(response.data)
             setPairs(response.data["pairs"])
 
-            db.collection("surveys").doc(currentPoll).collection("pairs")
+            await db.collection("surveys").doc(currentPoll).collection("pairs")
                 .doc("generatedPairs").set(
-                {pairs: response.data["pairs"]}
-            )
+                    {pairs: response.data["pairs"]}
+                )
+
+            let idToNameTemp = {};
+            for (const [key, value] of Object.entries(response.data["pairs"])) {
+                let nameKey = await getNameFromUserID(key);
+                let nameValue = await getNameFromUserID(value);
+                idToNameTemp[nameKey] = nameValue;
+            }
+
+            console.log(idToNameTemp);
+            setIDToName(idToNameTemp);
+
+            alert("Successfully generated pairs!");
         }).catch(error => {
             console.log(error);
+            alert("Oops, something went wrong.");
         });
     }
 
@@ -121,7 +138,7 @@ function SurveyAdmin(props) {
     const deleteResponse = () => {
         let input = prompt("Type DELETE to delete your response to this survey.");
         if (input === "DELETE") {
-            const userResponseRef =  db.collection("surveys").doc(currentPoll).collection("responses")
+            const userResponseRef = db.collection("surveys").doc(currentPoll).collection("responses")
                 .doc(firebase.auth().currentUser.uid);
 
             // apparently this doesn't delete subcollections so welp
@@ -132,9 +149,13 @@ function SurveyAdmin(props) {
         }
     }
 
+    const getNameFromUserID = async (userID) => {
+        return (await db.collection("surveys").doc(currentPoll).collection("responses")
+            .doc(userID).get()).get("name");
+    }
+
     if (surveyCreator === firebase.auth().currentUser.uid) {
         console.log("in admin");
-        console.log(pairs["dnjlancdjsncd"])
         return (
             <div className="poll">
                 <h1>{title}</h1>
@@ -142,13 +163,13 @@ function SurveyAdmin(props) {
                 <div>
                     {results && results.map(user => {
                         return (<DisplayPerson
-                            name={user.userID}
+                            name={user.name}
                         />);
                     })}
                 </div>
                 <button type="button" onClick={generatePairs}>Click for Pairs</button>
                 <div>
-                    {pairs && Object.entries(pairs).map(([key, value]) => {
+                    {pairs && Object.entries(idToName).map(([key, value]) => {
                         return (<DisplayPair
                             user1={key}
                             user2={value}

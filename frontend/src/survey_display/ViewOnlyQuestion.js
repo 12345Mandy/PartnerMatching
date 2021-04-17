@@ -3,9 +3,12 @@ import Option from "./Option";
 import ViewOnlyOption from "./ViewOnlyOption";
 
 function ViewOnlyQuestion(props) {
-    const userResponse = props.options[props.userData.responses[props.questionNumber - 1]];
-    const partnerResponse = props.options[props.partnerData.responses[props.questionNumber - 1]];
+    const userResponse = props.options[props.userData.responses[props.questionNumber]];
+    const partnerResponse = props.options[props.partnerData.responses[props.questionNumber]];
 
+    console.log(props.userData);
+    console.log(props.partnerData);
+    console.log(props.questionNumber);
     return (
         <div className="question" >
             <div className="theQuestion">

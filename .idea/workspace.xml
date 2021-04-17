@@ -6,6 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="942e858d-e70a-4479-b912-59cc151b8fbc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.cache/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.cache/.eslintcache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/survey_display/Survey.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/survey_display/Survey.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/survey_display/Survey.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/survey_display/Survey.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/survey_display/SurveyAdmin.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/survey_display/SurveyAdmin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/survey_display/ViewOnlyQuestion.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/survey_display/ViewOnlyQuestion.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,19 +75,6 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -178,12 +170,6 @@
           <url>file://$PROJECT_DIR$/src/test/java/TestMatchEvaluator.java</url>
           <line>193</line>
           <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <condition expression="i == 6" language="JAVA" />
-          <url>file://$PROJECT_DIR$/src/main/java/edu/brown/cs/student/main/Main.java</url>
-          <line>150</line>
-          <option name="timeStamp" value="23" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
