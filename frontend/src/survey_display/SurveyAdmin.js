@@ -12,6 +12,8 @@ function SurveyAdmin(props) {
     const [title, setTitle] = useState("loading...");
     const [results, setResults] = useState([])
     const [pairs, setPairs] = useState({})
+
+    const [userData, setUserData] = useState({});
     const [partnerData, setPartnerData] = useState({});
 
     const db = firebase.firestore();
@@ -26,14 +28,19 @@ function SurveyAdmin(props) {
                 // initializes the pairs for users if they're ready
                 db.collection("surveys").doc(currentPoll).collection("pairs")
                     .doc("generatedPairs").get().then(d => {
-                        let pairs = d.data();
-                        console.log(pairs)
-                        let partner = pairs.pairs.A;
-                        console.log(partner);
+                    let pairs = d.data();
+
+                    const currUser = firebase.auth().currentUser.uid;
+
+                    let partner = pairs.pairs[currUser];
 
                     db.collection("surveys").doc(currentPoll).collection("responses")
                         .doc(partner).get().then(a =>
-                            setPartnerData(a.data()));
+                        setPartnerData(a.data()));
+
+                    db.collection("surveys").doc(currentPoll).collection("responses")
+                        .doc(currUser).get().then(a =>
+                        setUserData(a.data()))
                 })
             }
             setDisplayResults(results);
@@ -145,28 +152,27 @@ function SurveyAdmin(props) {
             return (
                 <div className="poll">
                     <h1>{title}</h1>
-                    <div>
-                        <UserDisplayPair
-                            partnerData={partnerData}
-                            db={db}
-                            currPoll={currentPoll}
-                        />
-                    </div>
+
+                    <UserDisplayPair
+                        userData={userData}
+                        partnerData={partnerData}
+                        db={db}
+                        currPoll={currentPoll}
+                    />
 
                 </div>
-        );
-        } else
-            {
-                return (
-                    <div className="poll">
-                        <h1>{title}</h1>
-                        Survey Results Aren't Ready Yet!
-                    </div>
-                );
-            }
+            );
+        } else {
+            return (
+                <div className="poll">
+                    <h1>{title}</h1>
+                    Survey Results Aren't Ready Yet!
+                </div>
+            );
         }
+    }
 
-        }
+}
 
 
-        export default SurveyAdmin;
+export default SurveyAdmin;
