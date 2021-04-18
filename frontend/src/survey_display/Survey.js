@@ -96,7 +96,7 @@ function Survey(props) {
 
 
         if (valid) {
-            console.log("attemp ting to submit...");
+            console.log("attempting to submit...");
             sendResults();
         } else {
             console.log("you didn't pick answer choices :(");

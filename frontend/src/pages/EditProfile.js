@@ -41,19 +41,6 @@ function EditProfile() {
     }
 
 
-    // const removeUserAndData = () => {
-    //     // //remove user data
-    //     // db.collection("users").document(user.uid).delete();
-    //     // remove account
-    //     user.delete().then(function() {
-    //         console.log("user successfully deleted")
-    //     }).catch(function(error) {
-    //         console.log("user was not successfully deleted"+      error)
-    //     });
-    //     setDeleteAccount(true);
-    // }
-
-    // Create a reference to the file to delete
     const profilePicRef = firebase.storage().ref('users/' + user.uid + '/profile.jpg')
 //TODO:
     //sources: https://stackoverflow.com/questions/45386065/firebase-user-photourl-to-string
@@ -94,7 +81,11 @@ function EditProfile() {
         if (hasPic) {
             deleteProfPic();
         }
-        user.delete().catch(function (error) {
+        user.delete()
+            .then(function() {
+                deleteAccountAlert()
+            })
+            .catch(function (error) {
             if (error.code === 'auth/requires-recent-login') {
                 window.alert('Please sign-in and try again.');
                 firebase.auth().signOut();
@@ -102,6 +93,12 @@ function EditProfile() {
         });
     }
 
+    const deleteAccountAlert = () => {
+        let input = prompt("Type DELETE to delete your account.");
+        if (input === "DELETE") {
+            alert("Account Successfully Deleted!")
+        }
+    }
 
     const updateProfile = () => {
         clearInputs();
@@ -202,15 +199,8 @@ function EditProfile() {
 
 
                 <br/><br/>
-
-                <button className="deleteButton" onClick={() => setPopUpSeen(true)}>Delete Account</button>
-                {popUpSeen === true ?
-                    <PopUp
-                        toggle={setPopUpSeen}
-                        content={
-                            <button onClick={() => removeUserAndData()}>I want to delete my Account</button>
-                        }
-                    /> : null}
+                
+                <button className="deleteButton" onClick={() => removeUserAndData()}>Delete Account</button>
 
             </div>
         </div>

@@ -6,21 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="942e858d-e70a-4479-b912-59cc151b8fbc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mvn-classpath" beforeDir="false" afterPath="$PROJECT_DIR$/.mvn-classpath" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/node_modules/.cache/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.cache/.eslintcache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Sidebar.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Sidebar.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/pages/EditProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/EditProfile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/editProfile.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/editProfile.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Main$ExceptionPrinter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Main$ExceptionPrinter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/jacoco.exec" beforeDir="false" afterPath="$PROJECT_DIR$/target/jacoco.exec" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-TestMatchEvaluator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-TestMatchEvaluator.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-TestStableRoommates.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-TestStableRoommates.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TestMatchEvaluator.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TestMatchEvaluator.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TestStableRoommates.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TestStableRoommates.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/term_project-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/term_project-1.0.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/TestStableRoommates.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/TestStableRoommates.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/survey_display/Survey.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/survey_display/Survey.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,6 +61,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
