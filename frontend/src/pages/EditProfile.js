@@ -170,7 +170,7 @@ function EditProfile() {
                 <ProfilePic user={user} className={"profilePicLarge"}/>
                 <br/>
                 <b>Edit Profile Image: </b>
-                <input type="file" id="myFile" onChange={(e) => getNewPicUrl(e)}/>
+                <input type="file" id="myFile" accept="image/jpeg" onChange={(e) => getNewPicUrl(e)}/>
                 <br/><br/>
 
                 <h1>Name: {user.displayName}</h1>
