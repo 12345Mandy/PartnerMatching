@@ -9,7 +9,7 @@ function TakeSurvey() {
     console.log(uniqueID);
 
     return (
-        <div>
+        <div className="surveysContainer">
             <Survey uniqueID={uniqueID}/>
         </div>
     )

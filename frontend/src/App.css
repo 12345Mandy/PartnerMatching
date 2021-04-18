@@ -8,6 +8,7 @@
 .App .hero .page {
   display: flex;
   flex-flow: row wrap;
+  height: calc(100vh - 100px);
 }
 
 
@@ -23,6 +24,13 @@
   display: grid;
   grid-area: center;
   margin-left: 10px;
+}
+.surveysContainer, .comparisons, .surveyResults{
+  order: 2;
+  flex: 60%;
+  align-content: center;
+  margin: 2%;
+
 }
 
 
@@ -204,7 +212,7 @@ input[type="password"]:focus {
 .hero nav button {
   width: 86px;
   padding: 8px 0;
-  background: #b5838d;
+  background: #6d6875;
 }
 
 /* .modal {

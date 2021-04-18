@@ -115,7 +115,7 @@ function App() {
                         <Router>
                             <Sidebar className="sideBarLeft" user={user}/>
                             <Switch >
-                                <Route path="/Homepage"  component={Homepage}/>
+                                <Route path="/Homepage"  component={Homepage} />
                                 <Route path="/BrowseSurveys" component={BrowseSurveys}/>
                                 <Route path="/TakeSurvey" component={TakeSurvey}/>
                                 <Route path="/CreateSurvey" component={SurveyCreator}/>

@@ -6,12 +6,21 @@
   <component name="ChangeListManager">
     <list default="true" id="942e858d-e70a-4479-b912-59cc151b8fbc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/build/static/js/main.02991354.chunk.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/build/static/js/main.02991354.chunk.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/build/static/js/main.02991354.chunk.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/build/static/js/main.02991354.chunk.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/node_modules/.cache/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.cache/.eslintcache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/SidebarData.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/SidebarData.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/SharedWithMe.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/BrowseSurveys.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Homepage.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Homepage.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Sidebar.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Sidebar.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/creating_surveys/SurveyCreator.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/creating_surveys/SurveyCreator.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/BrowseSurveys.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/BrowseSurveys.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Homepage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Homepage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/TakeSurvey.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/TakeSurvey.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/ViewResults.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/ViewResults.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/survey_display/DisplayPerson.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/survey_display/DisplayPerson.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/survey_display/ResponseComparison.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/survey_display/ResponseComparison.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/survey_display/Survey.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/survey_display/Survey.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/survey_display/Survey.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/survey_display/Survey.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/survey_display/ViewOnlySurvey.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/survey_display/ViewOnlySurvey.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

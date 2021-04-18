@@ -106,7 +106,7 @@ function Survey(props) {
 
     // checking if user is admin is hard coded in --> will be used to display button for survey results.
     console.log(db.collection("surveys").doc(currentPoll).id)
-    return (<div>
+    return (<div className="div1">
             <div className="poll">
                 <div className="surveyInfo">
                     <h1>{title}</h1>

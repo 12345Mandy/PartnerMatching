@@ -1,7 +1,12 @@
+/*.surveyContainer {*/
+/*    margin: 200px;*/
+/*}*/
+
 .surveyMaker {
     align-content: center;
     width: 68%;
     margin-left: 2%;
+    margin-top: 2%;
 }
 
 .addButton {

@@ -1,6 +1,6 @@
 function DisplayPerson(props) {
     return (
-        <div>
+        <div className="personahhh">
             <div><strong>{props.name}</strong></div>
         </div>
     );

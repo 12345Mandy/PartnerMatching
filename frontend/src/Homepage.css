@@ -1,9 +1,17 @@
 
+.HomepageContainer {
+
+    width: 50%;
+    margin: auto;
+}
+
 .addSurveyIcon {
+    /*display: flex;*/
+    /*flex-flow: row wrap;*/
+    /*margin: 5%;*/
     display: flex;
     flex-flow: row wrap;
-    margin: 5%;
-
+    /*margin: 5%;*/
 }
 
 .addSurveyIcon .icon {
@@ -15,7 +23,6 @@
     height: 200px;
     width: 200px;
     text-align: center;
-    font-size: 500%;
     display: grid;
     grid-area: center;
     margin-left: 10px;

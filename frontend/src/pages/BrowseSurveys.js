@@ -3,7 +3,7 @@ import DisplayAllSurvey from "../survey_display/DisplayAllSurvey";
 
 function BrowseSurveys() {
     return (
-        <div>
+        <div className="surveysContainer">
             <DisplayAllSurvey/>
         </div>
     )

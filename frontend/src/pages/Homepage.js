@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "../Homepage.css";
-import PopUp from "../components/PopUp";
 import NewSurvey from "../components/NewSurvey";
 
 import DisplayHomeSurveys from "../survey_display/DisplayHomeSurveys"
@@ -8,7 +7,7 @@ import DisplayHomeSurveys from "../survey_display/DisplayHomeSurveys"
 
 function Homepage() {
     return (
-        <div style={{width: "70%"}}>
+        <div className="HomepageContainer">
             <NewSurvey />
             <DisplayHomeSurveys/>
         </div>
