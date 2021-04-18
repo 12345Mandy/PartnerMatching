@@ -18,6 +18,7 @@ function EditProfile() {
     const [newPassword, setNewPassword] = useState("")
     const [newPicURL, setNewPicURL] = useState(null)
     const [hasPic, setHasPic] = useState(false)
+    const [errorMessage, setErrorMessage] = useState('')
     const [logMessage, setLogMessage] = useState('')
 
     const [deleteAcc, setDeleteAcc] = useState(false);
@@ -36,7 +37,7 @@ function EditProfile() {
 
     const clearErrors = () => {
         setLogMessage('');
-        setLogMessage('');
+        setErrorMessage('');
     }
 
 
@@ -68,7 +69,7 @@ function EditProfile() {
                         user.updateProfile({
                             photoURL: url       // <- URL from uploaded photo.
                         }).then(r => {
-                            setLogMessage("user image updated. Refresh page to see changes")
+                            setLogMessage("User image updated. Refresh page to see changes")
                         });
                     })
             })
@@ -104,50 +105,59 @@ function EditProfile() {
 
     const updateProfile = () => {
         clearInputs();
+        clearErrors();
         user.updateProfile({
             displayName: newName !== "" ? newName : user.displayName,
         }).then(function () {
-            console.log("user successfully updated:  " + logMessage)
-            console.log(user)
+            console.log("user successfully updated");
+            console.log("New User:" + user)
+            setLogMessage("user successfully updated");
             // newPassword ? user.updatePassword(newPassword) : null;
             // newEmail ? user.updateEmail(newEmail) : null;
         }).catch(function (error) {
             console.log(error)
             console.log(user)
-            console.log(firebase.storage().ref('users/' + user.uid + '/profile.jpg').getDownloadURL())
+            setErrorMessage("Error occurred when updating name.")
         });
-        clearInputs();
     }
 
 
     function updatePassword() {
         clearInputs();
+        clearErrors();
         if (newPassword !== "")
             user.updatePassword(newPassword)
-                .then(r => console.log(r + ":user successfully updated password"))
+                .then(function () {
+                    console.log( "user successfully updated password")
+                    setLogMessage("Successfully updated password")
+                    }
+                )
                 .catch(err => {
                     switch (err.code) {
                         case "auth/weak-password":
-                            setLogMessage(err.message);
+                            setErrorMessage(err.message);
                             break;
                     }
                 });
+
     }
 
     function updateEmail() {
         clearInputs();
+        clearErrors();
         if (newEmail !== "")
             user.updateEmail(newEmail)
                 .then(r => {
                     console.log(r + ":user successfully updated Email")
-                    setLogMessage(logMessage + "<br>" + "user successfully updated Email " + newEmail)
+                    setLogMessage(logMessage + "user successfully updated email to " + newEmail)
                 })
+
                 .catch(err => {
                     switch (err.code) {
                         case "auth/email-already-in-use":
                         case "auth/invalid-email":
                             console.log(err.message)
-                            setLogMessage(err.message);
+                            setErrorMessage(err.message);
                             break;
                     }
                 });
@@ -185,7 +195,9 @@ function EditProfile() {
                                  value={newPassword} change={setNewPassword}/>{" "}
                         <button onClick={() => updatePassword()} className="profileChangeButton">Submit change</button>
                     </div>
-                    <p className="errorMsg">{logMessage}</p>
+                    <br/>
+                    <p className="errorMsg">{errorMessage}</p>
+                    {logMessage}
                 </div>
 
 

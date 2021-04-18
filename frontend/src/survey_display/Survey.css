@@ -100,3 +100,9 @@ h1 {
     width: 50%;
     background-color: #b5838d;
 }
+
+
+
+.getOutputLink a:link {
+    color: #B5838D;
+}

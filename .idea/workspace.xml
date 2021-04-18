@@ -6,10 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="942e858d-e70a-4479-b912-59cc151b8fbc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/node_modules/.cache/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.cache/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Homepage.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Homepage.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/Sidebar.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Sidebar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/creating_surveys/SurveyCreator.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/creating_surveys/SurveyCreator.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/creating_surveys/NewAnswerButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/creating_surveys/NewAnswerButton.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/EditProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/EditProfile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/survey_display/Survey.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/survey_display/Survey.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
