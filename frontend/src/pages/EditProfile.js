@@ -1,18 +1,17 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import ProfilePic from "../components/ProfilePic";
-import {Link} from "react-router-dom";
 import "./editProfile.css"
 import "../App.css"
 import firebase from "firebase";
-import {Redirect} from 'react-router-dom'
 import Auth from "firebase";
 import TextBox from "../components/TextBox";
-import PopUp from "../components/PopUp";
-import PopUpText from "../components/PopUpText";
 
+//Sources
+//https://www.youtube.com/watch?v=31MVIwvstzs&ab_channel=SoftAuthor -> change profile
+//sources: https://stackoverflow.com/questions/45386065/firebase-user-photourl-to-string
+// https://www.youtube.com/watch?v=31MVIwvstzs&ab_channel=SoftAuthor
 
 function EditProfile() {
-    //let user = props.user
     const [newEmail, setNewEmail] = useState("")
     const [newName, setNewName] = useState("")
     const [newPassword, setNewPassword] = useState("")
@@ -21,9 +20,6 @@ function EditProfile() {
     const [errorMessage, setErrorMessage] = useState('')
     const [logMessage, setLogMessage] = useState('')
 
-    const [deleteAcc, setDeleteAcc] = useState(false);
-    const [popUpSeen, setPopUpSeen] = useState(false);
-//https://www.youtube.com/watch?v=31MVIwvstzs&ab_channel=SoftAuthor -> change profile
 
     let user = Auth.auth().currentUser
     const db = firebase.firestore();
@@ -42,9 +38,7 @@ function EditProfile() {
 
 
     const profilePicRef = firebase.storage().ref('users/' + user.uid + '/profile.jpg')
-//TODO:
-    //sources: https://stackoverflow.com/questions/45386065/firebase-user-photourl-to-string
-    // https://www.youtube.com/watch?v=31MVIwvstzs&ab_channel=SoftAuthor
+
     function getNewPicUrl(e) {
         setNewPicURL(e.target.files[0]);
         setHasPic(true);
@@ -109,8 +103,6 @@ function EditProfile() {
             console.log("user successfully updated");
             console.log("New User:" + user)
             setLogMessage("user successfully updated");
-            // newPassword ? user.updatePassword(newPassword) : null;
-            // newEmail ? user.updateEmail(newEmail) : null;
         }).catch(function (error) {
             console.log(error)
             console.log(user)

@@ -17,4 +17,4 @@ export default fire;
 
 
 
-// src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js" -> why don't we need this?
+// src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"

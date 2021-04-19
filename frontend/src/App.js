@@ -147,7 +147,6 @@ function App() {
 
                         userName={userName}
                         setUserName={setUserName}
-                        //setAgreed = {setAgreed}
                     />
                 </div>
             )}

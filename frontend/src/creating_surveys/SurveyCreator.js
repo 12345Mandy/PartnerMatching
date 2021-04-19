@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react';
-import { firestore } from "firebase";
 import firebase from "firebase";
 import NewQuestionButton from "./NewQuestionButton";
 import QuestionEntry from "./QuestionEntry";
@@ -38,12 +37,10 @@ function SurveyCreator() {
 
     const changeQuestionContent = async (id, text) => {
         questions[id] = text;
-        // setQuestions(questions);
     }
 
     const changeAnswerContent = async (qid, ansid, text) => {
         questionOptions[qid][ansid] = text;
-        // setQuestionOptions(questionOptions);
     }
 
     const changeImportance = async (qid, imp) => {

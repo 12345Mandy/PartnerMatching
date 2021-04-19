@@ -79,17 +79,6 @@ button:hover {
   flex-direction: column;
   justify-content: center;
   background: #fff;
-  /* 
-    ellipse at right bottom,
-    
-    rgba(109, 104, 117, 1) 40%,
-    rgba(181, 131, 141, 0.9) 59%,
-    rgba(17, 27, 75, 0.9) 100% */
-
-  /* rgba(181, 131, 141, 1) 0%,
-    rgba(255, 255, 255, 0.9) 59%,
-    rgba(109, 104, 117, 1) 100% */
-
   box-shadow: 0 50px 70px -20px rgba(229, 152, 155, 0.5);
 }
 

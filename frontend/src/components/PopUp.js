@@ -2,6 +2,7 @@ import React from 'react'
 
 function PopUp(props) {
 
+    //popup cite: //https://medium.com/@daniela.sandoval/creating-a-popup-window-using-js-and-react-4c4bd125da57
     const handleClick = () => {
         props.toggle(false);
     };
@@ -17,8 +18,6 @@ function PopUp(props) {
             </div>
         </div>
     );
-
-    //https://medium.com/@daniela.sandoval/creating-a-popup-window-using-js-and-react-4c4bd125da57
 }
 
 

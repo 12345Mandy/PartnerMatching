@@ -1,6 +1,5 @@
 
 .HomepageContainer {
-
     width: 50%;
     margin: auto;
 }
@@ -8,13 +7,11 @@
 .addSurveyIcon {
     display: flex;
     flex-flow: row wrap;
-    /*margin: 5%;*/
 }
 
 .addSurveyIcon .icon {
     order: 2;
     color: #fafafa;
-    /*box-shadow: 0 50px 20px -20px rgba(109, 104, 117, 0.2);*/
     box-shadow: 20px 50px 80px -20px rgba(109, 104, 117, 0.6);
     background-color: #b5838d;
     border-radius: 20%;

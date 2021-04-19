@@ -1,5 +1,4 @@
 import SurveyAdmin from '../survey_display/SurveyAdmin';
-import firebase from "firebase";
 
 function ViewResults() {
     let url = window.location.pathname;

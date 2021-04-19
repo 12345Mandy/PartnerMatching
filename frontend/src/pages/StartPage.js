@@ -7,7 +7,7 @@ const StartPage = (props) => {
     const [visibility, setVisiblity] = useState("password")
     const [popUpSeen, setPopUpSeen] = useState(false);
 
-    // referenced https://www.w3schools.com/howto/howto_js_toggle_password.asp
+    // Cite: referenced https://www.w3schools.com/howto/howto_js_toggle_password.asp
 
     function toggleVisibility() {
         if (visibility === "password") {

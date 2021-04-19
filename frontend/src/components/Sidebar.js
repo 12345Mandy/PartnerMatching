@@ -1,18 +1,18 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import "./Sidebar.css";
 import {SidebarData} from './SidebarData'
 import {Link} from 'react-router-dom'
-import firebase from "firebase"
 import ProfilePic from "./ProfilePic";
 import Auth from "firebase";
 
+//New Citation
 //https://www.youtube.com/watch?v=5R9jFHlG6ik&ab_channel=PedroTech -> css
 //https://www.youtube.com/watch?v=Law7wfdg_ls&ab_channel=DevEd -> routing
 //https://www.youtube.com/watch?v=CXa0f4-dWi4&ab_channel=BrianDesign -> using routing for sidebar
 //https://firebase.google.com/docs/storage/web/download-files -> taking stuff from firebasestorage
 
 
-function Sidebar(props) {
+function Sidebar() {
     let user = Auth.auth().currentUser
 
 
