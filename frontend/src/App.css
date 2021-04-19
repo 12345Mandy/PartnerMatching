@@ -46,7 +46,6 @@ button {
   color: #fff;
   font-size: 18px;
   letter-spacing: 1.5px;
-  /* background: #b5838d; */
   background: #e5989b;
   cursor: pointer;
 }
@@ -62,7 +61,7 @@ button:hover {
   background: #e5e5e5; /*actual background*/
   display: flex;
 }
-.login .loginContainer h1 {
+.login .loginContainer h1, .profile h1 {
   font-size: 36px;
   letter-spacing: 1.5px;
   padding-top: 20px;

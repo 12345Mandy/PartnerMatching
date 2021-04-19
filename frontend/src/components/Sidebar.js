@@ -21,6 +21,7 @@ function Sidebar(props) {
         <div className="Sidebar">
             <div className="profile">
                 <ProfilePic user={user} className={"profilePic"}/>
+                <br/>
                 <h3>{user.displayName}</h3>
                 <br/><br/>
                 <div onClick={() => setCurrentPage("/EditProfile")}>
