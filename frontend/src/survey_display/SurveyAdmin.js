@@ -192,7 +192,7 @@ function SurveyAdmin(props) {
                     })}
                 </div>
                 {/*<button type="button" onClick={deleteSurvey}  className="deleteButton">Delete This Survey</button>*/}
-                <div type="button" onClick={deleteSurvey}  className="deleteButton">Delete This Survey</div>
+                <div onClick={deleteSurvey}  className="deleteButton">Delete This Survey</div>
             </div>
         );
     } else {
@@ -217,6 +217,7 @@ function SurveyAdmin(props) {
             return (
                 <div className="poll">
                     <h1>{title}</h1>
+                    <br/>
                     <div>
                         Survey Results Aren't Ready Yet!
                     </div>
