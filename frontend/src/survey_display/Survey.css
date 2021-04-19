@@ -3,10 +3,17 @@
     padding-top: 5px;
 }
 
-h1 {
+.poll h1 {
     font-weight: 900;
     color: #e5989b;
     font-size: 46px;
+    padding-bottom: 4px;
+}
+
+.poll .surveyInfo h1 {
+    font-weight: 900;
+    color: #e5989b;
+    font-size: 36px;
     padding-bottom: 4px;
 }
 
