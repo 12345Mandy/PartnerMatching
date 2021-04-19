@@ -5,9 +5,12 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import java.util.stream.Collectors;
 
 import com.google.gson.Gson;
@@ -181,14 +184,39 @@ public final class Main {
       StableRoommates sr = new StableRoommates(prefs);
       Map<Person, Person> pairs = sr.getPairs();
 
+      Person extra = null;
+      for (Person currPerson : pairs.keySet()) {
+        if (pairs.get(currPerson) == null) {
+          pairs.remove(currPerson);
+          extra = currPerson;
+          break;
+        }
+      }
+
       // convert Person objects to their IDs
-      Map<String, String> idPairs = pairs.entrySet()
+      Map<String, List<String>> idPairs = pairs.entrySet()
           .stream()
-          .collect(Collectors.toMap(map -> map.getKey().getId(), map -> map.getValue().getId()));
+          .collect(Collectors.toMap(map -> map.getKey().getId(), map ->
+              new ArrayList<String>(Arrays.asList(map.getValue().getId()))));
 
       Map<String, List<Answer>> idToAnswers = personToAnswers.entrySet()
           .stream()
           .collect(Collectors.toMap(map -> map.getKey().getId(), Map.Entry::getValue));
+
+
+      if (extra != null) {
+        List<List<String>> valuesList = new ArrayList<List<String>>(idPairs.values());
+        int randomIndex = new Random().nextInt(valuesList.size());
+        List<String> randomValue = valuesList.get(randomIndex);
+
+        String firstRandomID = randomValue.get(0);
+        String secondRandomID = idPairs.get(firstRandomID).get(0);
+        String extraRandomID = extra.getId();
+
+        idPairs.get(firstRandomID).add(extraRandomID);
+        idPairs.get(secondRandomID).add(extraRandomID);
+        idPairs.put(extraRandomID, Arrays.asList(firstRandomID, secondRandomID));
+      }
 
       // send pairs and answers to frontend
       Map<String, Object> variables = ImmutableMap.of("pairs", idPairs, "answers", idToAnswers);

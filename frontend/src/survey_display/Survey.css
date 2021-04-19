@@ -86,3 +86,17 @@ h1 {
 #linkToCheckResults {
     visibility: hidden;
 }
+
+.surveyResults {
+    /*defined in App.css*/
+}
+.surveyResults button {
+    width: 50%;
+    background-color: #b5838d;
+}
+
+
+
+.getOutputLink a:link {
+    color: #B5838D;
+}

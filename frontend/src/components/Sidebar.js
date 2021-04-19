@@ -16,14 +16,17 @@ function Sidebar(props) {
     let user = Auth.auth().currentUser
 
 
-    const [currentPage, setCurrentPage] = useState("/Homepage");
+    const [currentPage, setCurrentPage] = useState("");
     return (
         <div className="Sidebar">
             <div className="profile">
                 <ProfilePic user={user} className={"profilePic"}/>
                 <h3>{user.displayName}</h3>
                 <br/><br/>
-                <Link to="/EditProfile" className="editProfileButton">Edit Profile</Link>
+                <div onClick={() => setCurrentPage("/EditProfile")}>
+                    <Link to="/EditProfile" className="editProfileButton">Edit Profile</Link>
+                </div>
+
             </div>
 
             <ul className='SidebarList'>

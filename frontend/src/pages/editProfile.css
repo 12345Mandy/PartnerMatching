@@ -10,6 +10,8 @@
     height: 350px;
     border-radius: 50%;
     padding: 25px;
+    border-radius: 50%;
+    overflow: hidden;
 }
 
 
@@ -34,14 +36,12 @@
 
 .profileChange .changeBox {
     flex: 5;
-    /*flex: 70%;*/
     margin-top: 2px;
     display: grid;
     grid-area: center;
 }
 .profileChange .profileChangeButton {
     font-size: 18px;
-    /*flex: 0.75;*/
     flex: 0.65;
     display: grid;
     grid-area: center;

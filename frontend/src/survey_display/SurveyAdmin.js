@@ -14,7 +14,7 @@ function SurveyAdmin(props) {
     const [pairs, setPairs] = useState({})
 
     const [userData, setUserData] = useState({});
-    const [partnerData, setPartnerData] = useState({});
+    const [partnerData, setPartnerData] = useState([]);
 
     const [idToName, setIDToName] = useState({});
 
@@ -34,11 +34,17 @@ function SurveyAdmin(props) {
 
                     const currUser = firebase.auth().currentUser.uid;
 
-                    let partner = pairs.pairs[currUser];
+                    let partnerList = pairs.pairs[currUser];
 
-                    db.collection("surveys").doc(currentPoll).collection("responses")
-                        .doc(partner).get().then(a =>
-                        setPartnerData(a.data()));
+                    let partDataList = [];
+
+                    for (let i = 0; i < partnerList.length; i++) {
+                        db.collection("surveys").doc(currentPoll).collection("responses")
+                            .doc(partnerList[i]).get().then(a =>
+                            partDataList.push(a.data()));
+                    }
+                    setPartnerData(partDataList);
+
 
                     db.collection("surveys").doc(currentPoll).collection("responses")
                         .doc(currUser).get().then(a =>
@@ -77,6 +83,7 @@ function SurveyAdmin(props) {
         ).then(async response =>  {
             console.log(response.data)
             setPairs(response.data["pairs"])
+            console.log(response.data["pairs"]);
 
             await db.collection("surveys").doc(currentPoll).collection("pairs")
                 .doc("generatedPairs").set(
@@ -85,8 +92,13 @@ function SurveyAdmin(props) {
 
             let idToNameTemp = {};
             for (const [key, value] of Object.entries(response.data["pairs"])) {
+                console.log(key);
+                console.log(value);
                 let nameKey = await getNameFromUserID(key);
-                let nameValue = await getNameFromUserID(value);
+                let nameValue = []
+                for (let i = 0; i < value.length; i++) {
+                    nameValue.push(await getNameFromUserID(value[i]));
+                }
                 idToNameTemp[nameKey] = nameValue;
             }
 
@@ -150,8 +162,10 @@ function SurveyAdmin(props) {
     }
 
     const getNameFromUserID = async (userID) => {
-        return (await db.collection("surveys").doc(currentPoll).collection("responses")
-            .doc(userID).get()).get("name");
+        console.log("Curr ID is: " + userID);
+        const responsesRef = db.collection("surveys").doc(currentPoll).collection("responses");
+        const ref = (await responsesRef.doc(userID).get());
+        return ref.get("name");
     }
 
     if (surveyCreator === firebase.auth().currentUser.uid) {
@@ -172,7 +186,7 @@ function SurveyAdmin(props) {
                     {pairs && Object.entries(idToName).map(([key, value]) => {
                         return (<DisplayPair
                             user1={key}
-                            user2={value}
+                            matches={value}
                         />);
                     })}
                 </div>

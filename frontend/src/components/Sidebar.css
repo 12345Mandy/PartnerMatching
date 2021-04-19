@@ -112,18 +112,34 @@ a:hover {
 .editProfileButton:hover {
   height: 50%;
   width: 75%;
-  border: 3px solid white;
+  border: 3px solid #6d6875;
   border-radius: 25px;
 }
 
 
 
-.profilePic {
-  /*cite: https://www.w3schools.com/howto/howto_css_image_avatar.asp*/
-  vertical-align: middle;
+/*.profilePic {*/
+/*  !*cite: https://www.w3schools.com/howto/howto_css_image_avatar.asp*!*/
+/*  vertical-align: middle;*/
+/*  !*width: 150px;*!*/
+/*  !*height: 150px;*!*/
+/*  width: 50%;*/
+/*  height: 50%;*/
+/*  border-radius: 50%;*/
+/*  !*padding: 15px;*!*/
+/*  box-shadow: 20px 50px 80px -20px rgba(109, 104, 117, 0.4);*/
+/*}*/
+
+.profilePic{
+  display: inline-block;
+  border-radius: 50%;
+  overflow: hidden;
   width: 150px;
   height: 150px;
-  border-radius: 50%;
-  /*padding: 15px;*/
   box-shadow: 20px 50px 80px -20px rgba(109, 104, 117, 0.4);
+}
+.profilePic img, .profilePicLarge img{
+  width:100%;
+  height:100%;
+  object-fit: cover;
 }
