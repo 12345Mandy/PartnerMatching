@@ -53,3 +53,7 @@
     min-width: 10px;
 
 }
+
+.main .profile .deleteButton {
+   background-color: #4f3339;
+}

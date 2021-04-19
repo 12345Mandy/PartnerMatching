@@ -24,7 +24,8 @@ function ViewOnlySurvey(props) {
         setQuestions((await currentSurveyRef.collection("questions").orderBy("questionnumber").get()).docs.map(d => d.data()));
     }
 
-    return (<div>
+    return (
+        <div className="surveyContainer">
             <div className="poll">
                 <div className="surveyInfo">
                     <h1>Response Comparison</h1>
@@ -34,7 +35,7 @@ function ViewOnlySurvey(props) {
                     <ViewOnlyQuestion
                         userData={props.userData} partnerData={props.partnerData}
                         options={q.options} question={q.question} questionNumber={q.questionnumber}/>
-                    )}
+                )}
 
             </div>
         </div>

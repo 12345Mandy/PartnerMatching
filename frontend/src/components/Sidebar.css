@@ -1,13 +1,26 @@
 .Sidebar {
-  height: 100%;
-  max-width: 400px;
+  height: calc(100vh - 100px);
+  max-width: 450px;
   min-width: 250px;
   width: 30%;
   /*width: 30%;*/
-  background-color: #c4c4c4;
+  /*background-color: #c4c4c4;*/
+
+  /*background: radial-gradient(*/
+  /*        ellipse at top ,*/
+  /*        rgba(255, 205, 178, 1) 0%,*/
+  /*        rgba(245, 245, 245, 0.2) 10%,*/
+  /*        rgba(255, 205, 178, 1) 100%*/
+  /*);*/
+
+  /*background-color: rgba(228, 229, 229, 0.5);*/
+  /*background-color: rgba(255, 180, 162, 0.2);*/
+  /*background-color: rgba(255, 205, 178, 0.3);*/
+  background-color: rgba(250, 250, 250, 0.6);
   margin-right: 5px;
   padding: 20px;
-  border-radius: 5px;
+  border-radius: 20px;
+  box-shadow: 20px 50px 80px -20px rgba(109, 104, 117, 0.6);
 }
 
 .SidebarList {
@@ -28,9 +41,6 @@
 }
 
 .SidebarList .row a:link{
-  /*border: 1px solid #c4c4c4;*/
-  /*border-left: 10px solid #c4c4c4;*/
-  /*border-radius: 5px;*/
   border-left: 10px solid #c4c4c4;
 }
 
@@ -42,12 +52,13 @@
 }
 
 .SidebarList .rowClicked a:link, .SidebarList .rowClicked a:visited{
-  color: white;
+  /*color: white;*/
+  color: #B5838D;
 }
 
 .SidebarList .row a:link, .SidebarList .row a:visited {
   color: #6d6875;
-  border-left: 10px solid #c4c4c4;
+  border-left: 10px solid rgba(255, 180, 162, 0);
 }
 
 .SidebarList .row:hover,
@@ -62,7 +73,7 @@ a:link {
 }
 
 a:hover {
-  color: white;
+  color: #6d6875;
 }
 
 
@@ -113,5 +124,6 @@ a:hover {
   width: 150px;
   height: 150px;
   border-radius: 50%;
-  padding: 15px;
+  /*padding: 15px;*/
+  box-shadow: 20px 50px 80px -20px rgba(109, 104, 117, 0.4);
 }

@@ -5,6 +5,15 @@ body {
   sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: auto;
+  /*background-color:  rgba(228, 229, 229, 0.75);*/
+  background: radial-gradient(
+          ellipse at left bottom,
+          rgba(245, 245, 245, 0.5) 30%,
+          rgba(255, 205, 178, 0.9) 90%,
+          rgba(245, 245, 245, 0.5) 100%
+  );
+    background-size: cover
 }
 
 code {

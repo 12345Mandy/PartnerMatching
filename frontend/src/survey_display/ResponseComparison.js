@@ -9,11 +9,11 @@ function ResponseComparison(props) {
     console.log(userResponse);
     return (
       <div className="comparisons">
-          <div>
+          <div className = "answers">
               You picked {userResponse}
           </div>
 
-          <div>
+          <div className = "answers">
               {props.userData.name} picked {partnerResponse}
           </div>
       </div>

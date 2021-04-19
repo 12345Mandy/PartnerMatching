@@ -1,12 +1,12 @@
 import React, {useState, useEffect} from 'react'
 import DisplayAllSurvey from "../survey_display/DisplayAllSurvey";
 
-function SharedWithMe() {
+function BrowseSurveys() {
     return (
-        <div>
+        <div className="surveysContainer">
             <DisplayAllSurvey/>
         </div>
     )
 }
 
-export default SharedWithMe
+export default BrowseSurveys

@@ -7,7 +7,7 @@ function ViewResults() {
     let uniqueID = url.split("/")[2];
 
     return (
-        <div>
+        <div className="surveyResults">
             <SurveyAdmin uniqueID={uniqueID}/>
         </div>
     )
