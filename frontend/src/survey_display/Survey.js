@@ -54,9 +54,7 @@ function Survey(props) {
             responses: userAnswers
         }).then(() => {
             setError("Successfully submitted survey response!");
-
             document.getElementById("linkToCheckResults").style.visibility = "visible";
-            alert("Successfully submitted survey response!");
 
             console.log("submitted survey response!");
 

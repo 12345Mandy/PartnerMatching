@@ -181,6 +181,8 @@ public final class Main {
         currPerson.setPreferences(prefs.get(currPerson));
       }
 
+      Map<Person, List<Person>> prefsCopy = prefs.entrySet().stream()
+          .collect(Collectors.toMap(Map.Entry::getKey, e -> List.copyOf(e.getValue())));
       StableRoommates sr = new StableRoommates(prefs);
       Map<Person, Person> pairs = sr.getPairs();
 
@@ -205,17 +207,12 @@ public final class Main {
 
 
       if (extra != null) {
-        List<List<String>> valuesList = new ArrayList<List<String>>(idPairs.values());
-        int randomIndex = new Random().nextInt(valuesList.size());
-        List<String> randomValue = valuesList.get(randomIndex);
+        String extraTopPrefID = prefsCopy.get(extra).get(0).getId();
+        String topPrefPartnerID = idPairs.get(extraTopPrefID).get(0);
 
-        String firstRandomID = randomValue.get(0);
-        String secondRandomID = idPairs.get(firstRandomID).get(0);
-        String extraRandomID = extra.getId();
-
-        idPairs.get(firstRandomID).add(extraRandomID);
-        idPairs.get(secondRandomID).add(extraRandomID);
-        idPairs.put(extraRandomID, Arrays.asList(firstRandomID, secondRandomID));
+        idPairs.get(extraTopPrefID).add(extra.getId());
+        idPairs.get(topPrefPartnerID).add(extra.getId());
+        idPairs.put(extra.getId(), Arrays.asList(extraTopPrefID, topPrefPartnerID));
       }
 
       // send pairs and answers to frontend

@@ -4,14 +4,33 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="942e858d-e70a-4479-b912-59cc151b8fbc" name="Default Changelist" comment="">
+    <list default="true" id="0af76038-b5ff-450b-af11-6962ecbf0c86" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/frontend/node_modules/.cache/babel-loader/10dd656d21d24d07573d260350228841.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/node_modules/.cache/babel-loader/1943abdd6dcaaa2f06aafa274b68148f.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/node_modules/.cache/babel-loader/25b4215296ab9c131fc5dd9edf319f77.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/node_modules/.cache/babel-loader/3c1843b395ef46fb87e7ca0290e0f5f2.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/node_modules/.cache/babel-loader/46ce7f3a0b8f37b9bc38a031a1b26c51.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/node_modules/.cache/babel-loader/6ffafba80ff0c32309ba6ebb57332a83.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/node_modules/.cache/babel-loader/720e69778708016ae884c5e9e0446a77.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/node_modules/.cache/babel-loader/8258b2b86128a7ed9bb9f26f26422524.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/node_modules/.cache/babel-loader/8d712a7e2c13719ae123315f37dcc16c.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/node_modules/.cache/babel-loader/bc1ba1406d6436a54b7ca01511d2115b.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/node_modules/.cache/babel-loader/bd75aeea0cf2ec1dd72c193271aebc29.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/node_modules/.cache/babel-loader/ddaf01d01895567fc1477018ac7dc41b.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/node_modules/.cache/babel-loader/f01fb9f4179c426a33323dbfec04d59d.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/node_modules/.cache/babel-loader/f666418608e268d7f831d8ff938be57c.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-<<<<<<< HEAD
+      <change beforePath="$PROJECT_DIR$/.mvn-classpath" beforeDir="false" afterPath="$PROJECT_DIR$/.mvn-classpath" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/node_modules/.cache/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/node_modules/.cache/.eslintcache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/survey_display/SurveyAdmin.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/survey_display/SurveyAdmin.js" afterDir="false" />
-=======
-      <change beforePath="$PROJECT_DIR$/frontend/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.css" afterDir="false" />
->>>>>>> added css to buttons
+      <change beforePath="$PROJECT_DIR$/frontend/src/survey_display/Survey.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/survey_display/Survey.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/brown/cs/student/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/brown/cs/student/main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Main$ExceptionPrinter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Main$ExceptionPrinter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Main$MatchesHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/brown/cs/student/main/Main$MatchesHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/term_project-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/term_project-1.0.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/TestMatchEvaluator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/TestMatchEvaluator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/TestStableRoommates.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/TestStableRoommates.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,6 +84,11 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/frontend/src/pages" />
+    </key>
   </component>
   <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
@@ -175,7 +199,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/edu/brown/cs/student/main/Main.java</url>
-          <line>206</line>
+          <line>208</line>
           <option name="timeStamp" value="24" />
         </line-breakpoint>
       </breakpoints>
