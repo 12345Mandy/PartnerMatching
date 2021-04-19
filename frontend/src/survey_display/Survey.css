@@ -6,8 +6,17 @@
 h1 {
     font-weight: 900;
     color: #e5989b;
-    font-size: 32px;
+    font-size: 46px;
     padding-bottom: 4px;
+}
+
+.poll h2 b{
+    font-size: 26px;
+    text-decoration: underline;
+}
+
+.poll .surveyResultsList {
+    padding: 2%;
 }
 
 .surveyInfo {
@@ -90,9 +99,27 @@ h1 {
 .surveyResults {
     /*defined in App.css*/
 }
-.surveyResults button {
-    width: 50%;
-    background-color: #b5838d;
+.surveyResults .deleteButton {
+    border: 1px;
+    width: 95%;
+    background-color: rgba(0,0,0,0);
+    color: #4f3339;
+    text-decoration: underline;
+    text-align: right;
+}
+
+.surveyResults .deleteButton:hover {
+    font-style: italic;
+}
+
+.surveyResults .pairsButton {
+    width: 100%;
+    background-color: #B5838D;
+    border-radius: 10px;
+}
+
+.surveyResults .pairsButton:hover {
+    background-color: #6d6875;
 }
 
 

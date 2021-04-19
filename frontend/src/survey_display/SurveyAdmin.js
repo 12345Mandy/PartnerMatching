@@ -172,15 +172,17 @@ function SurveyAdmin(props) {
         return (
             <div className="poll">
                 <h1>{title}</h1>
-                <button>Current Survey Results</button>
-                <div>
+                <br/><br/>
+                <h2><b>Current Survey Results</b></h2>
+                <div className="surveyResultsList">
                     {results && results.map(user => {
                         return (<DisplayPerson
                             name={user.name}
                         />);
                     })}
                 </div>
-                <button type="button" onClick={generatePairs}>Click for Pairs</button>
+                <br/>
+                <button type="button" onClick={generatePairs} className="pairsButton">Click for Pairs</button>
                 <div>
                     {pairs && Object.entries(idToName).map(([key, value]) => {
                         return (<DisplayPair
@@ -189,7 +191,8 @@ function SurveyAdmin(props) {
                         />);
                     })}
                 </div>
-                <button type="button" onClick={deleteSurvey}>Delete This Survey</button>
+                {/*<button type="button" onClick={deleteSurvey}  className="deleteButton">Delete This Survey</button>*/}
+                <div type="button" onClick={deleteSurvey}  className="deleteButton">Delete This Survey</div>
             </div>
         );
     } else {
@@ -219,7 +222,7 @@ function SurveyAdmin(props) {
                     </div>
 
 
-                    <button typeof="button" onClick={deleteResponse}>Delete Response</button>
+                    <button typeof="button" onClick={deleteResponse} className="deleteButton">Delete Response</button>
                 </div>
             );
         }
