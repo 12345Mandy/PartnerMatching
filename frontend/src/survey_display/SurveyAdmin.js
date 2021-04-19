@@ -1,12 +1,12 @@
 import DisplayPerson from "./DisplayPerson";
 import DisplayPair from "./DisplayPair.js";
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useRef} from 'react';
 import axios from "axios";
 import firebase from "firebase";
 import UserDisplayPair from "./UserDisplayPair";
 
 function SurveyAdmin(props) {
-    const [surveyCreator, setCreator] = useState(""); // use this to check if button should show up
+    const surveyCreator = useRef(null)
 
     const [displayResults, setDisplayResults] = useState(false);
     const [title, setTitle] = useState("loading...");
@@ -27,22 +27,27 @@ function SurveyAdmin(props) {
         loadInfo();
         updateDisplayResults().then(results => {
             const currUser = firebase.auth().currentUser.uid;
-            if (results && currUser !== surveyCreator) {
+            console.log(currUser);
+            console.log(surveyCreator);
+            if (results && currUser !== surveyCreator.current) {
                 // initializes the pairs for users if they're ready
                 db.collection("surveys").doc(currentPoll).collection("pairs")
                     .doc("generatedPairs").get().then(d => {
                     let pairs = d.data();
 
                     let partnerList = pairs.pairs[currUser];
-                    console.log(currUser);
                     let partDataList = [];
 
-                    for (let i = 0; i < partnerList.length; i++) {
-                        db.collection("surveys").doc(currentPoll).collection("responses")
-                            .doc(partnerList[i]).get().then(a =>
-                            partDataList.push(a.data()));
+                    // if partner doesn't exist, don't get partner data
+                    if(partnerList !== undefined) {
+                        for (let i = 0; i < partnerList.length; i++) {
+                            db.collection("surveys").doc(currentPoll).collection("responses")
+                                .doc(partnerList[i]).get().then(a =>
+                                partDataList.push(a.data()));
+                        }
+
+                        setPartnerData(partDataList);
                     }
-                    setPartnerData(partDataList);
 
 
                     db.collection("surveys").doc(currentPoll).collection("responses")
@@ -110,7 +115,7 @@ function SurveyAdmin(props) {
     // sets any info needed for survey
     const loadInfo = async () => {
         const doc = await db.collection("surveys").doc(currentPoll).get();
-        setCreator(doc.data().creator); // sets creator --> if current user matches this, display button to get results
+        surveyCreator.current = doc.data().creator; // sets creator --> if current user matches this, display button to get results
         setTitle(doc.data().title);
         let temp = []
         const responses =
@@ -163,8 +168,7 @@ function SurveyAdmin(props) {
         return ref.get("name");
     }
 
-    if (surveyCreator === firebase.auth().currentUser.uid) {
-        console.log("in admin");
+    if (surveyCreator.current === firebase.auth().currentUser.uid) {
         return (
             <div className="poll">
                 <h1>{title}</h1>
