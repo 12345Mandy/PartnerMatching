@@ -4,7 +4,7 @@ import './Results.css';
 import ViewOnlySurvey from "./ViewOnlySurvey";
 
 function UserDisplayPair(props) {
-    if (props.partnerData.length === 0) {
+    if (props.partnerData.length === 1) {
         return (
             <div className="partner">
                 <div className="partner-name">

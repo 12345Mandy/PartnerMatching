@@ -26,16 +26,15 @@ function SurveyAdmin(props) {
     useEffect(() => {
         loadInfo();
         updateDisplayResults().then(results => {
-            if (results) {
+            const currUser = firebase.auth().currentUser.uid;
+            if (results && currUser !== surveyCreator) {
                 // initializes the pairs for users if they're ready
                 db.collection("surveys").doc(currentPoll).collection("pairs")
                     .doc("generatedPairs").get().then(d => {
                     let pairs = d.data();
 
-                    const currUser = firebase.auth().currentUser.uid;
-
                     let partnerList = pairs.pairs[currUser];
-
+                    console.log(currUser);
                     let partDataList = [];
 
                     for (let i = 0; i < partnerList.length; i++) {
@@ -92,8 +91,6 @@ function SurveyAdmin(props) {
 
             let idToNameTemp = {};
             for (const [key, value] of Object.entries(response.data["pairs"])) {
-                console.log(key);
-                console.log(value);
                 let nameKey = await getNameFromUserID(key);
                 let nameValue = []
                 for (let i = 0; i < value.length; i++) {
@@ -104,8 +101,6 @@ function SurveyAdmin(props) {
 
             console.log(idToNameTemp);
             setIDToName(idToNameTemp);
-
-            alert("Successfully generated pairs!");
         }).catch(error => {
             console.log(error);
             alert("Oops, something went wrong.");

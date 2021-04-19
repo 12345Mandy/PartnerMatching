@@ -9,7 +9,7 @@ function ViewOnlyQuestion(props) {
         partnerResponse.push(props.options[props.partnerData[i].responses[props.questionNumber]]);
     }
 
-    if (props.partnerData.length === 0) {
+    if (props.partnerData.length === 1) {
         return (
             <div className="question" >
                 <div className="theQuestion">

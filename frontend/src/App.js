@@ -7,7 +7,7 @@ import Homepage from './pages/Homepage'
 import BrowseSurveys from './pages/BrowseSurveys'
 import EditProfile from "./pages/EditProfile";
 import ViewResults from './pages/ViewResults'
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom'
 import StartPage from "./pages/StartPage";
 import TakeSurvey from "./pages/TakeSurvey";
 import SurveyCreator from "./creating_surveys/SurveyCreator";
@@ -85,6 +85,7 @@ function App() {
     }
 
     const handleLogout = () => {
+        window.location.replace("http://localhost:3000/Homepage");
         fire.auth().signOut();
     }
 
