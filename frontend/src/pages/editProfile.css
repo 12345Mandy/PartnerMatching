@@ -54,6 +54,6 @@
 
 }
 
-.main .profile .deleteButton {
+.main .profile .deleteButton, .deleteButton {
    background-color: #4f3339;
 }
