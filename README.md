@@ -161,16 +161,16 @@ We settled with idea #1 (partner matching):
 *User can view their matches
 
 How our partner matching algorithm works:
-  *Compare all pairs of people who took the survey
-    **If two people have the same answer, increase how “similar” they are.
-  *Once we go through all pairs, each person maps to a list of all other people
-    **Sorted from most to least similar based off total similarity score
-  *Use of stable roommates algorithm
+ *Compare all pairs of people who took the survey
+ **If two people have the same answer, increase how “similar” they are.
+ *Once we go through all pairs, each person maps to a list of all other people
+ **Sorted from most to least similar based off total similarity score
+ *Use of stable roommates algorithm
 
 
 ## How to Build and Run
 
-To build: mvn package in the top-level directory
-To run: run ./run --gui from the top-level directory and yarn start from inside /frontend (see README in /frontend)
-To run java tests: mvn test
+*To build: mvn package in the top-level directory
+*To run: run ./run --gui from the top-level directory and yarn start from inside /frontend (see README in /frontend)
+*To run java tests: mvn test
 
