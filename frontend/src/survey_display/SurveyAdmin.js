@@ -191,7 +191,6 @@ function SurveyAdmin(props) {
                         />);
                     })}
                 </div>
-                {/*<button type="button" onClick={deleteSurvey}  className="deleteButton">Delete This Survey</button>*/}
                 <div onClick={deleteSurvey}  className="deleteButton">Delete This Survey</div>
             </div>
         );
@@ -221,9 +220,8 @@ function SurveyAdmin(props) {
                     <div>
                         Survey Results Aren't Ready Yet!
                     </div>
-
-
-                    <button typeof="button" onClick={deleteResponse} className="deleteButton">Delete Response</button>
+                    <br/>
+                    <div onClick={deleteResponse} className="deleteButton">Delete Response</div>
                 </div>
             );
         }

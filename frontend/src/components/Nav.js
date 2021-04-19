@@ -4,7 +4,7 @@ const Nav = ({ handleLogout }) => {
     return (
         <div>
             <nav>
-                <h2>Welcome</h2>
+                <h2>Partner Matching</h2>
                 <button onClick= {handleLogout}>Logout</button>
             </nav>
         </div>
