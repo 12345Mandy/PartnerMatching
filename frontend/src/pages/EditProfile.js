@@ -199,7 +199,7 @@ function EditProfile() {
 
 
                 <br/><br/>
-                
+
                 <button className="deleteButton" onClick={() => removeUserAndData()}>Delete Account</button>
 
             </div>

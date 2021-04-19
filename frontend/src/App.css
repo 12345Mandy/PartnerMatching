@@ -10,7 +10,7 @@
   display: flex;
   flex-flow: row wrap;
   height: auto;
-
+  width: auto;
 }
 
 
@@ -31,9 +31,11 @@
   order: 2;
   flex: 60%;
   align-content: center;
-  margin: 2%;
+  margin: 4%;
 
 }
+
+
 
 
 button {

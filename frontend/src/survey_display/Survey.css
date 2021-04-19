@@ -94,7 +94,7 @@ h1 {
 }
 
 .surveyResults {
-    margin: auto;
+    /*defined in App.css*/
 }
 .surveyResults button {
     width: 50%;

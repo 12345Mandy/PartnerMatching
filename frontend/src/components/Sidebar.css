@@ -112,7 +112,7 @@ a:hover {
 .editProfileButton:hover {
   height: 50%;
   width: 75%;
-  border: 3px solid white;
+  border: 3px solid #6d6875;
   border-radius: 25px;
 }
 
