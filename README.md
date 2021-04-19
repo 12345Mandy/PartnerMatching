@@ -176,7 +176,7 @@ How our partner matching algorithm works:
 
 ## Main Pages
 
-#### Login/Sign Up
+### Login/Sign Up
 ![image](https://user-images.githubusercontent.com/32823187/115271226-1c832100-a10b-11eb-8ca5-d6c0eee5bb53.png)
 
 #### Edit Your Profile
