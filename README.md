@@ -149,8 +149,28 @@ _On your first meeting with your mentor TA, you should plan dates for at least t
 
 **Adversary Checkpoint:** _(Schedule for on or before April 12 once you are assigned an adversary TA)_
 
+
+## FINAL PROJECT
+
+## What is it
+
+We settled with idea #1 (partner matching):
+*Users can create own surveys, generate unique URL
+*Other users can take surveys
+*Survey owner can generate matches
+*User can view their matches
+
+How our partner matching algorithm works:
+  *Compare all pairs of people who took the survey
+    **If two people have the same answer, increase how “similar” they are.
+  *Once we go through all pairs, each person maps to a list of all other people
+    **Sorted from most to least similar based off total similarity score
+  *Use of stable roommates algorithm
+
+
 ## How to Build and Run
 
 To build: mvn package in the top-level directory
 To run: run ./run --gui from the top-level directory and yarn start from inside /frontend (see README in /frontend)
-To run java tests: 
+To run java tests: mvn test
+
